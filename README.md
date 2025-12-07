@@ -9,7 +9,7 @@
 - Uses wisp-server-python
 - 500+ Games
 - Media
-- Scramjet & UV Support
+- Scramjet & UV Support.
 
 ## Credits:
 - Coding4Hours & JustJxrdanWasDefinetlyTaken - site
