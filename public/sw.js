@@ -1,9 +1,43 @@
-importScripts("https://cdn.jsdelivr.net/gh/soap-phia/tinyjet@latest/tinyjet/scramjet.all.js");
+importScripts(
+  "/violet/violet.bundle.js",
+)
+importScripts("/violet/violet.config.js")
+importScripts("/violet/violet.sw.js")
+importScripts("/scram/scramjet.all.js");
+
+
+
+if (navigator.userAgent.includes("Firefox")) {
+  Object.defineProperty(globalThis, "crossOriginIsolated", {
+    value: true,
+    writable: true,
+  })
+}
+
+const violet = new UVServiceWorker()
 const { ScramjetServiceWorker } = $scramjetLoadWorker();
-const scramjet = new ScramjetServiceWorker()
+const scramjet = new ScramjetServiceWorker();
+
+self.addEventListener("install", () => {
+  self.skipWaiting()
+})
+
 async function handleRequest(event) {
   await scramjet.loadConfig()
-  if (scramjet.route(event)) {return await scramjet.fetch(event)}
+  if (scramjet.route(event)) {
+    return scramjet.fetch(event)
+  }
+
+
+  if (violet.route(event)) return await violet.fetch(event);
+    
   return await fetch(event.request)
 }
-self.addEventListener('fetch', (event) => {event.respondWith(handleRequest(event))})
+
+self.addEventListener("fetch", (event) => {
+  event.respondWith(handleRequest(event))
+})
+
+self.addEventListener("install", (self) => {
+	self.skipWaiting()
+})

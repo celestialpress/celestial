@@ -46,4 +46,4 @@
         </body>
         </html>
         `}function T(a,e){let s={"content-type":"text/html"};return crossOriginIsolated&&(s["Cross-Origin-Embedder-Policy"]="require-corp"),new Response(E(String(a),e),{status:500,headers:s})}})();
-//# sourceMappingURL=vu.sw.js.map
+//# sourceMappingURL=violet.sw.js.map
