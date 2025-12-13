@@ -18,7 +18,6 @@ export let framesElement;
 export let currentFrame;
 export const addressInput = document.getElementById("address");
 
-await import("/scram/scramjet.all.js");
 
 
 
@@ -52,29 +51,36 @@ async function registerSW() {
 	await navigator.serviceWorker.register(stockSW);
 }
 
-await registerSW();
-const { ScramjetController } = window.$scramjetLoadController();
 
-const scramjet = new ScramjetController({
-	files: {
-		wasm: "/scram/scramjet.wasm.wasm",
-		all: "/scram/scramjet.all.js",
-		sync: "/scram/scramjet.sync.js",
-	},
-	flags: {
-		rewriterLogs: false,
-		naiiveRewriter: false,
-		scramitize: false,
-	},
-	siteFlags: {
-		"https://www.google.com/(search|sorry).*": {
-			naiiveRewriter: true,
+requestIdleCallback(async () => {
+    await import("/scram/scramjet.all.js");
+	const { ScramjetController } = window.$scramjetLoadController();
+    const scramjet = new ScramjetController({
+	    files: {
+     		wasm: "/scram/scramjet.wasm.wasm",
+    		all: "/scram/scramjet.all.js",
+    		sync: "/scram/scramjet.sync.js",
+	     },
+		flags: {
+			rewriterLogs: false,
+			naiiveRewriter: false,
+			scramitize: false,
 		},
-	},
+		siteFlags: {
+			"https://www.google.com/(search|sorry).*": {
+				naiiveRewriter: true,
+			},
+		},
+	});
+	scramjet.init();
+	window.scramjet = scramjet;
+	registerSW()
+		.then(() => console.log("lethal.js: Service Worker registered"))
+		.catch((err) =>
+			console.error("lethal.js: Failed to register Service Worker", err),
+		);
 });
 
-scramjet.init();
-console.log("lethal.js: Service Worker registered");
 
 //////////////////////////////
 ///        Functions       ///
