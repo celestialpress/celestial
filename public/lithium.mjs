@@ -52,34 +52,33 @@ async function registerSW() {
 }
 
 
-requestIdleCallback(async () => {
     await import("/scram/scramjet.all.js");
-	const { ScramjetController } = window.$scramjetLoadController();
+    const { ScramjetController } = window.$scramjetLoadController();
     const scramjet = new ScramjetController({
-	    files: {
-     		wasm: "/scram/scramjet.wasm.wasm",
-    		all: "/scram/scramjet.all.js",
-    		sync: "/scram/scramjet.sync.js",
-	     },
-		flags: {
-			rewriterLogs: false,
-			naiiveRewriter: false,
-			scramitize: false,
-		},
-		siteFlags: {
-			"https://www.google.com/(search|sorry).*": {
-				naiiveRewriter: true,
-			},
-		},
-	});
-	scramjet.init();
-	window.scramjet = scramjet;
-	registerSW()
-		.then(() => console.log("lethal.js: Service Worker registered"))
-		.catch((err) =>
-			console.error("lethal.js: Failed to register Service Worker", err),
-		);
-});
+        files: {
+             wasm: "/scram/scramjet.wasm.wasm",
+            all: "/scram/scramjet.all.js",
+            sync: "/scram/scramjet.sync.js",
+         },
+        flags: {
+            rewriterLogs: false,
+            naiiveRewriter: false,
+            scramitize: false,
+        },
+        siteFlags: {
+            "https://www.google.com/(search|sorry).*": {
+                naiiveRewriter: true,
+            },
+        },
+    });
+    scramjet.init();
+
+
+    registerSW()
+        .then(() => console.log("lethal.js: Service Worker registered"))
+        .catch((err) =>
+            console.error("lethal.js: Failed to register Service Worker", err),
+        );
 
 
 //////////////////////////////
@@ -158,10 +157,10 @@ export function getWisp() {
  * @returns {Promise<void>}
  */
 export async function setProxy(proxy) {
-	console.log(`lethal.js: Setting proxy backend to ${proxy}`);
-	if (proxy === "uv") {
-		await import("https://unpkg.com/@titaniumnetwork-dev/ultraviolet@3.2.10/dist/uv.bundle.js");
-		await import("/assets/uv.config.js");
+	console.log(`lethal.js: proxy backend is ${proxy}`);
+	if (proxy === "violet") {
+		await import("/violet/violet.bundle.js");
+		await import("/violet/violet.config.js");
 	}
 	proxyOption = proxy;
 }
@@ -279,7 +278,7 @@ export class Tab {
 			}),
 		);
 
-		if (url === "newtab") url = "bromine://newtab";
+		if (url === "newtab") url = "celestial://newtab";
 		addressInput.value = url;
 	}
 }

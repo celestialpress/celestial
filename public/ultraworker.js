@@ -1,7 +1,7 @@
 importScripts(
-  "https://unpkg.com/@titaniumnetwork-dev/ultraviolet@3.2.10/dist/uv.bundle.js",
+  "/violet/violet.bundle.js",
 )
-importScripts("uv.config.js")
+importScripts("/violet/violet.config.js")
 importScripts(__uv$config.sw)
 importScripts("/scram/scramjet.all.js");
 
