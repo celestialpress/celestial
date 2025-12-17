@@ -19,6 +19,6 @@
  card4.querySelector('p').textContent = "tools";
  foot.textContent = "settings";
  foot2.innerHTML = "dis<span>c</span>ord";
- foot2.href = "https:dsc.gg/gnetwork";
+ foot2.href = "https://dsc.gg/gnetwork";
  foot2.target = "_blank"
  foot3.textContent = "legal";

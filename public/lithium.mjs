@@ -1,7 +1,7 @@
 //////////////////////////////
 ///          Init          ///
 //////////////////////////////
-import { BareMuxConnection } from "https://unpkg.com/@mercuryworkshop/bare-mux@2.1.7/dist/index.mjs";
+import { BareMuxConnection } from "/mux/index.mjs";
 
 //////////////////////////////
 ///         Options        ///
@@ -76,9 +76,9 @@ scramjet.init();
 
 
 registerSW()
-	.then(() => console.log("lethal.js: Service Worker registered"))
+	.then(() => console.log("lethal.js: SW registered"))
 	.catch((err) =>
-		console.error("lethal.js: Failed to register Service Worker", err),
+		console.error("lethal.js: failed to register service worker:", err),
 	);
 
 
@@ -109,7 +109,7 @@ export function makeURL(input, template = "https://search.brave.com/search?q=%s"
  */
 async function updateBareMux() {
 	if (transportURL != null && wispURL != null) {
-		console.log(`lethal.js: Setting BareMux to ${transportURL} and Wisp to ${wispURL}`);
+		console.log(`lethal.js: setting transport to ${transportURL} and wisp to ${wispURL}`);
 		await connection.setTransport(transportURL, [{ wisp: wispURL }]);
 	}
 }
@@ -120,7 +120,7 @@ async function updateBareMux() {
  * @returns {Promise<void>}
  */
 export async function setTransport(transport) {
-	console.log(`lethal.js: Setting transport to ${transport}`);
+	console.log(`lethal.js: setting transport to ${transport}`);
 	transportURL = transportOptions[transport] || transport;
 	await updateBareMux();
 }
@@ -139,7 +139,7 @@ export function getTransport() {
  * @returns {Promise<void>}
  */
 export async function setWisp(wisp) {
-	console.log(`lethal.js: Setting Wisp to ${wisp}`);
+	console.log(`lethal.js: setting wisp to ${wisp}`);
 	wispURL = wisp;
 	await updateBareMux();
 }
@@ -319,7 +319,12 @@ export class Tab {
 		);
 
 		if (url === "tab.html") url = "celestial://newtab";
-		if (url === "/news/") url = "celestial://games";
+		if (url === "index.html?type=g") url = "celestial://games";
+		if (url === "index.html?type=c") url = "celestial://chat";
+		if (url === "index.html?type=m") url = "celestial://media";
+		if (url === "index.html?type=ap") url = "celestial://tools";
+		if (url === "index.html?type=s") url = "celestial://settings";
+		if (url === "index.html?type=l") url = "celestial://legal-page";
 		addressInput.value = url;
 	}
 }
