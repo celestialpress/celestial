@@ -13,6 +13,22 @@
     let tabs = [];
     const tabsDiv = document.getElementById("tabs");
 
+        async function autofill(url) {
+      const urlToLoad = makeURL(url, search)
+      const proxiedUrl = await getProxied(urlToLoad)
+      setTimeout(() => {
+
+        document.getElementById(`frame-${currentTab}`).src = proxiedUrl;
+      }, 200);
+    }
+
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const url = params.get('autofill');
+      if (url) autofill(url);
+      
+    } catch { }
+    
     const getIcon = (url) =>
       /^https?:\/\/[\w.-]+\.[a-z]{2,}/i.test(url)
         ? `https://www.google.com/s2/favicons?domain=${url}`
