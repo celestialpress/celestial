@@ -18,19 +18,19 @@
         <h1 id="main">Drew's Learning Academy</h1>
         <input class="url" placeholder="search for online lessons">
         <div class="row-thing">
-            <div class="card" id="card" onclick="window.location.href='/news/'">
+            <div class="card" id="card" onclick="window.location.href='/news/index.html?type=g'">
                 <img src="/assets/img/gms/gms.png" />
                 <p>Contact</p>
             </div>
-            <div class="card" id="card2" onclick="window.location.href='/support/'">
+            <div class="card" id="card2" onclick="window.location.href='/support/index.html?type=c'">
                 <img src="/assets/img/msg.png" />
                 <p>Questions</p>
             </div>
-            <div class="card" id="card3" onclick="window.location.href='/contact/'">
+            <div class="card" id="card3" onclick="window.location.href='/contact/index.html?type=m'">
                 <img src="/assets/img/video.png" />
                 <p>Showcase</p>
             </div>
-            <div class="card" id="card4" onclick="window.location.href='/tools/'">
+            <div class="card" id="card4" onclick="window.location.href='/tools/index.html?type=ap'">
                 <img src="/assets/img/tools.png" />
                 <p>Tools</p>
             </div>
@@ -39,9 +39,9 @@
             <!--idk why it puts 2 directories soo here we go-->
             <a class="a2" href="">Phone Number</a>
             <a style="text-decoration: none;">•</a>
-            <a class="a3" onclick="window.location.href='/legal/'">Enroll Now!</a>
+            <a class="a3" onclick="window.location.href='/legal/index.html?type=l'">Enroll Now!</a>
             <a style="text-decoration: none;">•</a>
-            <a class="a" onclick="window.location.href='/setup/'">Support</a>
+            <a class="a" onclick="window.location.href='/setup/index.html?type=s'">Support</a>
         </footer>
     </div>
 
@@ -62,5 +62,7 @@
 	</div>
 </body>
 <script src="/assets/js/tabmain.js" type="module"></script>
-
+<script>
+	document.title = "new tab";
+</script>
 </html>
