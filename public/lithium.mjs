@@ -23,7 +23,7 @@ export const addressInput = document.getElementById("address");
 
 const transportOptions = {
 	epoxy: "https://unpkg.com/@mercuryworkshop/epoxy-transport@2.1.27/dist/index.mjs",
-	libcurl: "https://unpkg.com/@mercuryworkshop/libcurl-transport@1.5.0/dist/index.mjs",
+	libcurl: "/curl/index.js"
 };
 
 //////////////////////////////
