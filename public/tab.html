@@ -72,17 +72,18 @@
     setWisp,
     makeURL,
     setProxy,
-    getProxied
+    getProxied,
+    setTransport
   } from "/lithium.mjs";
 
   setWisp((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/");
-  setProxy("scram");
+  setProxy("violet");
+  setTransport("libcurl");
 
   let search =
     localStorage.getItem("search-engine") ||
     "https://search.brave.com/search?q=%s";
 
-  // --- AUTOFILL (NO FRAME / NO currentTab) ---
   async function autofill(url) {
     const urlToLoad = makeURL(url, search);
     const proxiedUrl = await getProxied(urlToLoad);

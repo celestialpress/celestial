@@ -1,4 +1,5 @@
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
+import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
 import express from "express";
@@ -9,17 +10,20 @@ import fetch from "node-fetch";
 import dotenv from "dotenv";
 import sanitizeHtml from "sanitize-html";
 
-// common commonjs L
-// slqnt complains too much so ill just steal it from him
+// privacy
 logging.set_level(logging.NONE);
+
 dotenv.config();
 
+// paths
 const app = express();
 app.use(express.json());
 app.use(express.static(join(fileURLToPath(import.meta.url), "../public/")));
 app.use("/mux/", express.static(baremuxPath));
 app.use("/epoxy/", express.static(epoxyPath));
+app.use("/curl/", express.static(libcurlPath));
 
+// ai (maybe)
 app.post("/api/chat", async (req, res) => {
   try {
     const { model, messages, temperature = 0.8, max_tokens = 1024 } = req.body;

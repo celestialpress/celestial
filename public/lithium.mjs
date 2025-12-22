@@ -2,6 +2,7 @@
 ///          Init          ///
 //////////////////////////////
 import { BareMuxConnection } from "/mux/index.mjs";
+import { RefluxAPI } from "https://unpkg.com/@nightnetwork/reflux@2.2.0/dist/index.mjs";
 
 //////////////////////////////
 ///         Options        ///
@@ -22,8 +23,8 @@ export const addressInput = document.getElementById("address");
 
 
 const transportOptions = {
-	epoxy: "https://unpkg.com/@mercuryworkshop/epoxy-transport@2.1.27/dist/index.mjs",
-	libcurl: "https://unpkg.com/@mercuryworkshop/libcurl-transport@1.5.0/dist/index.mjs"
+	epoxy: "/epoxy/index.mjs",
+	libcurl: "/curl/index.mjs"
 };
 
 //////////////////////////////
@@ -197,7 +198,7 @@ export function setFrames(frames) {
  * Class representing a browser tab with its own iframe.
  */
 export class Tab {
-	/**
+	/* 
 	 * Creates a new tab with an iframe and appends it to frames container.
 	 */
 	constructor() {
