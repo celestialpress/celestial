@@ -280,7 +280,6 @@ export class Tab {
 			try {
 				const iframeDoc = this.frame.contentDocument || this.frame.contentWindow.document;
 
-				// Safely read text content (in lowercase for easy matching)
 				const bodyText = iframeDoc.body?.textContent?.toLowerCase() || "";
 
 				const hasBareClientError = bodyText.includes("there are no bare clients");
@@ -297,18 +296,15 @@ export class Tab {
 					this.frame.contentWindow.location.reload();
 					return true;
 				} else {
-					// Reset if it's clean
 					this.statusObject.timesErrored = 0;
 					return false;
 				}
 			} catch (err) {
-				// Cross-origin iframe or inaccessible document — skip safely
 				console.debug("Iframe inaccessible (cross-origin). Skipping error scan.", err);
 				return false;
 			}
 		};
 
-		// Check immediately and then again after a short delay
 		if (!checkForIframeError()) {
 			setTimeout(checkForIframeError, 1000);
 		}
@@ -327,6 +323,10 @@ export class Tab {
 		if (url === "index.html?type=s") url = "celestial://settings";
 		if (url === "index.html?type=l") url = "celestial://legal-page";
 		if (url.includes("tab.html?autofill=")) url = "loading..";
+		else if (url.startsWith("/assets/src/")) {
+    const file = url.replace("/assets/src/", "");
+    url = `celestial://gamesource/${file}`;
+}
 		addressInput.value = url;
 	}
 }

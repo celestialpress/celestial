@@ -37,11 +37,5 @@ iframe.style.border = "none";
 iframe.style.zIndex = "9999"; // Ensures it sits on top of everything
 iframe.src = "/tabs.html"
 
-try {
-  const params = new URLSearchParams(window.location.search);
-  const url = params.get('autofill');
-  iframe.src = `/tabs.html?autofill${url}`
-} catch { }
-
 
 document.body.appendChild(iframe);

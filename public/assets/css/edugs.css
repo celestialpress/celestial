@@ -1,59 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 
 body {
-    background-color:#000;
-    color:white;
-    font-family: 'Inter', sans-serif;
+    background:#000;
+    color:#fff;
+    font-family:'Inter',sans-serif;
     margin:0;
 }
 
-.search {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-top: 50px;
-    gap: 5px;
-    background:#333;
-    padding: 7px 7px;
-    width: calc(100vw - 850px);
-    min-width: calc(100vw - 850px);
-    align-self: center;
-    justify-self: center;
-    height: 100px;
-    min-height: 100px;
-    border-radius:5px;
+/* ts looks weird so i might have to re-instate the font */
+
+input, .card p, .filters, select {
+    font-family:'Inter',sans-serif;
 }
 
-.filters {
-    margin-top: 10px;
-    display: flex;
-    gap: 8px;
+.search {
+    font-family:'Inter',sans-serif;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    background:#333;
+    padding:10px;
+    width:calc(100% - 20px);
+    height:auto;
+    border-radius:5px;
+    margin:20px auto 0;
+}
+
+@media(min-width:850px){
+    .search {
+        width:calc(100vw - 850px);
+        height:100px;
+        padding:7px;
+        margin-top:50px;
+    }
 }
 
 select {
-    width: 90px;
-    border-radius: 5px;
-    padding: 7px;
-    background: #222;
-    color:white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    width:90px;
+    border-radius:5px;
+    padding:7px;
+    background:#222;
+    color:#fff;
     border:none;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: none;
-    font-family: 'Inter', sans-serif;
+    appearance:none;
+    font-family:'Inter',sans-serif;
 }
 
-select::-ms-expand {
-    display: none;
+select::-ms-expand{display:none;}
+
+.textbook{
+    width:250px;
+    padding:12px 15px;
+    border-radius:12px;
+    background:#111;
+    border:1px solid rgba(255,255,255,0.3);
 }
 
-.textbook {
-    width: 250px;
-    padding: 12px 15px;
-    border-radius: 12px;
-    background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    font-family: 'Inter', sans-serif;
+.gs{
+    display:flex;
+    grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+    flex-wrap:wrap;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    padding:10px;
+}
+
+.card{
+    width:160px;
+    background:#111;
+    border-radius:6px;
+    overflow:hidden;
+    cursor:pointer;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    position:relative;
+    border:2px solid transparent;
+    transition:border 0.2s, transform 0.2s;
+    gap:10px;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+.card .thumb{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    background-color:#222;
+    z-index:1;
+}
+
+.card p{
+    opacity:0;
+    color:#fff;
+    font-size:12px;
+    margin:0;
+    padding:4px;
+    background:rgba(0,0,0,0.6);
+    width:100%;
+    text-align:center;
+    position:relative;
+    z-index:2;
+    transition:opacity 0.2s;
+}
+
+.card:hover p{
+    opacity:1;
+}
+
+.card:hover .thumb {
+    filter: blur(1px);
 }

@@ -1,17 +1,49 @@
 [
     {
 		"name": "Deltarune",
-        "img": "",
+        "img": "/assets/img/gms/deltarune.png",
         "type": "exclusive",
 		"url": "/assets/src/deltarune",
         "categories": ["indie", "strategy"],
         "source": "local"
 	},
-        {
+    {
 		"name": "Roblox",
-        "img": "",
+        "img": "/assets/img/gms/boringasslogo.png",
         "type": "exclusive",
 		"url": "/assets/src/ngg/rblx",
+        "categories": ["indie", "strategy"],
+        "source": "local"
+	},
+    {
+		"name": "Deltarune",
+        "img": "/assets/img/gms/deltarune.png",
+        "type": "regular",
+		"url": "/assets/src/deltarune",
+        "categories": ["indie", "strategy"],
+        "source": "local"
+	},
+    {
+		"name": "Deltarune",
+        "img": "/assets/img/gms/deltarune.png",
+        "type": "exclusive",
+		"url": "/assets/src/deltarune",
+        "categories": ["indie", "strategy"],
+        "source": "local"
+	},
+    {
+		"name": "Deltarune",
+        "img": "/assets/img/gms/deltarune.png",
+        "type": "exclusive",
+		"url": "/assets/src/deltarune",
+        "categories": ["indie", "strategy"],
+        "source": "local"
+	},
+    {
+		"name": "Deltarune",
+        "img": "/assets/img/gms/deltarune.png",
+        "type": "exclusive",
+		"url": "/assets/src/deltarune",
         "categories": ["indie", "strategy"],
         "source": "local"
 	}
