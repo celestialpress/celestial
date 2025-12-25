@@ -2,7 +2,6 @@
 ///          Init          ///
 //////////////////////////////
 import { BareMuxConnection } from "/mux/index.mjs";
-import { RefluxAPI } from "https://unpkg.com/@nightnetwork/reflux@2.2.0/dist/index.mjs";
 
 //////////////////////////////
 ///         Options        ///
