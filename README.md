@@ -8,7 +8,7 @@
 ## Features:
 - Uses wisp-server-python
 - 500+ Games
-- Media
+- Custom Script-Injection (soon)
 - Scramjet & UV Support.
 
 ## Credits:
