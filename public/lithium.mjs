@@ -209,6 +209,7 @@ export class Tab {
 		this.frame.setAttribute("class", "searchframe");
 		this.frame.setAttribute("title", "Proxy Frame");
 		this.frame.setAttribute("src", "/tab.html");
+		this.frame.setAttribute("sandbox", "allow-scripts allow-forms allow-same-origin allow-popups");
 		this.frame.setAttribute("loading", "lazy");
 		this.frame.setAttribute("id", `frame-${tabCounter}`);
 		framesElement.appendChild(this.frame);
@@ -322,11 +323,9 @@ export class Tab {
 		if (url === "index.html?type=ap") url = "celestial://tools";
 		if (url === "index.html?type=s") url = "celestial://settings";
 		if (url === "index.html?type=l") url = "celestial://legal-page";
+		if (url === "index.html#r") url = "celestial://ngg";
 		if (url.includes("tab.html?autofill=")) url = "loading..";
-		else if (url.startsWith("/assets/src/")) {
-    const file = url.replace("/assets/src/", "");
-    url = `celestial://gamesource/${file}`;
-}
+		if (url === "b.html") url = "loading..";
 		addressInput.value = url;
 	}
 }

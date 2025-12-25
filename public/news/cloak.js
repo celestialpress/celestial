@@ -15,12 +15,19 @@ document.write(`
 <div class="search">
   <input class="textbook" placeholder="search 600+ games.">
   <select>
-    <option selected>All Games</option>
-    <option>Exclusives</option>
+    <option selected value="all">All Games</option>
+    <option value="exclusive">Exclusives</option>
+    <option value="sandbox">Sandbox</option>
+    <option value="indie">Indie</option>
+    <option value="rpg">RPG</option>
+    <option value="sports">Sports</option>
+    <option value="2player">2 Player</option>
+    <option value="adventure">Adventure</option>
+    <option value="horror">Horror</option>
   </select>
   <select>
-    <option selected>In Order</option>
-    <option>Newest</option>
+    <option selected value="abc">In Order</option>
+    <option value="new">Newest</option>
   </select>
 </div>
 

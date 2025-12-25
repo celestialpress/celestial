@@ -3,6 +3,7 @@ var search = document.querySelector(".textbook");
 var cat = document.querySelectorAll("select")[0];
 var order = document.querySelectorAll("select")[1];
 
+// main game func
 fetch("/assets/json/books.json")
   .then(res => res.json())
   .then(games => {
@@ -17,16 +18,26 @@ fetch("/assets/json/books.json")
       });
     }
 
+    // functions
     function update() {
-      var filtered = games.filter(g => g.name.toLowerCase().includes(search.value.toLowerCase()));
-      if (cat.value.toLowerCase() === "exclusives") filtered = filtered.filter(g => g.type.toLowerCase() === "exclusive");
-      if (order.value.toLowerCase() === "newest") filtered = filtered.slice().reverse();
+      let filtered = games.filter(g => g.name.toLowerCase().includes(search.value.toLowerCase()));
+      if (cat.value === "exclusive") filtered = filtered.filter(g => g.type === "exclusive");
+      else if (cat.value !== "all") filtered = filtered.filter(g => g.categories?.includes(cat.value));
+
+      if (order.value === "abc") filtered.sort((a, b) => a.name.localeCompare(b.name));
+      if (order.value === "new") filtered = filtered.slice().reverse();
+
       showGames(filtered);
     }
 
+  
     search.addEventListener("input", update);
     cat.addEventListener("change", update);
     order.addEventListener("change", update);
 
+
+    // make sure ts loads
+    if (order.value === "abc") games.sort((a, b) => a.name.localeCompare(b.name));
+    if (order.value === "new") filtered = filtered.slice().reverse();
     showGames(games);
   });
