@@ -129,12 +129,12 @@
       "https://search.brave.com/search?q=%s"
 
 
-    setProxy("violet")
+    setProxy("scram")
 
 
     setWisp((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/");
 
-    setTransport("libcurl")
+    setTransport("epoxy")
             async function autofill(url) {
       const urlToLoad = makeURL(url, search)
       const proxiedUrl = await getProxied(urlToLoad)
@@ -196,6 +196,7 @@
       <a href="#" id="forward" class="fc" onclick="forward();"><i class="bx bx-caret-right"></i></a>
       <input id="address" type="text" placeholder="Search privately.." onfocus="this.select()" class="search" autocomplete="off" />
       <a href="#" id="fullscreen-icon" class="fc" onclick="full();"><i class="bx bx-fullscreen"></i></a>
+      <a href="#" id="fullscreen-icon" class="fc" onclick="inspect();"><i class="bx bx-code-alt"></i></a>
     </form>
     <section id="frames"></section>
   </div>
