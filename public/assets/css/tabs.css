@@ -131,13 +131,13 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   vertical-align: middle;
   box-sizing: border-box;
 }
 
 #form input {
-  width: calc(100vw - 260px);
+  width: calc(100vw - 250px);
   max-width: 1200px;
   padding: 10px;
   border: 1px solid var(--border);
@@ -146,7 +146,7 @@ hr {
   margin: 0;
   display: inline-block;
   vertical-align: middle;
-  min-width: calc(100vw - 260px);
+  min-width: calc(100vw - 250px);
   outline: none;
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--color);

@@ -43,9 +43,9 @@
 		"name": "Bendy and the Ink Machine",
         "img": "/assets/img/gms/batim.png",
         "type": "exclusive",
-		"url": "https://raw.githack.com/genizy/web-port/refs/heads/main/bendy/index.html",
+		"url": "/assets/src/bendih",
         "categories": ["adventure", "horror", "indie"],
-        "source": "proxied"
+        "source": "local"
 	},
     {
 		"name": "Amanda the Adventurer",

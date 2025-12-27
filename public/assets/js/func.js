@@ -1,3 +1,4 @@
+// self-explanitory
 function reload() {
   var iframe = document.querySelector('iframe')
   iframe.contentWindow.location.reload()
@@ -13,15 +14,20 @@ function forward() {
   iframe.contentWindow.history.forward()
 }
 
+// inspector gadget
+// see what i did there
+// you're permitted to laugh
 function inspect() {
-  const frame = document.querySelector('iframe[id^="frame-"]');
-  if (!frame) return alert('No frame found.');
-
+  const f = document.querySelector('iframe[id^="frame-"]');
+  if (!f) return alert('No frame found.');
   try {
-    const doc = frame.contentWindow.document;
-    const s = doc.createElement('script');
+    // load and show console
+    const d = f.contentWindow.document;
+    const s = d.createElement('script');
     s.src = 'https://cdn.jsdelivr.net/npm/eruda';
-    doc.body.appendChild(s);
+    s.onload = () => (f.contentWindow.eruda.init(), f.contentWindow.eruda.show());
+    // kidnap my child 🤑
+    d.body.appendChild(s);
   } catch {
     alert('Cross-origin frame, cannot inject.');
   }

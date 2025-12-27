@@ -22,7 +22,7 @@
 // foot2.href = "https://dsc.gg/gnetwork";
 // foot2.target = "_blank"
 // foot3.textContent = "legal";
-//
+// fuck you deledao
 document.title = "celestial.";
 
 const iframe = document.createElement('iframe');

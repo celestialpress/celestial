@@ -18,7 +18,7 @@ fetch("/assets/json/books.json")
       });
     }
 
-    // functions
+    // update games based on cat
     function update() {
       let filtered = games.filter(g => g.name.toLowerCase().includes(search.value.toLowerCase()));
       if (cat.value === "exclusive") filtered = filtered.filter(g => g.type === "exclusive");
@@ -30,7 +30,7 @@ fetch("/assets/json/books.json")
       showGames(filtered);
     }
 
-  
+    // runs the function
     search.addEventListener("input", update);
     cat.addEventListener("change", update);
     order.addEventListener("change", update);

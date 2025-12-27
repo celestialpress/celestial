@@ -9,7 +9,7 @@ import {
 
 
 
-
+// new tab
 // homepage
 document.title = "new tab.";
 const h1 = document.querySelector('#main');
