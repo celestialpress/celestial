@@ -203,6 +203,7 @@ export class Tab {
 	constructor() {
 		tabCounter++;
 		this.tabNumber = tabCounter;
+		this.displayUrl = "";
 
 		this.frame = document.createElement("iframe");
 		this.frame.setAttribute("class", "searchframe");
@@ -234,9 +235,7 @@ export class Tab {
 
 		currentFrame = document.getElementById(`frame-${this.tabNumber}`);
 
-		addressInput.value = decodeURIComponent(
-			this.frame?.contentWindow?.location.href.split("/").pop()
-		);
+		if (this.displayUrl) addressInput.value = this.displayUrl;
 
 		document.dispatchEvent(
 			new CustomEvent("switch-tab", {
@@ -262,7 +261,6 @@ export class Tab {
 	 * Handles iframe load event: updates history and address input.
 	 */
 	handleLoad() {
-
 		this.statusObject = { isLoading: true, timesErrored: 0 };
 		let url = decodeURIComponent(
 			this.frame?.contentWindow?.location.href.split("/").pop()
@@ -289,17 +287,13 @@ export class Tab {
 
 				if (shouldReload) {
 					this.statusObject.timesErrored++;
-					console.warn(
-						`Iframe error detected (${this.statusObject.timesErrored}/5). Reloading...`
-					);
 					this.frame.contentWindow.location.reload();
 					return true;
 				} else {
 					this.statusObject.timesErrored = 0;
 					return false;
 				}
-			} catch (err) {
-				console.debug("Iframe inaccessible (cross-origin). Skipping error scan.", err);
+			} catch {
 				return false;
 			}
 		};
@@ -324,9 +318,14 @@ export class Tab {
 		if (url === "index.html#r") url = "celestial://ngg";
 		if (url.includes("tab.html?autofill=")) url = "loading..";
 		if (url === "b.html") url = "loading..";
+
+		this.displayUrl = url;
+		this.frame.dataset.displayUrl = url;
 		addressInput.value = url;
+
 	}
 }
+
 
 /**
  * Creates a new tab.
@@ -349,23 +348,7 @@ export function switchTab(tabNumber) {
 	currentTab = tabNumber;
 	currentFrame = document.getElementById(`frame-${tabNumber}`);
 
-	let url = "";
-	try {
-		url = decodeURIComponent(currentFrame.contentWindow.location.href.split("/").pop());
-	} catch (err) {
-		url = currentFrame.getAttribute("src");
-	}
-
-	if (url === "tab.html" || url.endsWith("/tab.html")) {
-		url = "celestial://newtab";
-	} else if (url.includes("/news/")) {
-		url = "celestial://games";
-	} else if (url.startsWith("/assets/src/")) {
-		const file = url.replace("/assets/src/", "");
-		url = `celestial://gamesource/${file}`;
-	}
-
-	addressInput.value = url;
+	addressInput.value = currentFrame.dataset.displayUrl || "";
 
 	document.dispatchEvent(
 		new CustomEvent("switch-tab", {
@@ -373,6 +356,7 @@ export function switchTab(tabNumber) {
 		}),
 	);
 }
+
 
 /**
  * Closes the tab with the specified tab number.
