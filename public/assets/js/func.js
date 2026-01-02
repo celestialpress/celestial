@@ -1,3 +1,5 @@
+
+
 // self-explanitory
 function reload() {
   var iframe = document.querySelector('iframe')
@@ -25,7 +27,7 @@ function inspect() {
     const d = f.contentWindow.document;
 
     if (f.contentWindow.__erudaOn) {
-      try { f.contentWindow.eruda.destroy(); } catch {}
+      try { f.contentWindow.eruda.destroy(); } catch { }
       d.querySelectorAll('script[src*="eruda"]').forEach(s => s.remove());
       f.contentWindow.__erudaOn = false;
       return;

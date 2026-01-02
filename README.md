@@ -8,11 +8,11 @@
 ## Features:
 - Uses wisp-server-python
 - 500+ Games
-- Custom Script-Injection (soon)
+- Auto-Adblocker
 - Scramjet & UV Support.
 
 ## Credits:
 - JustJxrdanWasDefinetlyTaken - site
-- MercuryWorkshop - Scramjet
+- MercuryWorkshop - Scramjet && Workerware
 - Coding4Hours - Lithium (and emotional support)
-- Amplify & ProudParrot2 - Reflux
+- Pyrus - Middleware Adblocker

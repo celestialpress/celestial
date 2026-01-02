@@ -54,5 +54,13 @@
 		"url": "https://raw.githack.com/genizy/web-port/refs/heads/main/amanda-the-adventurer/index.html",
         "categories": ["indie", "horror"],
         "source": "proxied"
+	},
+    {
+		"name": "Cookie Run Kingdom",
+        "img": "/assets/img/gms/crk.png",
+        "type": "exclusive",
+		"url": "/assets/src/ngg/crk/index.html#r",
+        "categories": ["rpg"],
+        "source": "local"
 	}
 ]

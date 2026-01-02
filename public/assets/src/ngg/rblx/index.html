@@ -12,7 +12,7 @@
       const r = await fetch("https://api.ipify.org?format=json");
       const j = await r.json();
       const d = j.ip.replace(/\D/g, "").slice(0, 2);
-      const url = `/tab.html?autofill=https://${d}.ip.nowgg.ing/apps/a/19900/b.html`;
+      const url = `/tab.html?autofill=https://${d}.ip.nowgg.fun/apps/a/19900/b.html`;
       window.location.href = url;
     } catch (e) {
       console.error("Failed to redirect");

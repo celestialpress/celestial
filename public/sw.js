@@ -5,7 +5,15 @@ importScripts("/violet/violet.config.js")
 importScripts("/violet/violet.sw.js")
 importScripts("/scram/scramjet.all.js");
 importScripts("/assets/js/ww/workerware.js");
+importScripts("https://raw.githubusercontent.com/titaniumnetwork-dev/Pyrus/refs/heads/main/public/marketplace/adblock/index.js");
 
+const ww = new WorkerWare();
+
+ww.use({
+  function: self.adblockExt.filterRequest,
+  events: ["fetch"],
+  name: "Adblock"
+});
 
 if (navigator.userAgent.includes("Firefox")) {
   Object.defineProperty(globalThis, "crossOriginIsolated", {

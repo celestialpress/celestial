@@ -1,0 +1,6 @@
+[
+    {
+        "name": "BlooketGUI",
+        "src": "fetch('https://raw.githubusercontent.com/minesraft4/blooket-gui/refs/heads/main/GUI').then(r=>r.text()).then(t=>document.body.innerHTML+=`<script>${t}<\/script>`)"
+    }
+]
