@@ -12,7 +12,7 @@
 - Scramjet & UV Support.
 
 ## Credits:
-- JustJxrdanWasDefinetlyTaken - site
+- JustJxrdanWasDefinetlyTaken - Styling, Most of the site in general
 - MercuryWorkshop - Scramjet && Workerware
-- Coding4Hours - Lithium (and emotional support)
+- Coding4Hours - Lithium, Anti-Deledao (and emotional support)
 - Pyrus - Middleware Adblocker
