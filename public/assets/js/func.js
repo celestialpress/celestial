@@ -1,9 +1,10 @@
 
 
 // self-explanitory
+
 function reload() {
-  var iframe = document.querySelector('iframe')
-  iframe.contentWindow.location.reload()
+  const iframe = document.querySelector('iframe.searchframe:not(.hidden)')
+  if (iframe) iframe.contentWindow.location.reload()
 }
 
 function back() {
@@ -20,7 +21,7 @@ function forward() {
 // see what i did there
 // you're permitted to laugh
 function inspect() {
-  const f = document.querySelector('iframe[id^="frame-"]');
+  const f = document.querySelector('iframe.searchframe:not(.hidden)');
   if (!f) return alert('No frame found.');
   try {
     // load and show console

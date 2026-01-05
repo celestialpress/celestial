@@ -304,7 +304,7 @@ export class Tab {
 
 		document.dispatchEvent(
 			new CustomEvent("url-changed", {
-				detail: { tabId: currentTab, title, url },
+				detail: { tabId: this.tabNumber, title, url },
 			}),
 		);
 		// lithium wont like detect folders/directories, so i had to do this. pretty inefficient.
@@ -322,7 +322,12 @@ export class Tab {
 
 		this.displayUrl = url;
 		this.frame.dataset.displayUrl = url;
+
+		if (currentTab !== this.tabNumber) return;
+
 		addressInput.value = url;
+		document.title = title || "celestial";
+
 
 	}
 }

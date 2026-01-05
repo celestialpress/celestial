@@ -1,12 +1,20 @@
 [
     {
-        "name": "BlooketGUI",
-        "website": "play.blooket.com",
-        "src": "var s=document.createElement('script');fetch('https://raw.githubusercontent.com/minesraft4/blooket-gui/refs/heads/main/GUI').then(r=>r.text()).then(t=>document.body.innerHTML+=`<script>${t}<\/script>`)"
+        "name": "Mret IXL",
+        "website": ["ixl.com", "www.ixl.com"],
+        "includes": "yes",
+        "src": "fetch('https://raw.githubusercontent.com/JustJxrdanWasDefinetlyTaken/celestial-ext/refs/heads/main/ext/ixl-mret.js') .then(r => r.text()) .then(t => new Function(t)());"
     },
     {
         "name": "example",
-        "website": "example.com",
-        "src": "alert('raviola family on bottom!');"
+        "website": ["example.com"],
+        "includes": "no",
+        "src": "alert('trademark celestial raviola family on bottom!');"
+    },
+    {
+        "name": "KaHoax",
+        "website": ["kahoot.it"],
+        "includes": "yes",
+        "src": "fetch('https://raw.githubusercontent.com/JustJxrdanWasDefinetlyTaken/celestial-ext/refs/heads/main/ext/kahoot.js') .then(r => r.text()) .then(t => new Function(t)());"
     }
 ]

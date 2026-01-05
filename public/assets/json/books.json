@@ -3,7 +3,7 @@
 		"name": "Deltarune",
         "img": "/assets/img/gms/deltarune.png",
         "type": "exclusive",
-		"url": "/assets/src/deltarune",
+		"url": "/assets/src/deltarune/index.html#deltarune",
         "categories": ["indie", "rpg"],
         "source": "local"
 	},
@@ -32,18 +32,18 @@
         "source": "proxied"
 	},
     {
-		"name": "Ace Attourney",
+		"name": "Ace Attorney",
         "img": "/assets/img/gms/aceattourney.png",
         "type": "regular",
-		"url": "https://f.kbhgames.com/emujs/play.php?c=gba&f=ace-attorney.gba",
+		"url": "/assets/src/aa/index.html#aceattourney",
         "categories": ["adventure", "puzzle"],
-        "source": "proxied"
+        "source": "local"
 	},
     {
 		"name": "Bendy and the Ink Machine",
         "img": "/assets/img/gms/batim.png",
         "type": "exclusive",
-		"url": "/assets/src/bendih",
+		"url": "/assets/src/bendih/index.html#bendy",
         "categories": ["adventure", "horror", "indie"],
         "source": "local"
 	},
