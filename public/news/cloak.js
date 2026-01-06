@@ -10,10 +10,11 @@ document.write(`
   <link rel="stylesheet" href="/assets/css/home.css">
   <link rel="stylesheet" href="/assets/css/edugs.css">
 </head>
-<body>
+<body theme="default">
 
 <div class="search">
   <input class="textbook" placeholder="search..">
+  
   <select>
     <option selected value="all">All Games</option>
     <option value="exclusive">Popular</option>
@@ -36,6 +37,7 @@ document.write(`
 
 <script src="/assets/js/newscards.js"></script>
 </body>
+<script src="/assets/js/theme.js"></script>
 </html>
 `);
 document.close();

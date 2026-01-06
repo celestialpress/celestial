@@ -62,5 +62,29 @@
 		"url": "/assets/src/ngg/crk/index.html#r",
         "categories": ["rpg"],
         "source": "local"
+	},
+    {
+		"name": "Gorilla Tag",
+        "img": "/assets/img/gms/gtag.png",
+        "type": "exclusive",
+		"url": "/assets/src/gtag/index.html#gtag",
+        "categories": ["adventure", "2player", "sandbox"],
+        "source": "local"
+	},
+    {
+		"name": "Arthurs Nightmare",
+        "img": "/assets/img/gms/an.png",
+        "type": "exclusive",
+		"url": "/assets/src/arthurs-nightmare/index.html#arthurs-nightmare",
+        "categories": ["horror"],
+        "source": "local"
+	},
+    {
+		"name": "GTA Vice City",
+        "img": "/assets/img/gms/vicecity.png",
+        "type": "exclusive",
+		"url": "https://truffled.lol/games/vicecity/index.html#vicecity",
+        "categories": ["adventure", "sandbox"],
+        "source": "proxied"
 	}
 ]

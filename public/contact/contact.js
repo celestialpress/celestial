@@ -15,8 +15,8 @@ button {
     width:130px;
     border-radius:5px;
     padding:7px;
-    background:#222;
-    color:#fff;
+    background:var(--button);
+    color:var(--color);
     border:none;
     appearance:none;
     font-family:'Inter',sans-serif;
@@ -25,13 +25,14 @@ button {
   </style>
 </head>
 
-<body>
+<body theme="default">
 <div align="center">
 <h1>what do you wanna do?</h1>
 <button onclick="window.location.href='/tab.html?autofill=https://soundcloud.com'">listen to music</button>
 <button onclick="window.location.href='/tab.html?autofill=https://cineby.gd'">watch movies</button>
 </div>
 </body>
+<script src="/assets/js/theme.js"></script>
 </html>
 `);
 document.close();

@@ -2,5 +2,9 @@ body[theme="default"] {
     --background: #000;
     --color: white;
     --pallet: #3a3a3a;
-    --pallet-hover: #141414;
+    --pallet-hover: #0c0c0c;
+    --button: #222;
+    --border: rgba(255,255,255,0.3);
+    --input: rgba(255, 255, 255, 0.1);
+    --pallet2: #111;
 }
