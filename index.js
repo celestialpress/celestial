@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 import sanitizeHtml from "sanitize-html";
+import cors from "cors";
 
 // privacy
 logging.set_level(logging.NONE);
@@ -22,6 +23,7 @@ app.use(express.static(join(fileURLToPath(import.meta.url), "../public/")));
 app.use("/mux/", express.static(baremuxPath));
 app.use("/epoxy/", express.static(epoxyPath));
 app.use("/curl/", express.static(libcurlPath));
+app.use(cors());
 
 // ai (maybe)
 app.post("/api/chat", async (req, res) => {

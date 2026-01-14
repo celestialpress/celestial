@@ -156,7 +156,7 @@ hr {
 
 .fc {
   border: 1px solid var(--border);
-  background: var(--background);
+  background: rgba(58, 58, 58, 0.007);
   color: var(--color);
   padding: 8px;
   border-radius: 10px;
@@ -167,7 +167,6 @@ hr {
   height: 20px;
   margin-bottom: 10px;
   text-decoration: none;
-  opacity:1;
 }
 
 section {
@@ -310,11 +309,23 @@ section {
   border-radius:5px;
 }
 
-#panel {
-  display:none;
+#settings {
+  z-index: 999999999999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-#panel .doug {
-  z-index:999999999999;
-  width:200px;
+.settings {
+  background:gray;
+  height:70vh;
+  align-items: center;
+  justify-content:center;
+  text-align:center;
+  width:50vw;
+  padding:10px;
 }

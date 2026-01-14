@@ -8,3 +8,14 @@ body[theme="default"] {
     --input: rgba(255, 255, 255, 0.1);
     --pallet2: #111;
 }
+
+body[theme="light"] {
+    --background: rgb(163, 163, 163);
+    --color: rgb(0, 0, 0);
+    --pallet: #6b6969;
+    --pallet-hover: #818181;
+    --button: #222;
+    --border: rgba(255,255,255,0.3);
+    --input: rgba(255, 255, 255, 0.1);
+    --pallet2: #111;
+}

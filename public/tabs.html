@@ -13,10 +13,10 @@
     const tabsDiv = document.getElementById("tabs");
 
 
-    
+
     const getIcon = (url) =>
       /^https?:\/\/[\w.-]+\.[a-z]{2,}/i.test(url)
-        ? `https://www.google.com/s2/favicons?domain=${url}`
+        ? `https://s2.googleusercontent.com/s2/favicons?sz=64&domain_url=${url}`
         : "/assets/img/logo.png";
 
     function createTab(id, title = "New Tab", url = "") {
@@ -121,7 +121,7 @@
     } from "/lithium.mjs"
 
 
-    
+
     // --- INIT ---
     const form = document.getElementById("form")
     let search =
@@ -135,7 +135,7 @@
     setWisp((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/");
 
     setTransport("epoxy")
-            async function autofill(url) {
+    async function autofill(url) {
       const urlToLoad = makeURL(url, search)
       const proxiedUrl = await getProxied(urlToLoad)
       setTimeout(() => {
@@ -148,7 +148,7 @@
       const params = new URLSearchParams(window.location.search);
       const url = params.get('autofill');
       if (url) autofill(url);
-      
+
     } catch { }
 
     // --- EVENTS ---
@@ -181,12 +181,26 @@
 </head>
 
 <body theme="default">
+  <div id="settings" style="display:none;">
+    <div class="settings">
+    <p onclick="close();" style="font-size:25px;top:0;right:0;position:absolute;margin:15px;cursor:pointer;"><i class="bx bx-x"></i></p>
+    <div id="sidenav">
+      
+    </div>
+    <div id="themepicker">
+      <div class="themeimg default" data-current="default">
+      </div>
+      <div class="themeimg light" data-current="light">
+      </div>
+    </div>
+    </div>
+  </div>
   <nav>
     <div id="tabs">
-    <button id="new-tab-btn" aria-label="New Tab" title="New Tab">
+      <button id="new-tab-btn" aria-label="New Tab" title="New Tab">
 
-      <i class='bx bx-plus'></i>
-    </button>
+        <i class='bx bx-plus'></i>
+      </button>
     </div>
   </nav>
   <div class="tabthing">
@@ -194,10 +208,11 @@
       <a href="#" id="back" class="fc" onclick="back();"><i class="bx bx-caret-left"></i></a>
       <a href="#" id="reload" class="fc" onclick="reload();"><i class="bx bx-revision"></i></a>
       <a href="#" id="forward" class="fc" onclick="forward();"><i class="bx bx-caret-right"></i></a>
-      <input id="address" type="text" placeholder="Search privately.." onfocus="this.select()" class="search" autocomplete="off" />
+      <input id="address" type="text" placeholder="Search privately.." onfocus="this.select()" class="search"
+        autocomplete="off" />
       <a href="#" id="inspect" class="fc" onclick="inspect();"><i class="bx bx-code-alt"></i></a>
       <a href="#" id="fullscreen" class="fc" onclick="full();"><i class="bx bx-fullscreen"></i></a>
-      <a href="#" id="settings" class="fc" onclick="setting();"><i class="bx bx-dots-vertical"></i></a>
+      <a href="#" id="custom" class="fc" onclick="setting();"><i class="bx bx-dots-vertical"></i></a>
     </form>
     <section id="frames"></section>
   </div>
@@ -215,5 +230,18 @@
 <script src="/assets/js/picker.js"></script>
 <script src="/assets/js/func.js"></script>
 <script src="/assets/js/cust.js"></script>
+<script src="/assets/js/moneymouthemoji.js"></script>
 <script type="module" src="/assets/js/ext.mjs"></script>
+<script>
+  function setting() {
+    document.getElementById('settings').style.display = 'block';
+  }
+
+  function close() {
+    document.getElementById('settings').style.display = 'none';
+  }
+
+  document.getElementById('settings').addEventListener('click', close);
+</script>
+
 </html>
