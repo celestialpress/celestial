@@ -1,4 +1,5 @@
 // lmao ion feel like making this support modules so imma just import and change
+// mind change
 const pr0xySelect = document.getElementById('pr0xySelect');
 const transportsele = document.getElementById('tselect');
 

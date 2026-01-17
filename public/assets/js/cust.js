@@ -1,1 +1,0 @@
-const settings = document.querySelector('#panel');

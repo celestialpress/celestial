@@ -18,8 +18,8 @@ nav {
   height: 38px;
   padding: 0 8px;
   font-family: 'Inter', sans-serif;
+  max-width: calc(100vw - 100px);
   width: calc(100vw - 100px);
-  min-width: calc(100vw - 100px);
 }
 
 #tabs {
@@ -42,7 +42,7 @@ nav {
   cursor: pointer;
   user-select: none;
   min-width: 140px;
-  max-width: 250px;
+  max-width: 260px;
   white-space: nowrap;
   border-radius: 10px 10px 0px 0px;
 }
@@ -95,9 +95,9 @@ nav {
   justify-content: center;
   font-size: 18px;
   color: var(--color);
-  top: 10px;
-  right: 10px;
   position: absolute;
+  top:10px;
+  right:10px;
   transition: 0.5s;
 }
 

@@ -16,30 +16,27 @@ input, .card p, .filters, select {
 .search {
     font-family:'Inter',sans-serif;
     display:flex;
-    flex-wrap:wrap;
     align-items:center;
     justify-content:center;
     gap:5px;
-    background:var(--pallet-hover);
-    padding:14px;
-    width:calc(100% - 20px);
-    height:120px;
+    background:var(--pallet2);
+    height:70px;
+    width:99.5vw;
     border-radius:5px;
-    margin:20px auto 0;
+    position:fixed;
+    z-index:9999999;
+    top:0;
 }
 
 @media(min-width:850px){
     .search {
-        width:calc(100vw - 850px);
-        height:120px;
-        padding:14px;
-        margin-top:50px;
-
+        width:99.5vw;
     }
 }
 
 select {
     width:90px;
+    height:50px;
     border-radius:5px;
     padding:7px;
     background:var(--button);
@@ -47,16 +44,23 @@ select {
     border:none;
     appearance:none;
     font-family:'Inter',sans-serif;
+    text-align:center;
+}
+
+option {
+    text-align:center;
 }
 
 select::-ms-expand{display:none;}
 
 .textbook{
-    width:250px;
-    padding:12px 15px;
+    width:85vw;
+    margin:5px;
+    padding:15px 15px;
     border-radius:12px;
     background:var(--pallet2);
     border:1px solid var(--border);
+    color:var(--color);
 }
 
 .gs{
@@ -67,6 +71,7 @@ select::-ms-expand{display:none;}
     justify-content: center;
     gap:10px;
     padding:10px;
+    margin-top:80px;
 }
 
 .card{
@@ -112,7 +117,7 @@ select::-ms-expand{display:none;}
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--color);
+    color: white;
     font-size: 17px;
     background: rgba(0,0,0,0.6);
     transition: opacity 0.2s;
@@ -127,4 +132,8 @@ select::-ms-expand{display:none;}
 
 .card:hover .thumb {
     filter: blur(1px);
+}
+
+.filters {
+    margin-right:10px;
 }
