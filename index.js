@@ -2,6 +2,7 @@ import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
+import { scramjetPath } from "@mercuryworkshop/scramjet/path";
 import express from "express";
 import { createServer } from "node:http";
 import { join } from "node:path";
@@ -23,6 +24,7 @@ app.use(express.static(join(fileURLToPath(import.meta.url), "../public/")));
 app.use("/mux/", express.static(baremuxPath));
 app.use("/epoxy/", express.static(epoxyPath));
 app.use("/curl/", express.static(libcurlPath));
+app.use("/scram/", express.static(scramjetPath));
 app.use(cors());
 
 // ai (maybe)

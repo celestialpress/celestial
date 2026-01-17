@@ -135,7 +135,7 @@
 
     setWisp((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/");
 
-    setTransport("epoxy")
+    setTransport(localStorage.getItem("transportz") || "epoxy");
     async function autofill(url) {
       const urlToLoad = makeURL(url, search)
       const proxiedUrl = await getProxied(urlToLoad)
@@ -243,7 +243,6 @@
 <script src="/assets/js/theme.js"></script>
 <script src="/assets/js/picker.js"></script>
 <script src="/assets/js/func.js"></script>
-<script src="/assets/js/cust.js"></script>
 <script src="/assets/js/moneymouthemoji.js"></script>
 <script type="module" src="/assets/js/ext.mjs"></script>
 <script>

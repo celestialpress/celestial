@@ -11,7 +11,6 @@
 	<meta content="Drew's Learning Academy | Edison, NJ" property="og:title">
 	<meta
 		content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success.">
-    <script src="/assets/js/prox.js"></script>
 </head>
 
 <body theme="clasic">
@@ -25,9 +24,9 @@
                 <img src="/assets/img/gms/gms.png" />
                 <p>Contact</p>
             </div>
-            <div class="card" id="card2" onclick="window.locatiion.href='/support/index.html?type=c'">
-                <img src="/assets/img/msg.png" />
-                <p>Questions</p>
+            <div class="card" id="card2" onclick="window.location.href='/tools/index.html?type=ap'">
+                <img src="/assets/img/tools.png" />
+                <p>Tools</p>
             </div>
             <div class="card" id="card3" onclick="window.location.href='/contact/index.html?type=m'">
                 <img src="/assets/img/video.png" />
@@ -74,8 +73,8 @@
   } from "/lithium.mjs";
 
   setWisp((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/");
-  setProxy("violet");
-  setTransport("epoxy");
+  setProxy(localStorage.getItem("pr0xy") || "violet");
+  setTransport(localStorage.getItem("transportz") || "epoxy");
 
   let search =
     localStorage.getItem("search-engine") ||

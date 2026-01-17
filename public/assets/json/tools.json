@@ -1,0 +1,176 @@
+[
+    {
+		"name": "AniWatch",
+        "img": "/assets/img/tls/aniwatch.png",
+		"url": "https://aniwatchtv.to/",
+        "categories": ["popular", "movies"]
+	},
+    {
+		"name": "Youtube",
+        "img": "/assets/img/tls/yt.png",
+		"url": "https://www.youtube.com/?themerefresh=1",
+        "categories": ["sm", "popular"]
+	},
+    {
+		"name": "Gemini AI",
+        "img": "/assets/img/tls/gemini.png",
+		"url": "https://gemini.google.com",
+        "categories": ["popular", "ai"]
+	},
+    {
+		"name": "Grok",
+        "img": "/assets/img/tls/grok.png",
+		"url": "https://grok.com",
+        "categories": ["ai", "popular"]
+	},
+    {
+		"name": "Cineby",
+        "img": "/assets/img/tls/cineby.png",
+		"url": "https://cineby.gd",
+        "categories": ["popular", "movies"]
+	},
+    {
+		"name": "Neal.fun",
+        "img": "/assets/img/tls/nealfun.png",
+		"url": "https://neal.fun",
+        "categories": ["gamesites", "popular", "fun"]
+	},
+    {
+		"name": "KBH Ga<span>me</span>s",
+        "img": "/assets/img/tls/kbhgames.png",
+		"url": "https://kbhgames.com",
+        "categories": ["fun", "gamesites"]
+	},
+    {
+		"name": "Snokido",
+        "img": "/assets/img/tls/snokido.png",
+		"url": "https://snokido.com",
+        "categories": ["fun", "gamesites"]
+	},
+    {
+		"name": "Xbox Cloud Gaming",
+        "img": "/assets/img/tls/xcg.png",
+		"url": "https://www.xbox.com/en-us/play",
+        "categories": ["cg", "gamesites"]
+	},
+    {
+		"name": "Ge<span>for</span>ce Now",
+        "img": "/assets/img/tls/gefn.png",
+		"url": "https://shorturl.at/uzh5G",
+        "categories": ["cg", "gamesites"]
+	},
+    {
+		"name": "Amazon Luna",
+        "img": "/assets/img/tls/luna.png",
+		"url": "https://luna.amazon.com",
+        "categories": ["cg", "gamesites"]
+	},
+    {
+		"name": "Now.gg/Nowgg.fun",
+        "img": "/assets/img/tls/nggfun.png",
+		"url": "https://nowgg.fun",
+        "categories": ["cg", "gamesites"]
+	},
+    {
+		"name": "Cool Math Ga<span>me</span>s",
+        "img": "/assets/img/tls/cmg.png",
+		"url": "https://coolmathgames.com",
+        "categories": ["gamesites"]
+	},
+    {
+		"name": "Di<span>sc</span>ord",
+        "img": "/assets/img/tls/dsc.png",
+		"url": "https://shorturl.at/sDr4V",
+        "categories": ["sm", "popular"]
+	},
+    {
+		"name": "Twitch",
+        "img": "/assets/img/tls/twitch.png",
+		"url": "https://twitch.tv",
+        "categories": ["sm", "movies", "popular"]
+	},
+    {
+		"name": "Tiktok",
+        "img": "/assets/img/tls/tiktok.png",
+		"url": "https://tiktok.com",
+        "categories": ["sm"]
+	},
+    {
+		"name": "Chess.com",
+        "img": "/assets/img/tls/chesscom.png",
+		"url": "https://chess.com",
+        "categories": ["fun"]
+	},
+    {
+		"name": "Visual Studio Code",
+        "img": "/assets/img/tls/vsc.png",
+		"url": "https://vscode.dev",
+        "categories": ["misc"]
+	},
+    {
+		"name": "Github",
+        "img": "/assets/img/tls/gh.png",
+		"url": "https://github.com",
+        "categories": ["misc"]
+	},
+    {
+		"name": "ESPN",
+        "img": "/assets/img/tls/espn.png",
+		"url": "https://espn.com",
+        "categories": ["other", "sm"]
+	},
+    {
+		"name": "MaxPreps",
+        "img": "/assets/img/tls/maxpreps.png",
+		"url": "https://maxpreps.com",
+        "categories": ["other"]
+	},
+    {
+		"name": "Snapchat",
+        "img": "/assets/img/tls/snap.png",
+		"url": "https://web.snapchat.com",
+        "categories": ["sm"]
+	},
+    {
+		"name": "Instagram",
+        "img": "/assets/img/tls/ig.png",
+		"url": "https://instagram.com",
+        "categories": ["sm", "popular"]
+	},
+    {
+		"name": "Galaxy.click",
+        "img": "/assets/img/tls/gc.png",
+		"url": "https://galaxy.click",
+        "categories": ["gamesites", "other"]
+	},
+    {
+		"name": "Sandboxels",
+        "img": "/assets/img/tls/sbx.png",
+		"url": "https://sandboxels.r74n.com/",
+        "categories": ["gamesites", "other"]
+	},
+    {
+		"name": "Crazyga<span>m</span>es",
+        "img": "/assets/img/tls/crzygs.png",
+		"url": "https://crazygames.com",
+        "categories": ["gamesites"]
+	},
+    {
+		"name": "Pixlr",
+        "img": "/assets/img/tls/pixlr.png",
+		"url": "https://pixlr.com",
+        "categories": ["other"]
+	},
+    {
+		"name": "ZeroGPT",
+        "img": "/assets/img/tls/zgpt.png",
+		"url": "https://zerogpt.com",
+        "categories": ["ai", "other", "popular"]
+	},
+    {
+		"name": "Writify Humanizer",
+        "img": "/assets/img/tls/wif.png",
+		"url": "https://writifyai.com/tools/humanize-ai/",
+        "categories": ["ai", "other", "popular"]
+	}
+]

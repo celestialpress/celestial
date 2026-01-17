@@ -24,7 +24,7 @@ const foot3 = document.querySelector('.footer .ap');
  h1.textContent = "celestial.";
  url.placeholder = "search with ease";
  card.querySelector('p').innerHTML = "ga<span>m</span>es";
- card2.querySelector('p').textContent = "chat";
+ card2.querySelector('p').textContent = "quick apps";
  card3.querySelector('p').textContent = "media";
  // i know this is stupid but it looks really ugly when looking in the code so im doing this
  foot.innerHTML = "dis<span>c</span>ord";

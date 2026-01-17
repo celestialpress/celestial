@@ -45,10 +45,15 @@ select {
     appearance:none;
     font-family:'Inter',sans-serif;
     text-align:center;
+    justify-content:center;
+    align-items:center;
 }
 
 option {
     text-align:center;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
 }
 
 select::-ms-expand{display:none;}
@@ -74,7 +79,7 @@ select::-ms-expand{display:none;}
     margin-top:80px;
 }
 
-.card{
+.card {
     width:160px;
     background:var(--pallet2);
     border-radius:6px;

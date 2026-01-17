@@ -207,7 +207,7 @@ export class Tab {
 
 		this.frame = document.createElement("iframe");
 		this.frame.setAttribute("class", "searchframe");
-		this.frame.setAttribute("title", "Proxy Frame");
+		this.frame.setAttribute("title", "P-Frame");
 		this.frame.setAttribute("src", "/tab.html");
 		this.frame.setAttribute("loading", "lazy");
 		this.frame.setAttribute("id", `frame-${tabCounter}`);
@@ -313,9 +313,9 @@ export class Tab {
 		if (url === "index.html?type=part") url = "celestial://misc";
 		if (url === "index.html?type=c") url = "celestial://chat";
 		if (url === "index.html?type=m") url = "celestial://media";
-		if (url === "index.html?type=ap") url = "celestial://tools";
+		if (url === "index.html?type=ap") url = "celestial://quick";
 		if (url === "index.html?type=s") url = "celestial://settings";
-		if (url === "index.html?type=l") url = "celestial://legal-page";
+		if (url === "index.html?type=l") url = "celestial://legal";
 		if (url === "index.html#r") url = "celestial://ngg";
 		if (url.includes("tab.html?autofill=")) url = "loading..";
 		if (url === "b.html") url = "loading..";
