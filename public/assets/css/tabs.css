@@ -87,7 +87,7 @@ nav {
 #new-tab-btn {
   padding: 7px;
   background: var(--pallet);
-  border:none;
+  border: none;
   border-radius: 10px;
   cursor: pointer;
   display: flex;
@@ -296,8 +296,8 @@ section {
   width: 100%;
   height: calc(100vh - 120px);
   min-height: calc(100vh - 120px);
-  border:none;
-  border-radius:7px;
+  border: none;
+  border-radius: 7px;
 }
 
 .tabthing {
@@ -305,12 +305,19 @@ section {
   padding: 10px;
   height: calc(100vh - 75px);
   min-height: calc(100vh - 75px);
-  width:fit-content;
-  border-radius:5px;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.settings-bg {
+  filter: blur(1px);
+  background: rgba(255, 255, 255, 0.308);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
 }
 
 #settings {
-  z-index: 999999999999;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -318,14 +325,29 @@ section {
   display: flex;
   flex-direction: column;
   text-align: center;
+  background: rgba(255, 255, 255, 0.308);
+  background-size: cover;
 }
 
 .settings {
-  background:gray;
-  height:70vh;
+  z-index: 999999999999;
+  background: var(--pallet);
+  height: 70vh;
   align-items: center;
-  justify-content:center;
-  text-align:center;
-  width:50vw;
-  padding:10px;
+  justify-content: center;
+  text-align: center;
+  width: 50vw;
+  padding: 10px;
+  border: var(--border);
+}
+
+select {
+  width:100px;
+  padding:5px 5px 5px;
+  outline:none;
+  border:none;
+  border-radius:7px;
+  background:var(--button);
+  color:var(--color);
+  font-family:'Inter',sans-serif;
 }

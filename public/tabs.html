@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>celestial.</title>
+  <script src="/assets/js/prox.js" type="module"></script>
   <script async defer type="module">
     import { newTab, switchTab, closeTab } from "/lithium.mjs";
 
@@ -19,7 +20,7 @@
         ? `https://s2.googleusercontent.com/s2/favicons?sz=64&domain_url=${url}`
         : "/assets/img/logo.png";
 
-    function createTab(id, title = "New Tab", url = "") {
+    function createTab(id, title = "new tab", url = "") {
       const tab = document.createElement("div");
       tab.dataset.tabId = id;
       tab.draggable = true;
@@ -89,7 +90,7 @@
     document.addEventListener("url-changed", (e) => {
       const tab = tabs.find((t) => t.id === e.detail.tabId);
       if (!tab) return;
-      tab.title = e.detail.title || "New Tab";
+      tab.title = e.detail.title || "new tab";
       tab.url = e.detail.url || "";
       tab.element.querySelector(".tab").textContent = tab.title;
       tab.element.querySelector("img").src = getIcon(tab.url);
@@ -129,7 +130,7 @@
       "https://search.brave.com/search?q=%s"
 
 
-    setProxy("violet")
+    setProxy(localStorage.getItem("pr0xy") || "violet")
 
 
     setWisp((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/");
@@ -183,21 +184,34 @@
 <body theme="default">
   <div id="settings" style="display:none;">
     <div class="settings">
-    <p onclick="close();" style="font-size:25px;top:0;right:0;position:absolute;margin:15px;cursor:pointer;"><i class="bx bx-x"></i></p>
-    <div id="sidenav">
-      
-    </div>
-    <div id="themepicker">
-      <div class="themeimg default" data-current="default">
+      <p id="close" onclick="close();"
+        style="font-size:25px;top:0;right:0;position:absolute;margin:15px;cursor:pointer;"><i class="bx bx-x"></i></p>
+      <div id="sidenav">
+
       </div>
-      <div class="themeimg light" data-current="light">
-      </div>
+      <label>select a theme: </label><select id="themepicker">
+        <option value="default" style="color:white;background:black;" selected>default</option>
+        <option value="light" style="color:black;background:gray;">light</option>
+      </select>
+      <br>
+      <br>
+      <label>change transport: </label><select class="select" id="tselect">
+        <option value="epoxy" selected>epoxy</option>
+        <option value="libcurl">libcurl</option>
+      </select>
+      <br>
+      <br>
+      <label>change pr<span>o</span>xy: </label><select class="select" id="pr0xySelect">
+        <option value="violet" selected>ult<span>ra</span>vi<span>ol</span>et</option>
+        <option value="scram">sc<span>ramj</span>et</option>
+      </select>
     </div>
-    </div>
+  </div>
+  </div>
   </div>
   <nav>
     <div id="tabs">
-      <button id="new-tab-btn" aria-label="New Tab" title="New Tab">
+      <button id="new-tab-btn" aria-label="new tab" title="new tab">
 
         <i class='bx bx-plus'></i>
       </button>
@@ -241,7 +255,8 @@
     document.getElementById('settings').style.display = 'none';
   }
 
-  document.getElementById('settings').addEventListener('click', close);
+
+  document.getElementById('close').addEventListener('click', close);
 </script>
 
 </html>
