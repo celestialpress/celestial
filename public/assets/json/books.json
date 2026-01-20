@@ -83,8 +83,8 @@
 		"name": "GTA Vice City",
         "img": "/assets/img/gms/vicecity.png",
         "type": "exclusive",
-		"url": "https://truffled.lol/games/vicecity/index.html#vicecity",
+		"url": "/assets/src/vice/index.html#vicecity",
         "categories": ["adventure", "sandbox"],
-        "source": "proxied"
+        "source": "local"
 	}
 ]

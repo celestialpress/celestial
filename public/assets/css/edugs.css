@@ -79,8 +79,8 @@ select::-ms-expand{display:none;}
     margin-top:80px;
 }
 
-.card {
-    width:160px;
+  .card {
+    width:200px;
     background:var(--pallet2);
     border-radius:6px;
     overflow:hidden;
@@ -92,6 +92,7 @@ select::-ms-expand{display:none;}
     border:2px solid transparent;
     transition:border 0.2s, transform 0.2s;
     gap:10px;
+    height:100px;
 }
 
 .card:hover{
@@ -123,7 +124,7 @@ select::-ms-expand{display:none;}
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 17px;
+    font-size: 20px;
     background: rgba(0,0,0,0.6);
     transition: opacity 0.2s;
     font-family: 'Inter', sans-serif;

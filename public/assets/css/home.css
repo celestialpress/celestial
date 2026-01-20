@@ -2,49 +2,49 @@
 @import url('/assets/css/theme.css');
 
 body {
-    background-color:var(--background);
-    color:var(--color);
+    background-color: var(--background);
+    color: var(--color);
     font-family: 'Inter', sans-serif;
-    margin:0;
+    margin: 0;
 }
 
 .main {
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    display:flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    display: flex;
 }
 
 input.url {
-    width:450px;
-    padding:12px 15px;
-    border-radius:10px;
-    border:none;
-    outline:none;
-    background:var(--pallet2);
-    color:var(--color);
-    font-size:16px;
-    border:1px solid rgba(255,255,255,0.2);
-    transition:0.2s;
+    width: 450px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: var(--pallet2);
+    color: var(--color);
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: 0.2s;
 }
 
 input.url:focus {
-    background:#181818;
+    background: #181818;
 }
 
 .row-thing {
-    gap:10px;
-    margin:10px;
-    display:flex;
-    flex-wrap:wrap;
+    gap: 10px;
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 
 .card {
-    width: 80px; 
+    width: 80px;
     height: 80px;
     padding: 8px 6px;
     background: transparent;
@@ -70,19 +70,19 @@ input.url:focus {
 }
 
 #card2 p {
-    width:90px;
+    width: 90px;
 }
 
 .footer {
-    bottom:10px;
-    right:10px;
-    position:absolute;
-    gap:5px;
-    display:flex;
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
+    gap: 5px;
+    display: flex;
 }
 
 .footer a {
-    color:var(--color);
+    color: var(--color);
     transition: 0.1s;
     text-decoration: none;
 }
@@ -91,6 +91,32 @@ input.url:focus {
     text-decoration: underline;
 }
 
-.footer .ap, .a2, .a3 {
-    cursor:pointer;
+.footer .ap,
+.a2,
+.a3 {
+    cursor: pointer;
 }
+
+.gridthing{
+    width:100%;
+    height:100%;
+    background:
+        repeating-linear-gradient(60deg,
+            #fff3 0 1px,
+            transparent 1px 40px),
+        repeating-linear-gradient(-60deg,
+            #fff3 0 1px,
+            transparent 1px 40px);
+}
+
+body[theme="light"] .gridthing{
+    background:
+        repeating-linear-gradient(60deg,
+            #0002 0 1px,
+            transparent 1px 40px),
+        repeating-linear-gradient(-60deg,
+            #0002 0 1px,
+            transparent 1px 40px);
+}
+
+

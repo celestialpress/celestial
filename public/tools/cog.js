@@ -10,6 +10,23 @@ document.write(`
   <title>celestial. | games</title>
   <link rel="stylesheet" href="/assets/css/home.css">
   <link rel="stylesheet" href="/assets/css/edugs.css">
+  <style>
+    .card {
+    width:210px;
+    background:var(--pallet2);
+    border-radius:6px;
+    overflow:hidden;
+    cursor:pointer;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    position:relative;
+    border:2px solid transparent;
+    transition:border 0.2s, transform 0.2s;
+    gap:10px;
+    height:110px;
+}
+    </style>
 </head>
 <body theme="default">
 

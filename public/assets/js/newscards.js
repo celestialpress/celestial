@@ -7,6 +7,8 @@ var order = document.querySelectorAll("select")[1];
 fetch("/assets/json/books.json")
   .then(res => res.json())
   .then(games => {
+    const originalGames = [...games];
+
     function showGames(list) {
       grid.innerHTML = "";
       list.forEach(g => {
@@ -20,12 +22,12 @@ fetch("/assets/json/books.json")
 
     // update games based on cat
     function update() {
-      let filtered = games.filter(g => g.name.toLowerCase().includes(search.value.toLowerCase()));
+      let filtered = originalGames.filter(g => g.name.toLowerCase().includes(search.value.toLowerCase()));
       if (cat.value === "exclusive") filtered = filtered.filter(g => g.type === "exclusive");
       else if (cat.value !== "all") filtered = filtered.filter(g => g.categories?.includes(cat.value));
 
       if (order.value === "abc") filtered.sort((a, b) => a.name.localeCompare(b.name));
-      if (order.value === "new") filtered = filtered.slice().reverse();
+      else if (order.value === "new") filtered = [...filtered].reverse();
 
       showGames(filtered);
     }
@@ -35,9 +37,6 @@ fetch("/assets/json/books.json")
     cat.addEventListener("change", update);
     order.addEventListener("change", update);
 
-
     // make sure ts loads
-    if (order.value === "abc") games.sort((a, b) => a.name.localeCompare(b.name));
-    if (order.value === "new") filtered = filtered.slice().reverse();
-    showGames(games);
+    update();
   });

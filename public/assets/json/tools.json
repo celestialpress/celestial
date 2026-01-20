@@ -147,7 +147,7 @@
 		"name": "Sandboxels",
         "img": "/assets/img/tls/sbx.png",
 		"url": "https://sandboxels.r74n.com/",
-        "categories": ["gamesites", "other"]
+        "categories": ["gamesites", "fun"]
 	},
     {
 		"name": "Crazyga<span>m</span>es",
@@ -168,9 +168,27 @@
         "categories": ["ai", "other", "popular"]
 	},
     {
-		"name": "Writify Humanizer",
-        "img": "/assets/img/tls/wif.png",
-		"url": "https://writifyai.com/tools/humanize-ai/",
+		"name": "AI Humanizer",
+        "img": "/assets/img/tls/grammarly.png",
+		"url": "https://www.grammarly.com/ai-humanizer",
         "categories": ["ai", "other", "popular"]
+	},
+    {
+		"name": "Newgrounds",
+        "img": "/assets/img/tls/grammarly.png",
+		"url": "https://newgrounds.com",
+        "categories": ["sm", "other"]
+	},
+    {
+		"name": "Invidious",
+        "img": "/assets/img/tls/invidious.png",
+		"url": "https://inv.perditum.com/feed/popular",
+        "categories": ["sm", "popular"]
+	},
+    {
+		"name": "Vercel",
+        "img": "/assets/img/tls/vercel.png",
+		"url": "https://vercel.com",
+        "categories": ["other"]
 	}
 ]

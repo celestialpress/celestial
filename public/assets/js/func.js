@@ -8,12 +8,12 @@ function reload() {
 }
 
 function back() {
-  var iframe = document.querySelector('iframe')
+  var iframe = document.querySelector('iframe.searchframe:not(.hidden)')
   iframe.contentWindow.history.back()
 }
 
 function forward() {
-  var iframe = document.querySelector('iframe')
+  var iframe = document.querySelector('iframe.searchframe:not(.hidden)')
   iframe.contentWindow.history.forward()
 }
 
