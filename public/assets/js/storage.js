@@ -15,7 +15,7 @@ const storage = {
      * @param {any} value - The value to be stored, which will be stringified.
      * @throws {Error} Will log an error if setting the item in local storage fails.
      */
-    setItem(key, value) {
+    set(key, value) {
         try { // wrap in a try...catch block to catch errors and stuff
             localStorage.setItem(key, JSON.stringify(value)); // wrap in json cus 
         } catch (error) {
@@ -34,7 +34,7 @@ const storage = {
      * @returns {any} The parsed value from localStorage, or defaultValue if not found.
      * @throws {Error} Will log an error if getting or parsing the item from local storage fails.
      */
-    getItem(key, defaultValue = null) {
+    get(key, defaultValue = null) {
         try {
             const item = localStorage.getItem(key);
             return item ? JSON.parse(item) : defaultValue;
@@ -52,7 +52,7 @@ const storage = {
      * @param {string} key - The key of the item to remove from localStorage.
      * @throws {Error} Will log an error if removing the item from local storage fails.
      */
-    removeItem(key) {
+    remove(key) {
         try {
             localStorage.removeItem(key);
         } catch (error) {
