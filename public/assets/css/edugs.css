@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 @import url('/assets/css/theme.css');
 
-:root {
-    --favorite-icon-default: #E0E0E0; /* light grey */
-    --favorite-icon-favorited: #FFD700; /* gold */
-}
-
 body {
     background: var(--background);
     color: var(--color);
@@ -160,7 +155,7 @@ select::-ms-expand {
 .favoriteBook {
     z-index: 3;
     /* show above the game card, including on hoverdn */
-    color: --favorite-icon-default;
+    color: #E0E0E0;
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
     /* lightgrey, but shadowy stuff to make it more seeable ig */
     cursor: pointer;
@@ -172,5 +167,5 @@ select::-ms-expand {
 }
 
 .card.favorited .favoriteBook {
-    color: --favorite-icon-favorited;
+    color: #FFD700;
 }
