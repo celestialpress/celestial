@@ -36,9 +36,9 @@ document.write(`
 
 <div class="gs"></div> <!--game list-->
 
-<script src="/assets/js/newscards.js"></script>
+<script type="module" src="/assets/js/newscards.js"></script>
 </body>
-<script src="/assets/js/theme.js"></script>
+<script type="module" src="/assets/js/theme.js"></script>
 </html>
 `);
 document.close();
