@@ -5,6 +5,7 @@ body {
   color: var(--color);
   background: var(--background);
   font-family: 'Inter', sans-serif;
+  overflow-y:hidden;
 }
 
 .hidden {
@@ -20,6 +21,7 @@ nav {
   font-family: 'Inter', sans-serif;
   max-width: calc(100vw - 100px);
   width: calc(100vw - 100px);
+  margin-bottom:3px;
 }
 
 #tabs {
@@ -27,7 +29,7 @@ nav {
   align-items: center;
   flex: 1;
   overflow-x: auto;
-  gap: 3px;
+  gap: 5px;
   scrollbar-width: thin;
   scrollbar-color: black;
 }
@@ -45,11 +47,15 @@ nav {
   max-width: 260px;
   white-space: nowrap;
   border-radius: 10px 10px 0px 0px;
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 0;
+  border-left: 1px solid var(--border);
 }
 
 [data-tab-id].active {
   background: var(--pallet-hover);
-  border-color: var(--color);
+  border-color: var(--border);
   font-weight: bold;
 }
 
@@ -86,9 +92,9 @@ nav {
 
 #new-tab-btn {
   padding: 7px;
-  background: var(--pallet);
+  background: var(--button);
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -96,13 +102,13 @@ nav {
   font-size: 18px;
   color: var(--color);
   position: absolute;
-  top:10px;
-  right:10px;
+  top: 10px;
+  right: 10px;
   transition: 0.5s;
 }
 
 #new-tab-btn:hover {
-  background: var(--pallet-hover);
+  background: var(--pallet2);
 }
 
 .draggable-tab.dragging {
@@ -134,6 +140,7 @@ hr {
   gap: 6px;
   vertical-align: middle;
   box-sizing: border-box;
+  border-bottom:1px solid var(--border);
 }
 
 #form input {
@@ -305,8 +312,9 @@ section {
   padding: 10px;
   height: calc(100vh - 75px);
   min-height: calc(100vh - 75px);
-  width: fit-content;
+  width: 96.9vw;
   border-radius: 5px;
+  border: 1px solid var(--border);
 }
 
 .settings-bg {
@@ -342,12 +350,12 @@ section {
 }
 
 select {
-  width:100px;
-  padding:5px 5px 5px;
-  outline:none;
-  border:none;
-  border-radius:7px;
-  background:var(--button);
-  color:var(--color);
-  font-family:'Inter',sans-serif;
+  width: 100px;
+  padding: 5px 5px 5px;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  background: var(--button);
+  color: var(--color);
+  font-family: 'Inter', sans-serif;
 }

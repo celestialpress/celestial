@@ -21,6 +21,12 @@
         "name": "nowggalert",
         "website": ["https://now.gg", "now.gg"],
         "includes": "yes",
-        "src": "alert('seems like you want to go on now.gg! please enter nowgg.fun in the url box instead.');"
+        "src": "alert('seems like you want to go on now.gg! redirecting..'); location.replace('https://nowgg.fun');"
+    },
+    {
+        "name": "Autolingo",
+        "website": ["https://duolingo.com", "http://duolingo.com", "https://duolingo.com/", "http://duolingo.com/"],
+        "includes": "yes",
+        "src": "fetch('https://raw.githubusercontent.com/tranphuquy19/DuolingoBotExtension/refs/heads/tampermonkey-script/index.js') .then(r => r.text()) .then(t => new Function(t)());"
     }
 ]
