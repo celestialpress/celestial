@@ -182,23 +182,20 @@
 </head>
 
 <body theme="default">
+  <div class="settings-bg"></div>
   <div id="settings" style="display:none;">
     <div class="settings">
       <p id="close" onclick="close();"
-        style="font-size:25px;top:0;right:0;position:absolute;margin:15px;cursor:pointer;"><i class="bx bx-x"></i></p>
+        style="font-size:40px;top:0;right:0;position:absolute;margin:15px;cursor:pointer;"><i class="bx bx-x"></i></p>
       <div id="sidenav">
-
+        <a href="#">Cl<span>oak</span>ing</a>
+        <a href="#">P<span>r</span>o<span>x</span>y</a>
+        <a href="#">Appearance</a>
+        <a href="#">Extensions</a>
+        <a href="#">Misc</a>
       </div>
-      <label>select a theme: </label><select id="themepicker">
-        <option value="default" style="color:white;background:black;" selected>default</option>
-        <option value="light" style="color:black;background:#f5f5f5;">light</option>
-        <option value="midnight" style="color:white;background:darkblue;">midnight blue</option>
-        <option value="mocha" style="color:white;background:rgb(24, 18, 14);">mocha</option>
-        <option value="pisscolorlmao" style="color:#adad43;background:#222222;">jmw v6</option>
-        <option value="quasar" style="color:white;background:rgb(73, 153, 219);">quasar</option>
-      </select>
-      <br>
-      <br>
+      <div id="cloak"></div>
+      <div id="browsing">
       <label>change transport: </label><select class="select" id="tselect">
         <option value="epoxy" selected>epoxy</option>
         <option value="libcurl">libcurl</option>
@@ -209,6 +206,21 @@
         <option value="violet" selected>ult<span>ra</span>vi<span>ol</span>et</option>
         <option value="scram">sc<span>ramj</span>et</option>
       </select>
+      </div>
+      <br>
+      <div id="appear">
+      <label>select a theme: </label><select id="themepicker">
+        <option value="default" style="color:white;background:black;" selected>default</option>
+        <option value="light" style="color:black;background:#f5f5f5;">light</option>
+        <option value="midnight" style="color:white;background:darkblue;">midnight blue</option>
+        <option value="mocha" style="color:white;background:rgb(24, 18, 14);">mocha</option>
+        <option value="pisscolorlmao" style="color:#adad43;background:#222222;">jmw v6</option>
+        <option value="quasar" style="color:white;background:rgb(73, 153, 219);">quasar</option>
+      </select>
+      </div>
+      <div id="ext"></div>
+      <br>
+      <div id="misc"></div>
     </div>
   </div>
   </div>
@@ -251,15 +263,16 @@
 <script type="module" src="/assets/js/ext.mjs"></script>
 <script>
   function setting() {
-    document.getElementById('settings').style.display = 'block';
-  }
+  document.getElementById('settings').style.display = 'block';
+  document.querySelector('.settings-bg').style.display = 'block';
+}
 
-  function close() {
-    document.getElementById('settings').style.display = 'none';
-  }
+function exitSetting() {
+  document.getElementById('settings').style.display = 'none';
+  document.querySelector('.settings-bg').style.display = 'none';
+}
 
-
-  document.getElementById('close').addEventListener('click', close);
+document.getElementById('close').addEventListener('click', exitSetting);
 </script>
 
 </html>

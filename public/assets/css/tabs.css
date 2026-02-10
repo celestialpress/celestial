@@ -318,11 +318,13 @@ section {
 }
 
 .settings-bg {
-  filter: blur(1px);
-  background: rgba(255, 255, 255, 0.308);
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  display: none;
 }
 
 #settings {
@@ -333,20 +335,20 @@ section {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background: rgba(255, 255, 255, 0.308);
   background-size: cover;
+  z-index:999999999999999999999999;
 }
 
 .settings {
   z-index: 999999999999;
-  background: var(--pallet);
-  height: 70vh;
+  background: var(--pallet-hover);
   align-items: center;
   justify-content: center;
   text-align: center;
   width: 50vw;
   padding: 10px;
-  border: var(--border);
+  border: 1px solid var(--border);
+  height: calc(80vh - 100px);
 }
 
 select {
@@ -358,4 +360,26 @@ select {
   background: var(--button);
   color: var(--color);
   font-family: 'Inter', sans-serif;
+}
+
+#sidenav {
+  position:fixed;
+  height:100%;
+  float:left;
+  padding:17px;
+  border-right:1px solid var(--border);
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+#sidenav a {
+  color:var(--color);
+  font-size:19px;
+  width:120px;
+  padding:10px;
+  background:var(--pallet2);
+  text-decoration: none;
+  border-radius:7px;
+  border:1px solid var(--border);
 }
