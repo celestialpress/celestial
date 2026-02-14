@@ -77,7 +77,7 @@
   } from "/lithium.mjs";
 
   setWisp((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/");
-  setProxy(localStorage.getItem("pr0xy") || "violet");
+  setProxy(localStorage.getItem("pr0xy") || "scram");
   setTransport(localStorage.getItem("transportz") || "epoxy");
 
   let search =

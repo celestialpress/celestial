@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>celestial.</title>
+  <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
   <script src="/assets/js/prox.js" type="module"></script>
   <script async defer type="module">
     import { newTab, switchTab, closeTab } from "/lithium.mjs";
@@ -189,45 +190,102 @@
         style="font-size:40px;top:0;right:0;position:absolute;margin:15px;cursor:pointer;"><i class="bx bx-x"></i></p>
       <div id="sidenav">
         <a href="#cloak" onclick="show('cloak'); return false;">Cl<span>oak</span>ing</a>
-        <a href="#browsing" onclick="show('browsing'); return false;">P<span>r</span>o<span>x</span>y</a>
+        <a href="#browsing" onclick="show('browsing'); return false;">Pr<span>o</span>xy</a>
         <a href="#appear" onclick="show('appear'); return false;">Appearance</a>
         <a href="#ext" onclick="show('ext'); return false;">Extensions</a>
         <a href="#misc" onclick="show('misc'); return false;">Misc</a>
       </div>
       <div class="stuff">
+        <!--
+        <div class="box">
+            <h3>Example</h3>
+            <p class="desc">soon!</p>
+        </div>
+        -->
         <div id="cloak">
-          nothing here, yet!
+          <div class="box">
+            <h3>Cl<span>oa</span>king Options</h3>
+            <p class="desc">choose between about:blank and blob strings to stop teachers from seeing your screen & hiding your history.</p>
+            <select class="select">
+              <option value="ab">about:blank (reccommended)</option>
+              <option value="blob">blob: string</option>
+            </select>
+            <br>
+            <button onclick="launch();">open</button>
+          </div>
+          <div class="box">
+            <h3>Auto Cloak</h3>
+            <p class="desc">opens the cloak selected (at "cloaking options") selected automatically</p>
+            <label class="switch">
+              <input type="checkbox" id="toggleLeavePopup" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        <div class="box">
+            <h3>Tab Cloaking</h3>
+            <p class="desc">masks the tab as another tab to fool teachers</p>
+
+        </div>
         </div>
         <div id="browsing">
-          <label>change transport: </label><select class="select" id="tselect">
-            <option value="epoxy" selected>epoxy</option>
-            <option value="libcurl">libcurl</option>
-          </select>
-          <br>
-          <br>
-          <label>change pr<span>o</span>xy: </label><select class="select" id="pr0xySelect">
-            <option value="violet" selected>ult<span>ra</span>vi<span>ol</span>et</option>
-            <option value="scram">sc<span>ramj</span>et</option>
-          </select>
+          <div class="box">
+            <h3>Transport</h3>
+            <p class="desc">change how the pr<span>o</span>xy is handled, can lead to sites that were broken to work or
+              lead to sites that were working to break</p>
+            <label></label><select class="select" id="tselect">
+              <option value="epoxy" selected>epoxy</option>
+              <option value="libcurl">libcurl</option>
+            </select>
+          </div>
+          <div class="box">
+            <h3>Pr<span>o</span>xy</h3>
+            <p class="desc">same as the transport, can make pr<span>o</span>xy more stable</p>
+            <select class="select" id="pr0xySelect">
+              <option value="violet" selected>ul<span>tr</span>av<span>io</span>l<span>e</span>t</option>
+              <option value="scram">sc<span>ramj</span>et</option>
+            </select>
+          </div>
+          <div class="fakebox">
+            <h3> </h3>
+            <p class="desc"> </p>
+          </div>
         </div>
         <div id="appear">
-          <label>select a theme: </label><select id="themepicker">
-            <option value="default" style="color:white;background:black;" selected>default</option>
-            <option value="light" style="color:black;background:#f5f5f5;">light</option>
-            <option value="midnight" style="color:white;background:darkblue;">midnight blue</option>
-            <option value="mocha" style="color:white;background:rgb(24, 18, 14);">mocha</option>
-            <option value="pisscolorlmao" style="color:#adad43;background:#222222;">jmw v6</option>
-            <option value="quasar" style="color:white;background:rgb(73, 153, 219);">quasar</option>
-            <option value="ccm" style="color:white;background:#1A1B26;">catppuccin mocha</option>
-            <option value="frappe" style="color:#D9E0EE;background:#0D0D1F;">catppuccin frappe</option>
-            <option value="eww" style="color:white;background:pink;" disabled>secret theme...</option>
-          </select>
+          <div class="box">
+            <h3>Themes</h3>
+            <p class="desc">customize the color scheme of celestial</p>
+            <select id="themepicker">
+              <option value="default" style="color:white;background:black;" selected>default</option>
+              <option value="light" style="color:black;background:#f5f5f5;">light</option>
+              <option value="midnight" style="color:white;background:darkblue;">midnight blue</option>
+              <option value="mocha" style="color:white;background:rgb(24, 18, 14);">mocha</option>
+              <option value="pisscolorlmao" style="color:#adad43;background:#222222;">jmw v6</option>
+              <option value="quasar" style="color:white;background:rgb(73, 153, 219);">quasar</option>
+              <option value="ccm" style="color:white;background:#1A1B26;">catppuccin mocha</option>
+              <option value="frappe" style="color:#D9E0EE;background:#0D0D1F;">catppuccin frappe</option>
+              <option value="eww" style="color:white;background:pink;" disabled>secret theme...</option>
+            </select>
+          </div>
+          <div class="fakebox">
+            <h3> </h3>
+            <p class="desc"> </p>
+          </div>
+          <div class="fakebox">
+            <h3> </h3>
+            <p class="desc"> </p>
+          </div>
         </div>
         <div id="ext">
-          nothing here, yet!
+          <div class="box">
+            <h3>Example</h3>
+            <p class="desc">soon!</p>
+          </div>
         </div>
         <div id="misc">
-          nothing here, yet!
+          <div class="box">
+            <h3>Example</h3>
+            <p class="desc">soon!</p>
+          </div>
         </div>
       </div>
     </div>
@@ -244,14 +302,14 @@
   </nav>
   <div class="tabthing">
     <form id="form">
-      <a href="#" id="back" class="fc" onclick="back();"><i class="bx bx-caret-left"></i></a>
-      <a href="#" id="reload" class="fc" onclick="reload();"><i class="bx bx-revision"></i></a>
-      <a href="#" id="forward" class="fc" onclick="forward();"><i class="bx bx-caret-right"></i></a>
+      <a id="back" class="fc" onclick="back();"><i class="bx bx-caret-left"></i></a>
+      <a id="reload" class="fc" onclick="reload();"><i class="bx bx-revision"></i></a>
+      <a id="forward" class="fc" onclick="forward();"><i class="bx bx-caret-right"></i></a>
       <input id="address" type="text" placeholder="Search privately.." onfocus="this.select()" class="search"
         autocomplete="off" />
-      <a href="#" id="inspect" class="fc" onclick="inspect();"><i class="bx bx-code-alt"></i></a>
-      <a href="#" id="fullscreen" class="fc" onclick="full();"><i class="bx bx-fullscreen"></i></a>
-      <a href="#" id="custom" class="fc" onclick="setting();"><i class="bx bx-dots-vertical"></i></a>
+      <a id="inspect" class="fc" onclick="inspect();"><i class="bx bx-code-alt"></i></a>
+      <a id="fullscreen" class="fc" onclick="full();"><i class="bx bx-fullscreen"></i></a>
+      <a id="custom" class="fc" onclick="setting();"><i class="bx bx-dots-vertical"></i></a>
     </form>
     <section id="frames"></section>
   </div>
