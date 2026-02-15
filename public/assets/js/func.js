@@ -1,4 +1,4 @@
-
+document.title = "celestial.";
 
 // self-explanitory
 

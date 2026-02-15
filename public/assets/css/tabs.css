@@ -349,7 +349,7 @@ section {
 }
 
 select {
-  width: 100px;
+  width: 110px;
   padding: 5px 5px 5px;
   outline: none;
   border: none;
@@ -431,6 +431,7 @@ select {
   box-sizing:border-box;
   display:flex;
   flex-direction:column;
+  gap:8px;
 }
 
 .fakebox {
