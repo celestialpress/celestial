@@ -387,16 +387,25 @@ select {
 }
 
 #sidenav a {
-  color:var(--color);
-  font-size:19px;
-  width:120px;
-  padding:10px;
-  background:var(--pallet2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color);
+  font-size: 15px;
+  width: 125px;
+  padding: 7px;
+  background: var(--pallet2);
   text-decoration: none;
-  border-radius:7px;
-  border:1px solid var(--border);
-  text-align:center;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  text-align: center;
 }
+
+#sidenav a i {
+  font-size: 16px;
+  margin:5px;
+}
+
 
 #browsing, #appear, #ext, #misc {
   display: none;
@@ -449,15 +458,29 @@ select {
   gap:8px;
 }
 
+.line, #extList {
+  border-top: 1px solid var(--border);
+}
+
 .fakebox {
   padding:20px;
-  height:250px;
+  height:450px;
   min-width: calc(100vw - (100vw - 500px));
   flex-shrink:0;
   box-sizing:border-box;
   display:flex;
   flex-direction:column;
-  gap:7px;
+  gap:1px;
+}
+
+.fakebox p a, .box a {
+  color: var(--color);
+  text-decoration: underline;
+  margin:0;
+}
+
+.fakebox h3 {
+  margin:0;
 }
 
 .box h3 {
@@ -560,7 +583,7 @@ button {
 }
 
 #extCode {
-    width: 100%;
+    width: 450px;
     min-height: 200px;
     padding: 10px;
     border-radius: 8px;

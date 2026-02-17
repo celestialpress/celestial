@@ -17,3 +17,4 @@
 - Coding4Hours - Lithium, Anti-Deledao (and emotional support)
 - Pyrus - Middleware Adblocker
 - Slqntdevss - Barebones injection for extension
+- Kindkid27 - Game Favoriting
