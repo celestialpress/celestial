@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drew's Learning Academy | Edison, NJ</title>
-    <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
-    <meta name="Drew's Learning Academy">
-    <meta content="Drew's Learning Academy | Edison, NJ" property="og:title">
-    <meta
-        content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success.">
+  <link id="favicon" rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
+  <meta name="Drew's Learning Academy">
+  <meta content="Drew's Learning Academy | Edison, NJ" property="og:title">
+  <meta
+    content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success.">
   <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
   <script src="/assets/js/prox.js" type="module"></script>
   <script async defer type="module">
@@ -188,21 +188,21 @@
 </head>
 
 <body theme="default">
-      <div style="display:none;">
-        <h1>What is Drew's Learning Academy?</h1>
-        <p>Drew’s Learning Academy is a modern educational center focused on helping students build strong academic
-            foundations. It offers a structured environment where learners can develop skills in reading, writing, math,
-            and critical thinking.</p>
+  <div style="display:none;">
+    <h1>What is Drew's Learning Academy?</h1>
+    <p>Drew’s Learning Academy is a modern educational center focused on helping students build strong academic
+      foundations. It offers a structured environment where learners can develop skills in reading, writing, math,
+      and critical thinking.</p>
 
-        <h1>How does Drew's Learning Academy teach students?</h1>
-        <p>The academy uses small group sessions and personalized instruction to make sure every student gets the
-            attention they need. Teachers adjust lessons based on each student’s pace, making the experience more
-            effective and enjoyable.</p>
+    <h1>How does Drew's Learning Academy teach students?</h1>
+    <p>The academy uses small group sessions and personalized instruction to make sure every student gets the
+      attention they need. Teachers adjust lessons based on each student’s pace, making the experience more
+      effective and enjoyable.</p>
 
-        <h1>Why is Drew's Learning Academy beneficial?</h1>
-        <p>Beyond academics, Drew’s Learning Academy encourages good study habits and long-term growth. Students learn
-            how to stay organized, manage time, and approach challenges with a positive mindset.</p>
-    </div>
+    <h1>Why is Drew's Learning Academy beneficial?</h1>
+    <p>Beyond academics, Drew’s Learning Academy encourages good study habits and long-term growth. Students learn
+      how to stay organized, manage time, and approach challenges with a positive mindset.</p>
+  </div>
   <div class="settings-bg"></div>
   <div id="settings" style="display:none;">
     <div class="settings">
@@ -225,7 +225,8 @@
         <div id="cloak">
           <div class="box">
             <h3>Cl<span>oa</span>king Options</h3>
-            <p class="desc">choose between about:blank, about:blank buffed (recommended), and blob strings to stop teachers from seeing your screen & hiding your history.</p>
+            <p class="desc">choose between about:blank, about:blank buffed (recommended), and blob strings to stop
+              teachers from seeing your screen & hiding your history.</p>
             <select class="select" id="cloakSelect">
               <option value="ab">about:blank</option>
               <option value="abbuff">about:blank [buffed]</option>
@@ -241,11 +242,34 @@
               <span class="slider"></span>
             </label>
           </div>
-        <div class="box">
+          <div class="box">
             <h3>Tab Cloaking</h3>
             <p class="desc">masks the tab as another tab to fool teachers</p>
-
-        </div>
+            <select class="select" id="tabCloak" onchange="applyPreset()">
+              <option value="" selected>none</option>
+              <option value="google">google</option>
+              <option value="schoology">schoology</option>
+              <option value="khan">khan academy</option>
+              <option value="clever">clever</option>
+              <option value="gc">google classroom</option>
+              <option value="nt">new tab</option>
+            </select>
+            <input type="text" id="titleInput" placeholder="title">
+            <input type="url" id="faviconInput" placeholder="favicon">
+            <div class="wrap">
+              <button onclick="applyCloak()">apply</button>
+              <button onclick="resetCloak()">reset</button>
+            </div>
+          </div>
+          <div class="box">
+            <h3>Switch Cloak</h3>
+            <p class="desc">when you switch tabs, the cloak will turn on, but if you switch back, it will turn off, will
+              be whatever you picked for "tab cloaking" but default it will be google slides :p</p>
+            <label class="switch">
+              <input type="checkbox" id="switchTog" />
+              <span class="slider"></span>
+            </label>
+          </div>
         </div>
         <div id="browsing">
           <div class="box">
@@ -284,6 +308,7 @@
               <option value="ccm" style="color:white;background:#1A1B26;">catppuccin mocha</option>
               <option value="frappe" style="color:#D9E0EE;background:#0D0D1F;">catppuccin frappe</option>
               <option value="eww" style="color:white;background:pink;" disabled>secret theme...</option>
+              <option value="chad" style="color:white;background:red;" disabled>secret theme 2...</option>
             </select>
           </div>
           <div class="fakebox">
@@ -297,8 +322,23 @@
         </div>
         <div id="ext">
           <div class="box">
-            <h3>Example</h3>
-            <p class="desc">soon!</p>
+            <h3>Extensions</h3>
+            <p class="desc">insert custom scripts into sites you visit. kinda like bookmarklets. current extensions are
+              kahoax and autolingo.</p>
+          </div>
+          <div class="fakebox">
+            <textarea id="" placeholder="javascript code here"></textarea>
+            <div class="wrap">
+              <input type="text" id="siteInject" placeholder="site that's affected (e.g. 'google.com')">
+              <button id="addExtBtn">add</button>
+            </div>
+            <label>
+              <input type="checkbox" id="includeEverywhere"> include everywhere
+            </label>
+            <label>
+              <input type="checkbox" id="includesCheckbox"> includes url
+            </label>
+            <div id="extList"></div>
           </div>
         </div>
         <div id="misc">
@@ -310,15 +350,13 @@
       </div>
     </div>
   </div>
-  </div>
-  </div>
   <nav>
     <div id="tabs">
-    </div>
-    <button id="new-tab-btn" aria-label="new tab" title="new tab">
+      <button id="new-tab-btn" aria-label="new tab" title="new tab">
 
-      <i class='bx bx-plus'></i>
-    </button>
+        <i class='bx bx-plus'></i>
+      </button>
+    </div>
   </nav>
   <div class="tabthing">
     <form id="form">
@@ -347,7 +385,8 @@
 <script src="/assets/js/s.js"></script>
 <script src="/assets/js/picker.js"></script>
 <script src="/assets/js/func.js"></script>
-<script src="/assets/js/tabsmain.js"></script>
+<script src="/assets/js/tabsmain.mjs" type="module"></script>
+<script src="/assets/js/userscript.mjs" type="module"></script>
 <script type="module" src="/assets/js/ext.mjs"></script>
 <script>
   function setting() {

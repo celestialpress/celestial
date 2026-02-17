@@ -46,6 +46,13 @@ onkeydown = e => {
             t = "";
             location.reload();
         }
+        if (t.endsWith("gnmath")) {
+            alert(`W gn-math ❤‍🩹`)
+            document.body.setAttribute("theme", "chad");
+            localStorage.setItem("theme", "chad");
+            t = "";
+            location.reload();
+        }
         if (t.length > 20) t = t.slice(-20);
     }
 };
@@ -62,7 +69,6 @@ function launch(v) {
     if (v === "abbuff") func = abbuff;
     if (!func) return;
     func();
-    location.replace("https://google.com");
 }
 
 function launchCloak() {
@@ -104,22 +110,17 @@ function ab() {
 }
 
 function blob() {
-    const url = URL.createObjectURL(new Blob(
-        [`<title>&#8203;</title><iframe src="https://${location.host}/index.html" style="position:fixed;inset:0;width:100%;height:100%;border:none"></iframe>`],
-        { type: "text/html" }
-    ));
-    const win = window.open(url, "_blank");
-    return win;
+    const w = open("about:blank", "_blank");
+    if (!w) return;
+    w.document.write(`<!DOCTYPE html><title>&#8203;</title><iframe src="https://${location.host}/index.html" style="position:fixed;inset:0;width:100%;height:100%;border:none"></iframe>`);
     location.replace("https://google.com");
 }
 
 function abbuff() {
-    const myWindow1 = window.open("", "myWindow1", "scrollbars=1,height=" + screen.availHeight + ",width=" + screen.availWidth);
-    if (!myWindow1 || myWindow1.closed) return;
-    myWindow1.document.write(
-        '<!DOCTYPE html>\n<title>about:blank</title><link rel="icon" href="https://ssl.gstatic.com/classroom/favicon.png"/><link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png"/>\n<p><iframe src="https://'+window.location.host+'" frameborder="0" style="overflow:hidden;height:100%;width:100%;position:absolute;top:0;left:0;right:0;bottom:0" height="100%" width="100%"></iframe>'
-    );
-    location.replace("https://google.com");
+    const w = open("about:blank", "_blank", `width=${screen.availWidth},height=${screen.availHeight}`);
+    if (!w) return;
+
+    w.document.write(`<!DOCTYPE html><title>about:blank</title><link rel="icon" href="https://ssl.gstatic.com/classroom/favicon.png"><style>html,body{margin:0;height:100%}</style><iframe src="https://${location.host}/index.html" style="position:fixed;inset:0;width:100%;height:100%;border:none"></iframe><script>if(!window.__done){window.__done=1;setTimeout(()=>opener.location.replace("https://google.com"),100)}<\/script>`);
 }
 
 window.addEventListener("load", () => {
@@ -127,10 +128,127 @@ window.addEventListener("load", () => {
 });
 
 // tab cloak
-// soon lmao
+// stolen from jmw lite & rewritten
+let initialTitle = 'celestial';
+let initialFavicon = document.getElementById('favicon').href;
+
+const presets = {
+    google: { title: "Google", favicon: "https://www.google.com/favicon.ico" },
+    khan: { title: "Khan Academy", favicon: "https://khanacademy.org/favicon.ico" },
+    schoology: { title: "Schoology", favicon: "https://www.powerschool.com/favicon.ico" },
+    gc: { title: "Home - Classroom", favicon: "https://ssl.gstatic.com/classroom/favicon.png" },
+    clever: { title: "Clever | Portal", favicon: "https://clever.com/favicon.ico" },
+    nt: { title: "New Tab", favicon: "/assets/img/logo.png" }
+};
+
+function applyCloak() {
+    const title = document.getElementById('titleInput').value;
+    const favicon = document.getElementById('faviconInput').value;
+    if (title) document.title = title, localStorage.setItem('savedTitle', title);
+    if (favicon) updateFavicon(favicon.startsWith('https://') ? favicon : 'https://' + favicon), localStorage.setItem('savedFavicon', favicon);
+}
+
+function resetCloak() {
+    document.title = initialTitle;
+    updateFavicon(initialFavicon);
+    ['titleInput','faviconInput','tabCloak'].forEach(id => document.getElementById(id).value = '');
+    localStorage.removeItem('savedTitle');
+    localStorage.removeItem('savedFavicon');
+}
+
+function applyPreset() {
+    const preset = presets[document.getElementById('tabCloak').value];
+    if (preset) {
+        document.getElementById('titleInput').value = preset.title;
+        document.getElementById('faviconInput').value = preset.favicon;
+        applyCloak();
+    }
+}
+
+function updateFavicon(url) {
+    const old = document.getElementById('favicon');
+    if (old) old.remove();
+    const link = document.createElement('link');
+    link.id = 'favicon';
+    link.rel = 'icon';
+    link.href = url;
+    document.head.appendChild(link);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const title = localStorage.getItem('savedTitle');
+    const favicon = localStorage.getItem('savedFavicon');
+    if (title) document.title = title, document.getElementById('titleInput').value = title;
+    if (favicon) updateFavicon(favicon), document.getElementById('faviconInput').value = favicon;
+});
+// switch cloak
+var savedTitle = '';
+var savedFavicon = '';
+var toggle;
+
+function updateFavicon(url) {
+    var old = document.getElementById('favicon');
+    if (old) old.remove();
+    var link = document.createElement('link');
+    link.id = 'favicon';
+    link.rel = 'icon';
+    link.href = url;
+    document.head.appendChild(link);
+}
+
+function switchCloak() {
+    if (document.hidden) {
+        savedTitle = document.title;
+        savedFavicon = document.getElementById('favicon') ? document.getElementById('favicon').href : '/assets/img/logo.png';
+
+        var currentTitle = localStorage.getItem('savedTitle');
+        var currentFavicon = localStorage.getItem('savedFavicon');
+
+        if (currentTitle && currentFavicon) {
+            document.title = currentTitle;
+            updateFavicon(currentFavicon);
+        } else {
+            document.title = 'Google Slides';
+            updateFavicon('https://ssl.gstatic.com/docs/presentations/images/favicon-2023q4.ico');
+        }
+
+        localStorage.setItem('switchCloakTitle', document.title);
+        localStorage.setItem('switchCloakFavicon', document.querySelector('#favicon')?.href || '');
+    } else {
+        document.title = 'celestial.';
+        updateFavicon('/assets/img/logo.png');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    toggle = document.getElementById('switchTog');
+    if (!toggle) return;
+
+    var stored = localStorage.getItem('switchCloakOn');
+    if (stored === 'true') {
+        toggle.checked = true;
+        document.title = 'celestial.';
+        updateFavicon('/assets/img/logo.png');
+        document.addEventListener('visibilitychange', switchCloak);
+    }
+
+    toggle.onchange = function() {
+        if (toggle.checked) {
+            localStorage.setItem('switchCloakOn', 'true');
+            document.title = 'celestial.';
+            updateFavicon('/assets/img/logo.png');
+            document.addEventListener('visibilitychange', switchCloak);
+        } else {
+            localStorage.setItem('switchCloakOn', 'false');
+            document.removeEventListener('visibilitychange', switchCloak);
+            document.title = localStorage.getItem('savedTitle') || 'celestial.';
+            updateFavicon(localStorage.getItem('savedFavicon') || '/assets/img/logo.png');
+        }
+    };
+});
 
 // extensions
-// also soon
+// will be in seperate module file, since it requires module-js because module.
 
 // misc
 // also soon

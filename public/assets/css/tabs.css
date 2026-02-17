@@ -1,6 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 @import url('/assets/css/theme.css');
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--color);
+}
+
 body {
   color: var(--color);
   background: var(--background);
@@ -102,9 +117,9 @@ nav {
   font-size: 18px;
   color: var(--color);
   position: absolute;
-  top: 10px;
-  right: 10px;
   transition: 0.5s;
+  top:10px;
+  right:10px;
 }
 
 #new-tab-btn:hover {
@@ -425,7 +440,7 @@ select {
   border-bottom:0.9px solid var(--border);
   padding:20px;
   height:auto;
-  max-height:250px;
+  max-height:260px;
   min-width:500px;
   flex-shrink:0;
   box-sizing:border-box;
@@ -442,6 +457,7 @@ select {
   box-sizing:border-box;
   display:flex;
   flex-direction:column;
+  gap:7px;
 }
 
 .box h3 {
@@ -502,7 +518,7 @@ input:checked + .slider::before {
 button {
     width:auto;
     border-radius:5px;
-    padding:5px;
+    padding:7px;
     background:var(--button);
     color:var(--color);
     border:none;
@@ -511,4 +527,60 @@ button {
     text-align:center;
     max-width:100px;
     cursor:pointer;
+}
+
+#titleInput, #faviconInput{
+    width: 150px;
+    padding: 5px 5px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: var(--pallet2);
+    color: var(--color);
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: 0.2s;
+}
+
+#siteInject {
+    width: 259px;
+    padding: 7px 5px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: var(--pallet2);
+    color: var(--color);
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: 0.2s;
+}
+
+#customcloak:focus, #cfaviconcloak:focus, #siteInject:focus {
+    background: #181818;
+}
+
+#extCode {
+    width: 100%;
+    min-height: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    outline: none;
+    background: var(--input);
+    color: var(--color);
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    resize: vertical;
+    box-sizing: border-box;
+    line-height: 1.5;
+    transition: 0.2s;
+}
+
+#extCode:focus {
+    border-color: var(--color);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.wrap {
+    flex-direction: row;
 }

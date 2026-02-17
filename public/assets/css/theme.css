@@ -108,3 +108,13 @@ body[theme="eww"] {
   --bg-match: #4a4a4a71;
 }
 
+body[theme="chad"] {
+  --background: #0f172a;
+  --color: #f8fafc;
+  --pallet: #330517;
+  --pallet-hover: #4d0a27;
+  --button: #fc2651;
+  --border: #640228;
+  --input: rgba(252, 38, 81, 0.1);
+  --pallet2: #1a0b12;
+}

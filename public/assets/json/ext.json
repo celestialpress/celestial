@@ -7,7 +7,7 @@
     },
     {
         "name": "example",
-        "website": ["example.com"],
+        "website": ["example.org"],
         "includes": "no",
         "src": "alert('trademark celestial raviola family on bottom!');"
     },
