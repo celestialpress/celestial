@@ -24,7 +24,9 @@
 
 #### But for now, we'll use alerts.
 #### Looking in the 'paste javascript code' area, we can add a code called alert. Copy below:
-```alert('official example');```
+```javascript
+alert('official example');
+```
 <h1 align="center"><img width="600" src="public/assets/img/wiki/img2.png" /></h1>
 
 #### Then, enter a site in the input and press the 'add' button, leave the input blank to apply the script to all sites.
