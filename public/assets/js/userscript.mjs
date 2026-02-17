@@ -1,85 +1,167 @@
-// custom userscripts aka extensions but the user can put their own yipee!!
+// this is basically ext.mjs but the user can do it yipee!
 import { currentFrame } from "/lithium.mjs";
 
 window.addExt = addExt;
 window.removeExt = removeExt;
 
-function extList() {
-  const list = document.getElementById('extList');
-  list.innerHTML = '';
-  const exts = JSON.parse(localStorage.getItem('customExts') || '[]');
-  exts.forEach((ext, index) => {
-    const item = document.createElement('div');
-    item.className = 'extItem';
-    const includesText = ext.includes === 'yes' ? 'yes' : 'no';
-    const everywhereText = ext.includeEverywhere === 'yes' ? 'yes' : 'no';
-    item.innerHTML = `<span>${ext.site || 'all sites'} (includes: ${includesText}, everywhere: ${everywhereText})</span>
-                      <button onclick="removeExt(${index})">remove</button>`;
-    list.appendChild(item);
-  });
-}
-
-function addExt() {
-  const code = document.getElementById('extCode').value.trim();
-  const site = document.getElementById('siteInject').value.trim();
-  const includeEverywhere = document.getElementById('includeEverywhere').checked ? 'yes' : 'no';
-  const includes = document.getElementById('includesCheckbox').checked ? 'yes' : 'no';
-  if (!code) return alert('code cannot be empty');
-
-  const exts = JSON.parse(localStorage.getItem('customExts') || '[]');
-  exts.push({ code, site, includeEverywhere, includes });
-  localStorage.setItem('customExts', JSON.stringify(exts));
-
-  document.getElementById('extCode').value = '';
-  document.getElementById('siteInject').value = '';
-  document.getElementById('includeEverywhere').checked = false;
-  document.getElementById('includesCheckbox').checked = false;
-  document.getElementById('siteInject').disabled = false;
-  document.getElementById('siteInject').style.cursor = 'text';
-
-  extList();
-}
-
-function removeExt(index) {
-  const exts = JSON.parse(localStorage.getItem('customExts') || '[]');
-  exts.splice(index, 1);
-  localStorage.setItem('customExts', JSON.stringify(exts));
-  extList();
-}
-
 const siteInput = document.getElementById('siteInject');
 const includeEverywhere = document.getElementById('includeEverywhere');
+const addBtn = document.getElementById('addExtBtn');
+
+let db;
+const request = indexedDB.open("customExtDB", 1);
+request.onupgradeneeded = e => {
+  db = e.target.result;
+  if (!db.objectStoreNames.contains("extensions")) {
+    db.createObjectStore("extensions", { keyPath: "id", autoIncrement: true });
+  }
+};
+request.onsuccess = e => {
+  db = e.target.result;
+  extList();
+};
+request.onerror = e => console.error("IndexedDB error:", e);
 
 includeEverywhere.addEventListener('change', () => {
-  if (includeEverywhere.checked) {
-    siteInput.value = ''; // CLEAR the URL input
-  }
+  siteInput.value = '';
   siteInput.disabled = includeEverywhere.checked;
   siteInput.style.cursor = includeEverywhere.checked ? 'not-allowed' : 'text';
 });
 
-window.addEventListener('DOMContentLoaded', () => {
-  extList();
+function extList() {
+  if (!db) return;
+  const list = document.getElementById('extList');
+  list.innerHTML = '';
+  const tx = db.transaction("extensions", "readonly");
+  const store = tx.objectStore("extensions");
+  store.openCursor().onsuccess = e => {
+    const cursor = e.target.result;
+    if (cursor) {
+      const ext = cursor.value;
+      const item = document.createElement('div');
+      item.className = 'extItem';
+      const includesText = ext.includes === 'yes' ? 'yes' : 'no';
+      const everywhereText = ext.allsites === 'yes' ? 'yes' : 'no';
+      const siteText = ext.website?.join(', ') || 'all sites';
+      item.innerHTML = `<span>${siteText} (includes: ${includesText}, everywhere: ${everywhereText})</span>
+                        <button onclick="removeExt(${ext.id})">remove</button>`;
+      list.appendChild(item);
+      cursor.continue();
+    }
+  };
+}
 
-  if (!currentFrame) return;
+function addExt() {
+  if (!db) return;
+  const code = document.getElementById('extCode').value.trim();
+  if (!code) return alert('code cannot be empty');
 
-  currentFrame.addEventListener("load", () => {
-    const url = currentFrame.dataset.displayUrl;
-    const exts = JSON.parse(localStorage.getItem('customExts') || '[]');
+  const ext = {
+    website: includeEverywhere.checked ? [] : (siteInput.value ? [siteInput.value] : []),
+    includes: document.getElementById('includesCheckbox').checked ? 'yes' : 'no',
+    allsites: includeEverywhere.checked ? 'yes' : 'no',
+    src: code
+  };
 
-    exts.forEach(e => {
-      const sites = [].concat(e.site);
+  const tx = db.transaction("extensions", "readwrite");
+  const store = tx.objectStore("extensions");
+  store.add(ext).onsuccess = () => {
+    document.getElementById('extCode').value = '';
+    siteInput.value = '';
+    document.getElementById('includesCheckbox').checked = false;
+    includeEverywhere.checked = false;
+    siteInput.disabled = false;
+    siteInput.style.cursor = 'text';
+    extList();
+    injectExtensions(currentFrame);
+  };
+}
 
-      let inject = false;
-      if (e.includeEverywhere === 'yes') inject = true;
-      else if (e.includes === 'yes') inject = sites.some(s => url.includes(s));
-      else inject = sites.includes(new URL(url).hostname);
+function removeExt(id) {
+  if (!db) return;
+  const tx = db.transaction("extensions", "readwrite");
+  tx.objectStore("extensions").delete(id).onsuccess = () => {
+    extList();
+    injectExtensions(currentFrame);
+  };
+}
 
-      if (inject && currentFrame.contentDocument) {
-        const s = currentFrame.contentDocument.createElement("script");
-        s.textContent = e.code;
-        currentFrame.contentDocument.body.prepend(s);
-      }
+function getAllExts(callback) {
+  if (!db) return callback([]);
+  const tx = db.transaction("extensions", "readonly");
+  const store = tx.objectStore("extensions");
+  const exts = [];
+  store.openCursor().onsuccess = e => {
+    const cursor = e.target.result;
+    if (cursor) {
+      exts.push(cursor.value);
+      cursor.continue();
+    } else callback(exts);
+  };
+}
+
+function injectExtensions(frame) {
+  if (!frame) return;
+
+  const tryInject = () => {
+    if (!frame.contentDocument?.body) {
+      requestAnimationFrame(tryInject);
+      return;
+    }
+
+    const url = frame.dataset.displayUrl || '';
+    const hostname = new URL(url, location.origin).hostname;
+
+    getAllExts(exts => {
+      exts.forEach(ext => {
+        const sites = Array.isArray(ext.website) ? ext.website : [];
+        let inject = false;
+
+        // Inject only if this frame matches the rule
+        if (ext.allsites === 'yes') inject = true;
+        else if (ext.includes === 'yes') inject = sites.some(s => url.includes(s));
+        else inject = sites.includes(hostname);
+
+        if (inject) {
+          const alreadyInjected = Array.from(frame.contentDocument.scripts)
+            .some(s => s.textContent === ext.src);
+          if (!alreadyInjected) {
+            const s = frame.contentDocument.createElement('script');
+            s.textContent = ext.src;
+            frame.contentDocument.body.prepend(s);
+          }
+        }
+      });
     });
-  });
+  };
+
+  tryInject();
+}
+
+function watchFrameURL(frame) {
+  if (!frame) return;
+
+  let lastURL = frame.dataset.displayUrl || '';
+
+  const checkURL = () => {
+    const url = frame.dataset.displayUrl || '';
+    if (url !== lastURL) {
+      lastURL = url;
+      injectExtensions(frame);
+    }
+    requestAnimationFrame(checkURL);
+  };
+
+  checkURL();
+}
+
+// call this once on page load
+if (currentFrame) watchFrameURL(currentFrame);
+
+if (addBtn) addBtn.addEventListener('click', addExt);
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (!currentFrame) return;
+  currentFrame.addEventListener('load', () => injectExtensions(currentFrame));
+  injectExtensions(currentFrame);
 });

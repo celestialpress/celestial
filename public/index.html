@@ -327,7 +327,9 @@
               kahoax and autolingo.</p>
           </div>
           <div class="fakebox">
-            <textarea id="" placeholder="javascript code here"></textarea>
+            <h3>Userscripts</h3>
+            <p class="desc">add custom javascript to sites you visit. [do not put script while being on the website, otherwise it will break!]</p>
+            <textarea id="extCode" placeholder="javascript code here"></textarea>
             <div class="wrap">
               <input type="text" id="siteInject" placeholder="site that's affected (e.g. 'google.com')">
               <button id="addExtBtn">add</button>
@@ -336,7 +338,7 @@
               <input type="checkbox" id="includeEverywhere"> include everywhere
             </label>
             <label>
-              <input type="checkbox" id="includesCheckbox"> includes url
+              <input checked type="checkbox" id="includesCheckbox"> includes url (recommended)
             </label>
             <div id="extList"></div>
           </div>
