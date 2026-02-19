@@ -1,4 +1,12 @@
-[
+[   
+    {
+		"name": "!! SUGGEST A GAME",
+        "img": "/assets/img/gms/!!suggest.png",
+        "type": "exclusive",
+		"url": "https://forms.google.com",
+        "categories": ["other"],
+        "source": "proxied"
+	},
     {
 		"name": "Deltarune",
         "img": "/assets/img/gms/deltarune.png",
@@ -21,7 +29,7 @@
         "type": "regular",
 		"url": "https://prod-web-pool.miniclip.com/mc?localmc",
         "categories": ["sports", "strategy"],
-        "source": "proxixed"
+        "source": "proxied"
 	},
     {
 		"name": "1 on 1 Soccer",
@@ -85,6 +93,14 @@
         "type": "exclusive",
 		"url": "/assets/src/vice/index.html#vicecity",
         "categories": ["adventure", "sandbox"],
+        "source": "local"
+	},
+    {
+		"name": "Five Nights At Freddy's",
+        "img": "/assets/img/gms/fnaf.png",
+        "type": "exclusive",
+		"url": "/assets/src/fnaf/1/index.html#fnaf",
+        "categories": ["horror"],
         "source": "local"
 	}
 ]
