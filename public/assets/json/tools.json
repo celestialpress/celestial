@@ -175,7 +175,7 @@
 	},
     {
 		"name": "Newgrounds",
-        "img": "/assets/img/tls/grammarly.png",
+        "img": "/assets/img/tls/newgrounds.png",
 		"url": "https://newgrounds.com",
         "categories": ["sm", "other"]
 	},

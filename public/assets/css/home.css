@@ -180,8 +180,24 @@ body[theme="eww"] .gridthing {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display:none;
+    object-fit: contain;
+    display: none;
+    z-index: 9999999;
+    overflow: hidden;
+}
+
+.params::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(128, 128, 128);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+}
+
+.params video {
+    position: relative;
+    z-index: 2;
 }
 
 .bg-match {

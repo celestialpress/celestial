@@ -342,5 +342,125 @@
 		"url": "https://kdata1.com/2022/12/super-dark-deception/?kbhgames",
         "categories": ["horror"],
         "source": "proxied"
+	},
+    {
+		"name": "99 Nights In The Forest",
+        "img": "/assets/img/gms/99-nights-forest.png",
+        "type": "exclusive",
+		"url": "https://db.quackprep.org/html/99_nights_in_the_forest/",
+        "categories": ["horror"],
+        "source": "proxied"
+	},
+    {
+        "name": "The Legend of Zelda: Ocarina of Time",
+        "img": "/assets/img/gms/oot.png",
+        "type": "exclusive",
+        "url": "/assets/src/emulated/n64/zelda/oot/index.html#oot",
+        "categories": ["adventure", "rpg"],
+        "source": "local"
+    },
+    {
+        "name": "The Legend of Zelda: Majora's Mask",
+        "img": "/assets/img/gms/mm.png",
+        "type": "exclusive",
+        "url": "/assets/src/emulated/n64/zelda/mm/index.html#mm",
+        "categories": ["adventure", "rpg"],
+        "source": "local"
+    },
+    {
+        "name": "A Dance Of Fire and Ice",
+        "img": "/assets/img/gms/adofai.png",
+        "type": "exclusive",
+        "url": "/assets/src/adofai/index.html#adofai",
+        "categories": ["rhythm", "indie"],
+        "source": "local"
+    },
+    {
+		"name": "",
+        "img": "/assets/img/gms/.png",
+        "type": "exclusive",
+		"url": "",
+        "categories": [""],
+        "source": ""
+	},
+    {
+        "name": "The Legend of Zelda: Breath of the Wild",
+        "img": "/assets/img/gms/botw.png",
+        "type": "exclusive",
+        "url": "/assets/src/emulated/n64/zelda/botw/index.html#botw",
+        "categories": ["adventure", "rpg"],
+        "source": "local"
+    },
+    {
+		"name": "Untitled Goose Game",
+        "img": "/assets/img/gms/ugg.png",
+        "type": "exclusive",
+		"url": "/assets/src/ugg/index.html#ugg",
+        "categories": ["puzzle", "indie"],
+        "source": "local"
+	},
+    {
+        "name": "The Legend of Zelda: Link's Awakening",
+        "img": "/assets/img/gms/la.png",
+        "type": "exclusive",
+        "url": "/assets/src/emulated/n64/zelda/la/index.html#la",
+        "categories": ["adventure", "rpg"],
+        "source": "local"
+    },
+    {
+        "name": "The Legend of Zelda: A Link to the Past",
+        "img": "/assets/img/gms/altp.png",
+        "type": "exclusive",
+        "url": "/assets/src/emulated/n64/zelda/altp/index.html#altp",
+        "categories": ["adventure"],
+        "source": "local"
+    },
+    {
+		"name": "Clover Pit",
+        "img": "/assets/img/gms/clover-pit.png",
+        "type": "exclusive",
+		"url": "/assets/src/clover-pit/index.html#clover-pit",
+        "categories": ["puzzle", "horror"],
+        "source": "local"
+	},
+    {
+        "name": "The Legend of Zelda: Phantom Hourglass",
+        "img": "/assets/img/gms/ph.png",
+        "type": "exclusive",
+        "url": "/assets/src/emulated/n64/zelda/ph/index.html#ph",
+        "categories": ["adventure", "rpg"],
+        "source": "local"
+    },
+    {
+        "name": "The Legend of Zelda: Spirit Tracks",
+        "img": "/assets/img/gms/st.png",
+        "type": "exclusive",
+        "url": "/assets/src/emulated/n64/zelda/st/index.html#st",
+        "categories": ["adventure", "rpg"],
+        "source": "local"
+    },
+    {
+		"name": "Sandboxels",
+        "img": "/assets/img/tls/sbx.png",
+        "type": "exclusive",
+		"url": "https://sandboxels.r74n.com/",
+        "categories": ["sandbox"],
+        "source": "proxied"
+	},
+    {
+        "name": "Iron Lung",
+        "img": "/assets/img/gms/iron-lung.png",
+        "type": "exclusive",
+        "url": "/assets/src/iron-lung/index.html#iron-lung",
+        "categories": ["horror"],
+        "source": "local"
+    },
+    {
+		"name": "Danganronpa",
+        "img": "/assets/img/gms/danganronpa.png",
+        "type": "exclusive",
+		"url": "/assets/src/emulated/psp/danganronpa/index.html#danganronpa",
+        "categories": ["horror", "mystery"],
+        "source": "local"
 	}
 ]

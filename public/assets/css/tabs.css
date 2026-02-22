@@ -316,8 +316,8 @@ section {
 
 .searchframe {
   width: 100%;
-  height: calc(100vh - 120px);
-  min-height: calc(100vh - 120px);
+  height: calc(100dvh - 120px);
+  min-height: calc(100dvh - 120px);
   border: none;
   border-radius: 7px;
 }
