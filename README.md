@@ -14,6 +14,8 @@
 ## Run your own instance
 [![Deploy to Render](https://binbashbanana.github.io/deploy-buttons/buttons/remade/render.svg)](https://render.com/deploy?repo=https://github.com/JustJxrdanWasDefinetlyTaken/celestial)
 
+> keep in mind you may get banned for hosting this, but we will come with a better bypass soon
+
 > to find out how to self-host it, please look at the <a href="https://github.com/JustJxrdanWasDefinetlyTaken/celestial/blob/main/wiki.md">wiki</a> for details
 
 ## Credits:
