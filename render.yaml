@@ -1,0 +1,6 @@
+ services:
+  - type: web
+    name: education-4-all
+    env: node
+    plan: free
+    startCommand: npm install && npm run build && node server.js
