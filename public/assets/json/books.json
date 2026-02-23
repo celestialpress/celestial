@@ -1,13 +1,5 @@
 [   
     {
-		"name": "!! SUGGEST A GAME",
-        "img": "/assets/img/gms/!!suggest.png",
-        "type": "exclusive",
-		"url": "https://forms.gle/ELsciiPdpuofGk4v8",
-        "categories": ["other"],
-        "source": "proxied"
-	},
-    {
 		"name": "Deltarune",
         "img": "/assets/img/gms/deltarune.png",
         "type": "exclusive",
@@ -660,7 +652,7 @@
         "img": "/assets/img/gms/ut.png",
         "type": "exclusive",
 		"url": "/assets/src/ut/index.html#undertale",
-        "categories": ["adventure", "indie", "port"],
+        "categories": ["adventure", "indie", "port", "rpg"],
         "source": "local"
 	},
     {
@@ -726,5 +718,93 @@
 		"url": "/assets/src/tabs/index.html#totally-accurate-battle-simulator",
         "categories": ["puzzle", "indie"],
         "source": "local"
+	},
+    {
+		"name": "The Man From The Window",
+        "img": "/assets/img/gms/theman.png",
+        "type": "regular",
+		"url": "https://raw.githack.com/genizy/web-port/refs/heads/main/the-man-in-the-window/index.html",
+        "categories": ["horror", "indie"],
+        "source": "proxied"
+	},
+    {
+		"name": "The Last Spartan",
+        "img": "/assets/img/gms/thelastspartan.png",
+        "type": "regular",
+		"url": "/assets/src/the-last-spartan/index.html#the-last-spartan",
+        "categories": ["adventure", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Undertale Enchanted",
+        "img": "/assets/img/gms/ute.png",
+        "type": "exclusive",
+		"url": "https://kdata1.com/2022/03/undetale-enchanted/",
+        "categories": ["indie", "puzzle", "rpg"],
+        "source": "proxied"
+	},
+    {
+		"name": "WOP [Kendrick V. Drake]",
+        "img": "/assets/img/gms/wop.png",
+        "type": "regular",
+		"url": "https://uploads.ungrounded.net/alternate/5718000/5718771_alternate_264276_r21.zip/?NewgroundsAPI_PublisherID=1&NewgroundsAPI_SandboxID=66a1c614e42ab&NewgroundsAPI_SessionID=&NewgroundsAPI_UserName=%26lt%3Bdeleted%26gt%3B&NewgroundsAPI_UserID=0&ng_username=%26lt%3Bdeleted%26gt%3B",
+        "categories": ["sandbox", "indie"],
+        "source": "proxied"
+	},
+    {
+		"name": "Venge.IO",
+        "img": "/assets/img/gms/venge.png",
+        "type": "regular",
+		"url": "https://www.venge.io/",
+        "categories": ["2player", "shooter"],
+        "source": "proxied"
+	},
+    {
+		"name": "Wrestle Bros",
+        "img": "/assets/img/gms/wrestlebros.png",
+        "type": "regular",
+		"url": "/assets/src/wrestlebros/index.html#wrestle-bros",
+        "categories": ["2player", "sports"],
+        "source": "local"
+	},
+    {
+		"name": "Web Fishing",
+        "img": "/assets/img/gms/webfishing.png",
+        "type": "regular",
+		"url": "/assets/src/webfishing/index.html#web-fishing",
+        "categories": ["rpg", "indie", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Undertale Yellow",
+        "img": "/assets/img/gms/uty.png",
+        "type": "regular",
+		"url": "/assets/src/uty/index.html#undertale-yellow",
+        "categories": ["rpg", "indie", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Yandere Simulator",
+        "img": "/assets/img/gms/yandere.png",
+        "type": "regular",
+		"url": "/assets/src/yandere/index.html#yandere-simulator",
+        "categories": ["indie", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Yume Nikki",
+        "img": "/assets/img/gms/yume.png",
+        "type": "regular",
+		"url": "https://raw.githack.com/genizy/web-port/refs/heads/main/yume-nikki/index.html",
+        "categories": ["indie", "port"],
+        "source": "proxied"
+	},
+    {
+		"name": "!! SUGGEST A GAME",
+        "img": "/assets/img/gms/!!suggest.png",
+        "type": "exclusive",
+		"url": "https://forms.gle/ELsciiPdpuofGk4v8",
+        "categories": ["other"],
+        "source": "proxied"
 	}
 ]
