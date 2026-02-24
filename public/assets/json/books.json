@@ -808,6 +808,14 @@
         "source": "local"
 	},
     {
+		"name": "Shift At Midnight",
+        "img": "/assets/img/gms/shiftatmidnight.png",
+        "type": "regular",
+		"url": "/assets/src/shift-at-midnight/index.html#shift-at-midnight",
+        "categories": ["horror", "indie", "port"],
+        "source": "local"
+	},
+    {
 		"name": "!! SUGGEST A GAME",
         "img": "/assets/img/gms/!!suggest.png",
         "type": "exclusive",
