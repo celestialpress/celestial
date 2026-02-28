@@ -137,6 +137,7 @@ button:focus {
 
 i {
   background: none;
+  font-weight:900;
 }
 
 hr {
@@ -189,6 +190,7 @@ hr {
   height: 20px;
   margin-bottom: 10px;
   text-decoration: none;
+  font-size:16.9px;
 }
 
 section {
@@ -393,7 +395,7 @@ select {
   color: var(--color);
   font-size: 15px;
   width: 125px;
-  padding: 7px;
+  padding: 9.5px;
   background: var(--pallet2);
   text-decoration: none;
   border-radius: 7px;

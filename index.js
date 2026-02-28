@@ -1,8 +1,8 @@
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
-// import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
 // ONLY REMOVE WHEN SELF-HOSTING
+// import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
 import { scramjetPath } from "@mercuryworkshop/scramjet/path";
 import express from "express";
 import { createServer } from "node:http";

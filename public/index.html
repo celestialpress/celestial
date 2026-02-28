@@ -17,8 +17,7 @@
   <link id="favicon" rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
   <meta name="Drew's Learning Academy">
   <meta content="Drew's Learning Academy | Edison, NJ" property="og:title">
-  <meta
-    content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success.">
+  <meta content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success.">
   <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
   <script src="/assets/js/prox.js" type="module"></script>
   <script async defer type="module">
@@ -279,6 +278,14 @@
               <span class="slider"></span>
             </label>
           </div>
+          <div class="box">
+            <h3>Anti-Tab Close</h3>
+            <p class="desc">if your teacher tries to close the tab, it will be prevented by an alert, and by pressing cancel, you cancel the operation.</p>
+            <label class="switch">
+              <input type="checkbox" id="antiTog" />
+              <span class="slider"></span>
+            </label>
+          </div>
         </div>
         <div id="browsing">
           <div class="box">
@@ -294,8 +301,8 @@
             <h3>Pr<span>o</span>xy</h3>
             <p class="desc">same as the transport, can make pr<span>o</span>xy more stable</p>
             <select class="select" id="pr0xySelect">
-              <option value="violet" selected>ul<span>tr</span>av<span>io</span>l<span>e</span>t</option>
-              <option value="scram">sc<span>ramj</span>et</option>
+              <option value="violet">ul<span>tr</span>av<span>io</span>l<span>e</span>t</option>
+              <option value="scram" selected>sc<span>ramj</span>et</option>
             </select>
           </div>
           <div class="fakebox">
@@ -384,6 +391,14 @@
             <p class="desc">check out our wiki for guides on using userscripts!</p>
             <a href="https://github.com/justjxrdanwasdefinetlytaken/celestial/blob/main/wiki.md"
               target="_blank">celestial wiki</a>
+          </div>
+          <div class="box">
+            <h3>Export Data</h3>
+            <p class="desc">transfer your data to another celestial instance.</p>
+            <div class="wrap">
+            <button onclick="exportData()">export</button>
+            <button onclick="importData()">import</button>
+            </div>
           </div>
         </div>
       </div>

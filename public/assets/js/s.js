@@ -247,8 +247,130 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 });
 
+// anti tab close
+window.onbeforeunload = function(e) {
+    if (localStorage.getItem("antiTog") === "true") {
+        e.preventDefault();
+        e.returnValue = '';
+    }
+};
+
+document.getElementById("antiTog").onchange = function() {
+    localStorage.setItem("antiTog", this.checked);
+};
+
+document.getElementById("antiTog").checked = localStorage.getItem("antiTog") === "true";
+
 // extensions
-// will be in seperate module file, since it requires module-js because module.
+// userscript.mjs
 
 // misc
-// also soon
+// data export/import
+function applySettings() {
+    const theme = localStorage.getItem("theme") || "default";
+    document.documentElement.setAttribute("data-theme", theme);
+
+    const savedTitle = localStorage.getItem("savedTitle");
+    const name = localStorage.getItem("name");
+    if (name || savedTitle) document.title = name || savedTitle;
+
+    const savedFavicon = localStorage.getItem("savedFavicon");
+    const icon = localStorage.getItem("icon");
+    const favicon = icon || savedFavicon;
+
+    if (favicon) {
+        let link = document.querySelector("link[rel~='icon']");
+        if (!link) {
+            link = document.createElement("link");
+            link.rel = "icon";
+            document.head.appendChild(link);
+        }
+        link.href = favicon;
+    }
+
+    const autoCloak = localStorage.getItem("autoCloak") === "1";
+    const lastCloak = localStorage.getItem("lastCloak");
+    const switchCloakOn = localStorage.getItem("switchCloakOn") === "true";
+    const antiTog = localStorage.getItem("antiTog") === "true";
+
+    if (autoCloak && typeof enableCloak === "function") enableCloak();
+    if (lastCloak && typeof applyCloak === "function") applyCloak(lastCloak);
+    if (switchCloakOn && typeof enableSwitchCloak === "function") enableSwitchCloak();
+    if (antiTog && typeof enableAnti === "function") enableAnti();
+}
+
+function cookieStorage() {
+    return document.cookie.split(";").map(c => {
+        const [name, ...rest] = c.trim().split("=");
+        return { name, value: rest.join("=") };
+    });
+}
+
+function restoreCookies(cookies) {
+    if (!Array.isArray(cookies)) return;
+    cookies.forEach(c => {
+        document.cookie = `${c.name}=${c.value}; path=/`;
+    });
+}
+
+function exportData() {
+    const data = {
+        name: localStorage.getItem("name") || "",
+        icon: localStorage.getItem("icon") || "",
+        lastCloak: localStorage.getItem("lastCloak") || "",
+        autoCloak: localStorage.getItem("autoCloak") || "0",
+        savedTitle: localStorage.getItem("savedTitle") || "",
+        savedFavicon: localStorage.getItem("savedFavicon") || "",
+        switchCloakOn: localStorage.getItem("switchCloakOn") || "false",
+        antiTog: localStorage.getItem("antiTog") || "false",
+        theme: localStorage.getItem("theme") || "default",
+        cookies: cookieStorage()
+    };
+
+    const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "celestial_data.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+function importData() {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "application/json";
+
+    input.onchange = e => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            try {
+                const data = JSON.parse(reader.result);
+
+                Object.keys(data).forEach(key => {
+                    if (key !== "cookies") {
+                        localStorage.setItem(key, data[key]);
+                    }
+                });
+
+                restoreCookies(data.cookies);
+                applySettings();
+
+                location.reload();
+            } catch (err) {
+                alert("Failed to import data: " + err.message);
+            }
+        };
+
+        reader.readAsText(file);
+    };
+
+    input.click();
+}
+
+window.addEventListener("DOMContentLoaded", applySettings);
