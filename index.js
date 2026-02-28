@@ -14,7 +14,7 @@ import sanitizeHtml from "sanitize-html";
 import cors from "cors";
 
 // privacy
-logging.set_level(logging.NONE);
+// logging.set_level(logging.NONE);
 
 dotenv.config();
 
