@@ -6,10 +6,11 @@
 
 
 ## Features:
-- Uses wisp-server-python
-- 500+ Games
+- Uses wisp-js
+- 100+ Games
 - Auto-Adblocker
 - Scramjet & UV Support.
+- Extensions
 
 ## Run your own instance
 [![Deploy to Render](https://binbashbanana.github.io/deploy-buttons/buttons/remade/render.svg)](https://render.com/deploy?repo=https://github.com/JustJxrdanWasDefinetlyTaken/celestial)
