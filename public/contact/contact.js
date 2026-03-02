@@ -10,7 +10,16 @@ document.write(`
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
   <link rel="stylesheet" href="/assets/css/home.css" />
+  <link rel="stylesheet" href="/assets/css/xtra.css" />
   <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+  body {
+    margin: 0;
+  }
 button {
     width:auto;
     border-radius:5px;
@@ -86,9 +95,12 @@ body[theme="eww"] .gridthing {
       transparent 1px 40px);
 }
       .pluh {
+        margin:0;
         height:100vh;
         width:100vw;
-        position:relative;
+        display:flex;
+        align-items:center;
+        justify-content:center;
         overflow:hidden;
         }
   </style>
@@ -97,7 +109,7 @@ body[theme="eww"] .gridthing {
 <body theme="default">
 <div align="center">
 <div class="pluh">
-<div class="gridthing">
+<div class="gradientthing">
 <h1>what do you wanna do?</h1>
 <button onclick="window.location.href='/tab.html?autofill=https://soundcloud.com'">listen to music</button>
 <button onclick="window.location.href='/tab.html?autofill=https://cineby.gd'">watch movies & tv shows</button>

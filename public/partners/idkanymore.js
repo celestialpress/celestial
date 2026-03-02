@@ -9,11 +9,17 @@ document.write(`
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
     <link rel="stylesheet" href="/assets/css/home.css" />
+    <link rel="stylesheet" href="/assets/css/xtra.css" />
     <meta name="Drew's Learning Academy">
     <meta content="Drew's Learning Academy | Edison, NJ" property="og:title">
     <meta
         content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success.">
         <style>
+        html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
         body {
         margin: 0;
         }
@@ -27,9 +33,12 @@ document.write(`
         }
 
         .pluh {
+        margin:0;
         height:100vh;
         width:100vw;
-        position:relative;
+        display:flex;
+        align-items:center;
+        justify-content:center;
         overflow:hidden;
         }
 
@@ -104,7 +113,7 @@ body[theme="eww"] .gridthing {
 <body theme="default">
 <div align="center">
 <div class="pluh">
-<div class="gridthing">
+<div class="gradientthing">
 <h1 id="titlething" style="font-weight:700;">SLQNT IS IN THE FILES</h1>
 <div class="big-ep-list"> <!--release the files-->
 <a class="erm" href="https://gg.x.eyan.eu" target="_blank">

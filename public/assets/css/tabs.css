@@ -120,10 +120,11 @@ nav {
   transition: 0.5s;
   top:10px;
   right:10px;
+  outline:none;
 }
 
 #new-tab-btn:hover {
-  background: var(--pallet2);
+  background: var(--pallet-hover);
 }
 
 .draggable-tab.dragging {
