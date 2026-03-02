@@ -6,7 +6,7 @@
 
 
 ## Features:
-- Uses wisp-js
+- Uses wisp-server-python
 - 100+ Games
 - Auto-Adblocker
 - Scramjet & UV Support.
