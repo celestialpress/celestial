@@ -13,7 +13,7 @@ document.write(`
 <body theme="default">
 
 <div class="search">
-  <input class="textbook" placeholder="search..">
+  <input class="textbook" placeholder="">
   
   <select>
     <option selected value="all">All Ga<span>m<span>es</option>

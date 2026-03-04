@@ -116,3 +116,14 @@ fetch("/assets/json/books.json")
     // make sure ts loads
     update();
   });
+
+function gameCount() {
+  fetch('/assets/json/books.json')
+    .then(r => r.json())
+    .then(d => {
+      const input = document.querySelector('.textbook');
+      input.placeholder = `search through ${(d.modules || d).length} games..`;
+    });
+}
+
+gameCount();

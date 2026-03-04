@@ -912,6 +912,150 @@
         "source": "proxied"
 	},
     {
+		"name": "Granny",
+        "img": "/assets/img/gms/granny.png",
+        "type": "regular",
+		"url": "/assets/src/granny/index.html#granny",
+        "categories": ["horror", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Granny 2",
+        "img": "/assets/img/gms/granny2.png",
+        "type": "regular",
+		"url": "/assets/src/granny/2/index.html#granny-2",
+        "categories": ["horror", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Granny 3",
+        "img": "/assets/img/gms/granny3.png",
+        "type": "regular",
+		"url": "/assets/src/granny/3/index.html#granny-3",
+        "categories": ["horror", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Moto X3M",
+        "img": "/assets/img/gms/motox3m.png",
+        "type": "regular",
+		"url": "/assets/src/moto-x3m/index.html#moto-x3m",
+        "categories": ["racing", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Moto X3M 2",
+        "img": "/assets/img/gms/motox3m2.png",
+        "type": "regular",
+		"url": "/assets/src/moto-x3m/2/index.html#moto-x3m-2",
+        "categories": ["racing", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Moto X3M 3",
+        "img": "/assets/img/gms/motox3m3.png",
+        "type": "regular",
+		"url": "/assets/src/moto-x3m/3/index.html#moto-x3m-3",
+        "categories": ["racing", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Moto X3M; Pool Party",
+        "img": "/assets/img/gms/motox3m-pool-party.png",
+        "type": "regular",
+		"url": "/assets/src/moto-x3m/pool-party/index.html#moto-x3m-pool-party",
+        "categories": ["racing", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Moto X3M; Spooky Land",
+        "img": "/assets/img/gms/motox3m-spooky-land.png",
+        "type": "regular",
+		"url": "/assets/src/moto-x3m/spooky-land/index.html#moto-x3m-spooky-land",
+        "categories": ["racing", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Vex X3M",
+        "img": "/assets/img/gms/vexx3m.png",
+        "type": "regular",
+		"url": "/assets/src/vex-x3m/index.html#vex-x3m",
+        "categories": ["platformer", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Vex X3M 2",
+        "img": "/assets/img/gms/vexx3m2.png",
+        "type": "regular",
+		"url": "/assets/src/vex-x3m/2/index.html#vex-x3m-2",
+        "categories": ["puzzle", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Vex",
+        "img": "/assets/img/gms/vex.png",
+        "type": "regular",
+		"url": "/assets/src/vex/index.html#vex",
+        "categories": ["platformer", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Vex 2",
+        "img": "/assets/img/gms/vex2.png",
+        "type": "regular",
+		"url": "/assets/src/vex/2/index.html#vex-2",
+        "categories": ["platformer", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Vex 3",
+        "img": "/assets/img/gms/vex3.png",
+        "type": "regular",
+		"url": "/assets/src/vex/3/index.html#vex-3",
+        "categories": ["platformer", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Vex 4",
+        "img": "/assets/img/gms/vex4.png",
+        "type": "regular",
+		"url": "/assets/src/vex/4/index.html#vex-4",
+        "categories": ["platformer", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Vex 5",
+        "img": "/assets/img/gms/vex5.png",
+        "type": "regular",
+		"url": "/assets/src/vex/5/index.html#vex-5",
+        "categories": ["platformer", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Vex 6",
+        "img": "/assets/img/gms/vex6.png",
+        "type": "regular",
+		"url": "/assets/src/vex/6/index.html#vex-6",
+        "categories": ["platformer", "indie"],
+        "source": "local"
+	},
+	{
+		"name": "Vex 7",
+        "img": "/assets/img/gms/vex7.png",
+        "type": "regular",
+		"url": "/assets/src/vex/7/index.html#vex-7",
+        "categories": ["platformer", "indie"],
+        "source": "local"
+	},
+    {
+        "name": "Vex 8",
+        "img": "/assets/img/gms/vex8.png",
+        "type": "regular",
+        "url": "/assets/src/vex/8/index.html#vex-8",
+        "categories": ["platformer", "indie"],
+        "source": "local"
+	},
+    {
 		"name": "!! SUGGEST A GAME",
         "img": "/assets/img/gms/!!suggest.png",
         "type": "exclusive",
