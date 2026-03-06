@@ -192,6 +192,54 @@
         "categories": ["other"]
 	},
     {
+		"name": "DuckDuckGo",
+        "img": "/assets/img/tls/duckduckgo.png",
+		"url": "https://duckduckgo.com",
+        "categories": ["other", "popular"]
+	},
+    {
+		"name": "Crunchyroll",
+        "img": "/assets/img/tls/crunchyroll.png",
+		"url": "https://crunchyroll.com",
+        "categories": ["movies"]
+	},
+    {
+		"name": "Netflix",
+        "img": "/assets/img/tls/netflix.png",
+		"url": "https://netflix.com",
+        "categories": ["movies", "popular"]
+	},
+    {
+		"name": "Youtube Music",
+        "img": "/assets/img/tls/ytm.png",
+		"url": "https://music.youtube.com",
+        "categories": ["music", "popular"]
+	},
+    {
+		"name": "Soundcloud",
+        "img": "/assets/img/tls/soundcloud.png",
+		"url": "https://soundcloud.com",
+        "categories": ["music"]
+	},
+    {
+		"name": "Streamex",
+        "img": "/assets/img/tls/streamex.png",
+		"url": "https://streamex.net",
+        "categories": ["movies", "popular"]
+	},
+    {
+		"name": "Prescripts",
+        "img": "/assets/img/tls/prescript.png",
+		"url": "https://prescript.neocities.org",
+        "categories": ["other"]
+	},
+    {
+		"name": "ChatGPT",
+        "img": "/assets/img/tls/chatgpt.png",
+		"url": "https://chatgpt.com",
+        "categories": ["ai", "other", "popular"]
+	},
+    {
 		"name": "!! SUGGEST AN APP",
         "img": "/assets/img/gms/!!suggest.png",
 		"url": "https://forms.gle/ELsciiPdpuofGk4v8",

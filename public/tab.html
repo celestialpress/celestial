@@ -7,6 +7,7 @@
   <title>Drew's Learning Academy | Edison, NJ</title>
   <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
   <link rel="stylesheet" href="/assets/css/home.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <meta name="Drew's Learning Academy">
   <meta content="Drew's Learning Academy | Edison, NJ" property="og:title">
   <meta
@@ -14,8 +15,24 @@
 </head>
 
 <body theme="default">
-  <video style="background:rgba(0, 0, 0, 0.566);backdrop-filter: blur(10px);z-index:999999999999999999;" class="params" autoplay muted playsinline loop src="/assets/img/loading.mp4"></video>
+  <div class="upd-bg"></div>
+  <div id="update-log" style="display:none;">
+    <p id="close" onclick="exitUpdLog();"
+      style="font-size:40px;top:0;right:0;position:fixed;margin:15px;cursor:pointer;"><i class="bx bx-x"></i></p>
+    <div align="center">
+      <h2>update log 03/05</h2>
+    </div>
+    <p>- added a new video to the loading screen.</p>
+    <p>- added 50+ ga<span>m</span>es</p>
+    <p>- added more apps</p>
+    <p>- added importing/exporting in miscancellous in settings.</p>
+    <p>- added tab popping, if you press alt + s you can open whatever you're searching in an about:blank window.</p>
+    <p>- added an update log (this lmao).</p>
+  </div>
+  <video style="background:rgba(0, 0, 0, 0.566);backdrop-filter: blur(10px);z-index:999999999999999999;" class="params"
+    autoplay muted playsinline loop src="/assets/img/loading.mp4"></video>
   <div class="gradientthing">
+    <a class="updlog" onclick="showUpdLog();"><img src="/assets/img/announcement.png" alt="Update Log" /></a>
     <div class="main">
       <div class="bg-match">
         <h1 id="main">Drew's Learning Academy</h1>
@@ -113,5 +130,25 @@
   }
 </script>
 <script src="/assets/js/theme.js"></script>
+<script>
+    function showUpdLog() {
+    document.getElementById('update-log').style.display = 'block';
+    document.querySelector('.upd-bg').style.display = 'block';
+  }
 
+  function exitUpdLog() {
+    document.getElementById('update-log').style.display = 'none';
+    document.querySelector('.upd-bg').style.display = 'none';
+  }
+
+  document.getElementById('close').addEventListener('click', exitUpdLog);
+
+  window.addEventListener("load", function() {
+  if (!localStorage.getItem("updlogview")) {
+    document.getElementById("update-log").style.display = "block";
+    document.querySelector(".upd-bg").style.display = "block";
+    localStorage.setItem("updlogview", "1");
+  }
+});
+</script>
 </html>

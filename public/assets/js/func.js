@@ -17,6 +17,25 @@ function forward() {
   iframe.contentWindow.history.forward()
 }
 
+// alt + s to put whatever is in the iframe in another window
+
+addEventListener("keydown", e => {
+  if (e.altKey && e.key === "s") {
+    const f = document.querySelector("iframe.searchframe:not(.hidden)");
+    if (!f) return;
+
+    const w = 650, h = 450;
+    const l = (screen.availWidth - w) / 2;
+    const t = (screen.availHeight - h) / 2;
+
+    const win = open("about:blank", "_blank", `width=${w},height=${h},left=${l},top=${t}`);
+    if (!win) return;
+
+    win.document.write(`<style>html,body{margin:0;height:100%}</style>
+<iframe src="${f.src}" style="position:fixed;inset:0;width:100%;height:100%;border:0"></iframe>`);
+  }
+});
+
 // inspector gadget
 // see what i did there
 // you're permitted to laugh

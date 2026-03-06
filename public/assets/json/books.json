@@ -284,7 +284,7 @@
         "img": "/assets/img/gms/basketbros.png",
         "type": "regular",
 		"url": "/assets/src/basket-bros/index.html#basket-bros",
-        "categories": ["sports"],
+        "categories": ["sports", "2player"],
         "source": "local"
 	},
     {
@@ -300,7 +300,7 @@
         "img": "/assets/img/gms/basket-random.png",
         "type": "regular",
 		"url": "/assets/src/basket-random/index.html#basket-random",
-        "categories": ["sports"],
+        "categories": ["sports", "2player"],
         "source": "local"
 	},
     {
@@ -308,7 +308,7 @@
         "img": "/assets/img/gms/soccer-random.png",
         "type": "regular",
 		"url": "/assets/src/soccer-random/index.html#soccer-random",
-        "categories": ["sports"],
+        "categories": ["sports", "2player"],
         "source": "local"
 	},
     {
@@ -316,7 +316,7 @@
         "img": "/assets/img/gms/boxing-random.png",
         "type": "regular",
 		"url": "/assets/src/boxing-random/index.html#boxing-random",
-        "categories": ["sports"],
+        "categories": ["sports", "2player"],
         "source": "local"
 	},
     {
@@ -324,7 +324,7 @@
         "img": "/assets/img/gms/volley-random.png",
         "type": "regular",
 		"url": "/assets/src/volley-random/index.html#volley-random",
-        "categories": ["sports"],
+        "categories": ["sports", "2player"],
         "source": "local"
 	},
     {
@@ -852,7 +852,7 @@
         "img": "/assets/img/gms/basketballstars.png",
         "type": "regular",
 		"url": "/assets/src/basketball-stars/index.html#basketball-stars",
-        "categories": ["sports", "indie"],
+        "categories": ["sports", "indie", "2player"],
         "source": "local"
 	},
     {
@@ -860,7 +860,7 @@
         "img": "/assets/img/gms/footballlegends.png",
         "type": "regular",
 		"url": "/assets/src/football-stars/index.html#football-legends",
-        "categories": ["sports", "indie"],
+        "categories": ["sports", "indie", "2player"],
         "source": "local"
 	},
     {
@@ -1053,6 +1053,158 @@
         "type": "regular",
         "url": "/assets/src/vex/8/index.html#vex-8",
         "categories": ["platformer", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Coal LLC",
+        "img": "/assets/img/gms/coal-llc.png",
+        "type": "popular",
+		"url": "https://html-classic.itch.zone/html/13732799/v0.2.8.1/index.html",
+        "categories": ["rpg", "indie"],
+        "source": "proxied"
+	},
+    {
+		"name": "Big Shot Boxing",
+        "img": "/assets/img/gms/big-shot-boxing.png",
+        "type": "regular",
+		"url": "/assets/src/big-shot-boxing/index.html#big-shot-boxing",
+        "categories": ["sports"],
+        "source": "local"
+	},
+    {
+		"name": "Idle Breakout",
+        "img": "/assets/img/gms/idle-breakout.png",
+        "type": "regular",
+		"url": "/assets/src/idle-breakout/index.html#idle-breakout",
+        "categories": ["puzzle"],
+        "source": "local"
+	},
+    {
+		"name": "BFDIA 5b",
+        "img": "/assets/img/gms/bfdia.png",
+        "type": "regular",
+		"url": "/assets/src/bdfia-fb/index.html#BFDIA-5b",
+        "categories": ["rpg", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "R.E.P.O (REPO)",
+        "img": "/assets/img/gms/repo.png",
+        "type": "regular",
+		"url": "/assets/src/repo/index.html#REPO",
+        "categories": ["horror", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Big Town Tiny Square",
+        "img": "/assets/img/gms/btts.png",
+        "type": "regular",
+		"url": "/assets/src/btts/index.html#big-town-tiny-square",
+        "categories": ["platformer"],
+        "source": "local"
+	},
+    {
+		"name": "Big Town Tiny Square 2",
+        "img": "/assets/img/gms/btts2.png",
+        "type": "regular",
+		"url": "/assets/src/btts/2/index.html#big-town-tiny-square",
+        "categories": ["platformer"],
+        "source": "local"
+	},
+    {
+		"name": "GX Launcher",
+        "img": "/assets/img/gms/gx-launcher.png",
+        "type": "exclusive",
+		"url": "https://gx-launcher.github.io/",
+        "categories": ["sandbox"],
+        "source": "proxied"
+	},
+    {
+		"name": "Slope",
+        "img": "/assets/img/gms/slope.png",
+        "type": "regular",
+		"url": "/assets/src/slope/index.html#slope",
+        "categories": ["rhythm", "platformer"],
+        "source": "local"
+	},
+    {
+		"name": "Madden NFL 24",
+        "img": "/assets/img/gms/madden24.png",
+        "type": "exclusive",
+		"url": "/assets/src/ngg/madden/index.html#r",
+        "categories": ["sports"],
+        "source": "local"
+	},
+    {
+		"name": "Plants Vs Zombies",
+        "img": "/assets/img/gms/pvz.png",
+        "type": "exclusive",
+		"url": "/assets/src/pvz/index.html#plants-vs-zombies",
+        "categories": ["rpg", "indie", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Plants Vs Zombies 2",
+        "img": "/assets/img/gms/pvz2.png",
+        "type": "exclusive",
+		"url": "/assets/src/pvz/2/index.html#plants-vs-zombies-2",
+        "categories": ["rpg", "indie", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Drive Mad",
+        "img": "/assets/img/gms/drive-mad.png",
+        "type": "regular",
+		"url": "/assets/src/drive-mad/index.html#drive-mad",
+        "categories": ["sports", "indie", "platformer"],
+        "source": "local"
+	},
+    {
+		"name": "Escape Road",
+        "img": "/assets/img/gms/escape-road.png",
+        "type": "exclusive",
+		"url": "/assets/src/escape-road/index.html#escape-road",
+        "categories": ["sports", "rpg"],
+        "source": "local"
+	},
+    {
+		"name": "Escape Road 2",
+        "img": "/assets/img/gms/escape-road-2.png",
+        "type": "exclusive",
+		"url": "/assets/src/escape-road/2/index.html#escape-road-2",
+        "categories": ["racing"],
+        "source": "local"
+	},
+    {
+		"name": "Sort The Court",
+        "img": "/assets/img/gms/sort-the-court.png",
+        "type": "exclusive",
+		"url": "/assets/src/sort-the-court/index.html#sort-the-court",
+        "categories": ["puzzle"],
+        "source": "local"
+	},
+    {
+		"name": "Resident Evil 2",
+        "img": "/assets/img/gms/resident-evil-2.png",
+        "type": "exclusive",
+		"url": "/assets/src/resident-evil-2/index.html#resident-evil-2",
+        "categories": ["horror", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Supreme Duelist",
+        "img": "/assets/img/gms/supreme-duelist.png",
+        "type": "regular",
+		"url": "/assets/src/supreme-duelist/index.html#supreme-duelist",
+        "categories": ["rpg", "indie", "2player"],
+        "source": "local"
+	},
+    {
+		"name": "Cookie Clicker",
+        "img": "/assets/img/gms/cookie-clicker.png",
+        "type": "regular",
+		"url": "/assets/src/cookie-clicker/index.html#cookie-clicker",
+        "categories": ["other", "puzzle"],
         "source": "local"
 	},
     {

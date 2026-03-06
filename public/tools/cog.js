@@ -42,6 +42,7 @@ document.write(`
     <option value="gamesites">g<span>am</span>e sites</option>
     <option value="sm">social media</option>
     <option value="cg">cloud ga<span>mi</span>ng</option>
+    <option value="music">music</option>
     <option value="misc">other</option>
   </select>
 </div>
