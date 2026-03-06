@@ -12,6 +12,51 @@
   <meta content="Drew's Learning Academy | Edison, NJ" property="og:title">
   <meta
     content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success.">
+    <style>
+
+.updlog {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: var(--color);
+    cursor: pointer;
+    width:40px;
+}
+
+.updlog img {
+    width: 40px;
+}
+
+body[theme="light"] .updlog img {
+    filter: invert(1);
+}
+
+.upd-bg {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  display: none;
+}
+
+#update-log {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--pallet2);
+  border:0.7px solid var(--border);
+  color: var(--color);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  width:40vw;
+  height:350px;
+  overflow-y:auto;
+}
+    </style>
 </head>
 
 <body theme="default">
