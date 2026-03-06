@@ -231,6 +231,7 @@ body[theme="chad"] .gradientthing {
     left: 10px;
     color: var(--color);
     cursor: pointer;
+    width:40px;
 }
 
 .updlog img {
