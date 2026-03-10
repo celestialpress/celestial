@@ -51,7 +51,7 @@
 		"name": "Amanda the Adventurer",
         "img": "/assets/img/gms/ata.png",
         "type": "exclusive",
-		"url": "https://raw.githack.com/genizy/web-port/refs/heads/main/amanda-the-adventurer/index.html",
+		"url": "https://learn-with.jskjsv6.workers.dev/genizy/web-port/b76984e373891dc5e22fb9a7f4f784671c620420/amanda-the-adventurer/index.html",
         "categories": ["indie", "horror", "port"],
         "source": "proxied"
 	},
@@ -259,7 +259,7 @@
         "name": "Portal; Flash Version",
         "img": "/assets/img/gms/portal.png",
         "type": "regular",
-        "url": "https://raw.githack.com/BinBashBanana/gfiles/master/gfiles/flash/index.html?swf=portal.swf",
+        "url": "https://learn-with.jskjsv6.workers.dev/BinBashBanana/gfiles/b76984e373891dc5e22fb9a7f4f784671c620420/gfiles/flash/index.html?swf=portal.swf",
         "categories": ["puzzle", "adventure"],
         "source": "proxied"
     },
@@ -451,9 +451,9 @@
 		"name": "Danganronpa",
         "img": "/assets/img/gms/danganronpa.png",
         "type": "exclusive",
-		"url": "/assets/src/emulated/psp/danganronpa/index.html#danganronpa",
+		"url": "https://howtotech.infotechnology.com/games/danganronpa/",
         "categories": ["horror", "mystery"],
-        "source": "local"
+        "source": "proxied"
 	},
     {
 		"name": "Baldi's Basics",
@@ -515,7 +515,7 @@
 		"name": "Bowmasters",
         "img": "/assets/img/gms/bowmasters.png",
         "type": "regular",
-		"url": "https://raw.githack.com/bubbls/youtube-playables/refs/heads/main/bowmasters/index.html",
+		"url": "https://learn-with.jskjsv6.workers.dev/bubbls/youtube-playables/b76984e373891dc5e22fb9a7f4f784671c620420/bowmasters/index.html",
         "categories": ["2player", "port"],
         "source": "proxied"
 	},
@@ -723,7 +723,7 @@
 		"name": "The Man From The Window",
         "img": "/assets/img/gms/theman.png",
         "type": "regular",
-		"url": "https://raw.githack.com/genizy/web-port/refs/heads/main/the-man-in-the-window/index.html",
+		"url": "https://learn-with.jskjsv6.workers.dev/genizy/web-port/b76984e373891dc5e22fb9a7f4f784671c620420/the-man-in-the-window/index.html",
         "categories": ["horror", "indie"],
         "source": "proxied"
 	},
@@ -795,7 +795,7 @@
 		"name": "Yume Nikki",
         "img": "/assets/img/gms/yume.png",
         "type": "regular",
-		"url": "https://raw.githack.com/genizy/web-port/refs/heads/main/yume-nikki/index.html",
+		"url": "https://learn-with.jskjsv6.workers.dev/genizy/web-port/b76984e373891dc5e22fb9a7f4f784671c620420/yume-nikki/index.html",
         "categories": ["indie", "port"],
         "source": "proxied"
 	},
@@ -979,7 +979,7 @@
 		"name": "Vex X3M",
         "img": "/assets/img/gms/vexx3m.png",
         "type": "regular",
-		"url": "/assets/src/vex-x3m/index.html#vex-x3m",
+		"url": "/assets/src/vex/x3m/index.html#vex-x3m",
         "categories": ["platformer", "indie"],
         "source": "local"
 	},
@@ -987,7 +987,7 @@
 		"name": "Vex X3M 2",
         "img": "/assets/img/gms/vexx3m2.png",
         "type": "regular",
-		"url": "/assets/src/vex-x3m/2/index.html#vex-x3m-2",
+		"url": "/assets/src/vex/x3m/2/index.html#vex-x3m-2",
         "categories": ["puzzle", "indie"],
         "source": "local"
 	},
@@ -1082,9 +1082,9 @@
     {
 		"name": "BFDIA 5b",
         "img": "/assets/img/gms/bfdia.png",
-        "type": "regular",
+        "type": "exclusive",
 		"url": "/assets/src/bdfia-fb/index.html#BFDIA-5b",
-        "categories": ["rpg", "indie"],
+        "categories": ["rpg", "indie", "port"],
         "source": "local"
 	},
     {
@@ -1205,6 +1205,70 @@
         "type": "regular",
 		"url": "/assets/src/cookie-clicker/index.html#cookie-clicker",
         "categories": ["other", "puzzle"],
+        "source": "local"
+	},
+    {
+		"name": "Survivor.io",
+        "img": "/assets/img/gms/survivor-io.png",
+        "type": "exclusive",
+		"url": "/assets/src/survivor-io/index.html#survivor-io",
+        "categories": ["2player"],
+        "source": "local"
+	},
+    {
+		"name": "Brotato",
+        "img": "/assets/img/gms/brotato.png",
+        "type": "exclusive",
+		"url": "/assets/src/brotato/index.html#brotato",
+        "categories": ["2player", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Midnight Shift",
+        "img": "/assets/img/gms/midnight-shift.png",
+        "type": "exclusive",
+		"url": "/assets/src/midnight-shift/index.html#midnight-shift",
+        "categories": ["horror", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Christmas Massacre",
+        "img": "/assets/img/gms/christmas-massacre.png",
+        "type": "exclusive",
+		"url": "/assets/src/christmas-massacre/index.html#christmas-massacre",
+        "categories": ["horror", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Polytrack",
+        "img": "/assets/img/gms/polytrack.png",
+        "type": "regular",
+		"url": "/assets/src/polytrack/index.html#polytrack",
+        "categories": ["sports"],
+        "source": "local"
+	},
+    {
+		"name": "Brawlhalla",
+        "img": "/assets/img/gms/brawlhalla.png",
+        "type": "exclusive",
+		"url": "https://shorturl.at/VwJxj",
+        "categories": ["rpg", "indie", "2player", "platformer"],
+        "source": "proxied"
+	},
+    {
+		"name": "Veck.io",
+        "img": "/assets/img/gms/veck-io.png",
+        "type": "regular",
+		"url": "https://veck.io",
+        "categories": ["2player", "shooter"],
+        "source": "proxied"
+	},
+    {
+		"name": "Nazi Zombies; Portable (nzp)",
+        "img": "/assets/img/gms/nzp.png",
+        "type": "exclusive",
+		"url": "/assets/src/nzp/index.html#nazi-zombies-portable",
+        "categories": ["rpg", "horror", "port", "shooter"],
         "source": "local"
 	},
     {

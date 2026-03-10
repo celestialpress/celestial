@@ -65,17 +65,12 @@ body[theme="light"] .updlog img {
     <p id="close" onclick="exitUpdLog();"
       style="font-size:40px;top:0;right:0;position:fixed;margin:15px;cursor:pointer;"><i class="bx bx-x"></i></p>
     <div align="center">
-      <h2>update log 03/05</h2>
+      <h2>update log 03/09</h2>
     </div>
-    <p>- added a new video to the loading screen.</p>
-    <p>- added 50+ ga<span>m</span>es</p>
-    <p>- added more apps</p>
-    <p>- added importing/exporting in miscancellous in settings.</p>
-    <p>- added tab popping, if you press alt + s you can open whatever you're searching in an about:blank window.</p>
-    <p>- added an update log (this lmao).</p>
-
-    <p>join the d<span>isc</span>ord for more links! <a href="https://dsc.gg/gnetwork" target="_blank">.gg/gSjNsVxX5y</a></p>
-    <p>proxied ver: <a href="/tab.html?autofill=https://discord.gg/gSjNsVxX5y">.gg/gSjNsVxX5y</a></p>
+    <p>- added 9 new games + a link doc</p>
+    <p>- <a href="https://docs.google.com/document/d/1kaohe5rR204hcfmSgQdjzSTaq1ypAxs7tTYZ0yTGkH4/edit" style="color:var(--color);" target="_blank">visit our link doc</a></p>
+    <p>- join the d<span>isc</span>ord for more links! <a href="https://dsc.gg/gnetwork" style="color:var(--color);" target="_blank">.gg/gSjNsVxX5y</a></p>
+    <p>- proxied ver: <a href="/tab.html?autofill=https://discord.gg/gSjNsVxX5y" style="color:var(--color);">.gg/gSjNsVxX5y</a></p>
   </div>
   <video style="background:rgba(0, 0, 0, 0.566);backdrop-filter: blur(10px);z-index:999999999999999999;" class="params"
     autoplay muted playsinline loop src="/assets/img/loading.mp4"></video>
@@ -192,10 +187,10 @@ body[theme="light"] .updlog img {
   document.getElementById('close').addEventListener('click', exitUpdLog);
 
   window.addEventListener("load", function() {
-  if (!localStorage.getItem("updlogview")) {
+  if (!localStorage.getItem("updlogview2")) {
     document.getElementById("update-log").style.display = "block";
     document.querySelector(".upd-bg").style.display = "block";
-    localStorage.setItem("updlogview", "1");
+    localStorage.setItem("updlogview2", "1");
   }
 });
 </script>
