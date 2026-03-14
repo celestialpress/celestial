@@ -28,5 +28,11 @@
         "website": ["https://duolingo.com", "http://duolingo.com", "https://duolingo.com/", "http://duolingo.com/"],
         "includes": "yes",
         "src": "fetch('https://raw.githubusercontent.com/tranphuquy19/DuolingoBotExtension/refs/heads/tampermonkey-script/index.js') .then(r => r.text()) .then(t => new Function(t)());"
+    },
+    {
+        "name": "Youtube Adblocker",
+        "website": ["https://youtube.com", "https://music.youtube.com", "youtube.com", "music.youtube.com"],
+        "includes": "yes",
+        "src": "fetch('https://raw.githubusercontent.com/JustJxrdanWasDefinetlyTaken/celestial-ext/refs/heads/main/ext/yt-adblocker.js') .then(r => r.text()) .then(t => new Function(t)());"
     }
 ]
