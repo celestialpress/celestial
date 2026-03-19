@@ -311,110 +311,120 @@ document.getElementById("antiTog").checked =
 // misc
 // data export/import
 function applySettings() {
-    const theme = localStorage.getItem("theme") || "default";
-    document.documentElement.setAttribute("data-theme", theme);
+  const theme = localStorage.getItem("theme") || "default";
+  document.documentElement.setAttribute("data-theme", theme);
 
-    const savedTitle = localStorage.getItem("savedTitle");
-    const name = localStorage.getItem("name");
-    if (name || savedTitle) document.title = name || savedTitle;
+  if (typeof setTransport === "function") {
+    setTransport(localStorage.getItem("transportz") || "libcurl");
+  }
+  if (typeof setProxy === "function") {
+    setProxy(localStorage.getItem("pr0xy") || "scram");
+  }
 
-    const savedFavicon = localStorage.getItem("savedFavicon");
-    const icon = localStorage.getItem("icon");
-    const favicon = icon || savedFavicon;
+  const savedTitle = localStorage.getItem("savedTitle");
+  const name = localStorage.getItem("name");
+  if (name || savedTitle) document.title = name || savedTitle;
 
-    if (favicon) {
-        let link = document.querySelector("link[rel~='icon']");
-        if (!link) {
-            link = document.createElement("link");
-            link.rel = "icon";
-            document.head.appendChild(link);
-        }
-        link.href = favicon;
+  const savedFavicon = localStorage.getItem("savedFavicon");
+  const icon = localStorage.getItem("icon");
+  const favicon = icon || savedFavicon;
+
+  if (favicon) {
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
     }
+    link.href = favicon;
+  }
 
-    const autoCloak = localStorage.getItem("autoCloak") === "1";
-    const lastCloak = localStorage.getItem("lastCloak");
-    const switchCloakOn = localStorage.getItem("switchCloakOn") === "true";
-    const antiTog = localStorage.getItem("antiTog") === "true";
+  const autoCloak = localStorage.getItem("autoCloak") === "1";
+  const lastCloak = localStorage.getItem("lastCloak");
+  const switchCloakOn = localStorage.getItem("switchCloakOn") === "true";
+  const antiTog = localStorage.getItem("antiTog") === "true";
 
-    if (autoCloak && typeof enableCloak === "function") enableCloak();
-    if (lastCloak && typeof applyCloak === "function") applyCloak(lastCloak);
-    if (switchCloakOn && typeof enableSwitchCloak === "function") enableSwitchCloak();
-    if (antiTog && typeof enableAnti === "function") enableAnti();
+  if (autoCloak && typeof enableCloak === "function") enableCloak();
+  if (lastCloak && typeof applyCloak === "function") applyCloak(lastCloak);
+  if (switchCloakOn && typeof enableSwitchCloak === "function")
+    enableSwitchCloak();
+  if (antiTog && typeof enableAnti === "function") enableAnti();
 }
 
 function cookieStorage() {
-    return document.cookie.split(";").map(c => {
-        const [name, ...rest] = c.trim().split("=");
-        return { name, value: rest.join("=") };
-    });
+  return document.cookie.split(";").map((c) => {
+    const [name, ...rest] = c.trim().split("=");
+    return { name, value: rest.join("=") };
+  });
 }
 
 function restoreCookies(cookies) {
-    if (!Array.isArray(cookies)) return;
-    cookies.forEach(c => {
-        document.cookie = `${c.name}=${c.value}; path=/`;
-    });
+  if (!Array.isArray(cookies)) return;
+  cookies.forEach((c) => {
+    document.cookie = `${c.name}=${c.value}; path=/`;
+  });
 }
 
 function exportData() {
-    const data = {
-        name: localStorage.getItem("name") || "",
-        icon: localStorage.getItem("icon") || "",
-        lastCloak: localStorage.getItem("lastCloak") || "",
-        autoCloak: localStorage.getItem("autoCloak") || "0",
-        savedTitle: localStorage.getItem("savedTitle") || "",
-        savedFavicon: localStorage.getItem("savedFavicon") || "",
-        switchCloakOn: localStorage.getItem("switchCloakOn") || "false",
-        antiTog: localStorage.getItem("antiTog") || "false",
-        theme: localStorage.getItem("theme") || "default",
-        cookies: cookieStorage()
-    };
+  const data = {
+    name: localStorage.getItem("name") || "",
+    icon: localStorage.getItem("icon") || "",
+    lastCloak: localStorage.getItem("lastCloak") || "",
+    autoCloak: localStorage.getItem("autoCloak") || "0",
+    savedTitle: localStorage.getItem("savedTitle") || "",
+    savedFavicon: localStorage.getItem("savedFavicon") || "",
+    switchCloakOn: localStorage.getItem("switchCloakOn") || "false",
+    antiTog: localStorage.getItem("antiTog") || "false",
+    theme: localStorage.getItem("theme") || "default",
+    transportz: localStorage.getItem("transportz") || "libcurl",
+    pr0xy: localStorage.getItem("pr0xy") || "scram",
+    cookies: cookieStorage(),
+  };
 
-    const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "celestial_data.json";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+  const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "celestial_data.json";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 function importData() {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "application/json";
+  const input = document.createElement("input");
+  input.type = "file";
+  input.accept = "application/json";
 
-    input.onchange = e => {
-        const file = e.target.files[0];
-        if (!file) return;
+  input.onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
 
-        const reader = new FileReader();
-        reader.onload = () => {
-            try {
-                const data = JSON.parse(reader.result);
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const data = JSON.parse(reader.result);
 
-                Object.keys(data).forEach(key => {
-                    if (key !== "cookies") {
-                        localStorage.setItem(key, data[key]);
-                    }
-                });
+        Object.keys(data).forEach((key) => {
+          if (key !== "cookies") {
+            localStorage.setItem(key, data[key]);
+          }
+        });
 
-                restoreCookies(data.cookies);
-                applySettings();
+        restoreCookies(data.cookies);
+        applySettings();
 
-                location.reload();
-            } catch (err) {
-                alert("Failed to import data: " + err.message);
-            }
-        };
-
-        reader.readAsText(file);
+        location.reload();
+      } catch (err) {
+        alert("Failed to import data: " + err.message);
+      }
     };
 
-    input.click();
+    reader.readAsText(file);
+  };
+
+  input.click();
 }
 
 window.addEventListener("DOMContentLoaded", applySettings);
