@@ -24,13 +24,20 @@ app.use(express.json());
 
 app.use((req, res, next) => {
   if (req.url.endsWith(".br")) {
-    if (req.url.endsWith(".js.br")) res.type("application/javascript");
-    if (req.url.endsWith(".wasm.br")) res.type("application/wasm");
-    if (req.url.endsWith(".data.br")) res.type("application/octet-stream");
     res.set("Content-Encoding", "br");
+    if (req.url.includes(".js.br")) {
+      res.type("application/javascript");
+    } else if (req.url.includes(".wasm.br")) {
+      res.type("application/wasm");
+    } else if (req.url.includes(".data.br")) {
+      res.type("application/octet-stream");
+    } else if (req.url.includes(".wasm.framework.js.br")) {
+       res.type("application/javascript");
+    }
   }
   next();
 });
+
 
 app.use(express.static(join(fileURLToPath(import.meta.url), "../public/")));
 app.use("/mux/", express.static(baremuxPath));
