@@ -1,476 +1,666 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-1Y12SRXG3F"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Y12SRXG3F"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+      gtag("config", "G-1Y12SRXG3F");
+    </script>
+    <title>Drew's Learning Academy | Edison, NJ</title>
+    <link
+      id="favicon"
+      rel="shortcut icon"
+      type="image/png"
+      href="/assets/img/logo.png"
+    />
+    <meta name="Drew's Learning Academy" />
+    <meta content="Drew's Learning Academy | Edison, NJ" property="og:title" />
+    <meta
+      content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success."
+    />
+    <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
+    <script src="/assets/js/prox.js" type="module"></script>
+    <script async defer type="module">
+      import { newTab, switchTab, closeTab } from "/lithium.mjs";
 
-    gtag('config', 'G-1Y12SRXG3F');
-  </script>
-  <title>Drew's Learning Academy | Edison, NJ</title>
-  <link id="favicon" rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
-  <meta name="Drew's Learning Academy">
-  <meta content="Drew's Learning Academy | Edison, NJ" property="og:title">
-  <meta content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success.">
-  <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
-  <script src="/assets/js/prox.js" type="module"></script>
-  <script async defer type="module">
-    import { newTab, switchTab, closeTab } from "/lithium.mjs";
+      window.newTab = newTab;
+      let tabs = [];
+      const tabsDiv = document.getElementById("tabs");
 
-    window.newTab = newTab;
-    let tabs = [];
-    const tabsDiv = document.getElementById("tabs");
+      const getIcon = (url) =>
+        /^https?:\/\/[\w.-]+\.[a-z]{2,}/i.test(url)
+          ? `https://s2.googleusercontent.com/s2/favicons?sz=64&domain_url=${url}`
+          : "/assets/img/logo.png";
 
+      function createTab(id, title = "new tab", url = "") {
+        const tab = document.createElement("div");
+        tab.dataset.tabId = id;
+        tab.draggable = true;
 
-
-    const getIcon = (url) =>
-      /^https?:\/\/[\w.-]+\.[a-z]{2,}/i.test(url)
-        ? `https://s2.googleusercontent.com/s2/favicons?sz=64&domain_url=${url}`
-        : "/assets/img/logo.png";
-
-    function createTab(id, title = "new tab", url = "") {
-      const tab = document.createElement("div");
-      tab.dataset.tabId = id;
-      tab.draggable = true;
-
-      tab.innerHTML = `
+        tab.innerHTML = `
     <img alt="Favicon" src="${getIcon(url)}" />
     <span class="tab">${title}</span>
     <button>&times;</button>
   `;
 
-      tab.querySelector("button").onclick = (e) => {
-        e.stopPropagation();
-        closeTab?.(id);
-      };
-      tab.onclick = () => switchTab?.(id);
+        tab.querySelector("button").onclick = (e) => {
+          e.stopPropagation();
+          closeTab?.(id);
+        };
+        tab.onclick = () => switchTab?.(id);
 
-      tabsDiv?.appendChild(tab);
-      tabs.push({ id, element: tab, title, url });
+        tabsDiv?.appendChild(tab);
+        tabs.push({ id, element: tab, title, url });
 
-      return tab;
-    }
+        return tab;
+      }
 
-    function checkState() {
-      const frames = [...document.querySelectorAll('iframe[id^="frame-"]')];
-      const frameIds = frames.map((f) => parseInt(f.id.replace("frame-", ""), 10));
+      function checkState() {
+        const frames = [...document.querySelectorAll('iframe[id^="frame-"]')];
+        const frameIds = frames.map((f) =>
+          parseInt(f.id.replace("frame-", ""), 10)
+        );
 
-      tabs = tabs.filter(({ id, element }) => {
-        if (!frameIds.includes(id)) {
-          element.remove();
-          return false;
+        tabs = tabs.filter(({ id, element }) => {
+          if (!frameIds.includes(id)) {
+            element.remove();
+            return false;
+          }
+          return true;
+        });
+
+        frameIds.forEach((id) => {
+          if (!tabs.some((t) => t.id === id)) createTab(id);
+        });
+
+        const visible = frames.find((f) => !f.classList.contains("hidden"));
+        if (visible) {
+          const activeId = parseInt(visible.id.replace("frame-", ""), 10);
+          tabs.forEach(({ id, element }) => {
+            const isActive = id === activeId;
+            element.classList.toggle("active", isActive);
+          });
         }
-        return true;
+      }
+
+      document
+        .getElementById("new-tab-btn")
+        ?.addEventListener("click", () => newTab?.());
+
+      document.addEventListener("new-tab", (e) => {
+        if (!tabs.some((t) => t.id === e.detail.tabNumber))
+          createTab(e.detail.tabNumber);
+        checkState();
       });
 
-      frameIds.forEach((id) => {
-        if (!tabs.some((t) => t.id === id)) createTab(id);
-      });
-
-      const visible = frames.find((f) => !f.classList.contains("hidden"));
-      if (visible) {
-        const activeId = parseInt(visible.id.replace("frame-", ""), 10);
+      document.addEventListener("switch-tab", (e) => {
+        const activeId = e.detail.tabNumber;
         tabs.forEach(({ id, element }) => {
           const isActive = id === activeId;
           element.classList.toggle("active", isActive);
         });
-      }
-    }
-
-    document
-      .getElementById("new-tab-btn")
-      ?.addEventListener("click", () => newTab?.());
-
-    document.addEventListener("new-tab", (e) => {
-      if (!tabs.some((t) => t.id === e.detail.tabNumber))
-        createTab(e.detail.tabNumber);
-      checkState();
-    });
-
-    document.addEventListener("switch-tab", (e) => {
-      const activeId = e.detail.tabNumber;
-      tabs.forEach(({ id, element }) => {
-        const isActive = id === activeId;
-        element.classList.toggle("active", isActive);
       });
-    });
 
-    document.addEventListener("url-changed", (e) => {
-      const tab = tabs.find((t) => t.id === e.detail.tabId);
-      if (!tab) return;
-      tab.title = e.detail.title || "new tab";
-      tab.url = e.detail.url || "";
-      tab.element.querySelector(".tab").textContent = tab.title;
-      tab.element.querySelector("img").src = getIcon(tab.url);
-    });
+      document.addEventListener("url-changed", (e) => {
+        const tab = tabs.find((t) => t.id === e.detail.tabId);
+        if (!tab) return;
+        tab.title = e.detail.title || "new tab";
+        tab.url = e.detail.url || "";
+        tab.element.querySelector(".tab").textContent = tab.title;
+        tab.element.querySelector("img").src = getIcon(tab.url);
+      });
 
-    document.addEventListener("close-tab", (e) => {
-      const idx = tabs.findIndex((t) => t.id === e.detail.tabNumber);
-      if (idx === -1) return;
-      tabs[idx].element.remove();
-      tabs.splice(idx, 1);
+      document.addEventListener("close-tab", (e) => {
+        const idx = tabs.findIndex((t) => t.id === e.detail.tabNumber);
+        if (idx === -1) return;
+        tabs[idx].element.remove();
+        tabs.splice(idx, 1);
+        checkState();
+      });
+
       checkState();
-    });
+    </script>
+    <link href="/assets/css/tabs.css" rel="stylesheet" />
+    <script type="module" async defer>
+      import {
+        setWisp,
+        makeURL,
+        getProxied,
+        setFrames,
+        addressInput,
+        setTransport,
+        setProxy,
+        currentTab,
+        Tab,
+      } from "/lithium.mjs";
 
-    checkState();
+      // --- INIT ---
+      const form = document.getElementById("form");
+      let search =
+        localStorage.getItem("search-engine") ||
+        "https://search.brave.com/search?q=%s";
 
-  </script>
-  <link href="/assets/css/tabs.css" rel="stylesheet" />
-  <script type="module" async defer>
-    import {
-      setWisp,
-      makeURL,
-      getProxied,
-      setFrames,
-      addressInput,
-      setTransport,
-      setProxy,
-      currentTab,
-      Tab
-    } from "/lithium.mjs"
+      setProxy(localStorage.getItem("pr0xy") || "scram");
 
+      setWisp(
+        (location.protocol === "https:" ? "wss://" : "ws://") +
+          location.host +
+          "/wisp/"
+      );
 
-
-    // --- INIT ---
-    const form = document.getElementById("form")
-    let search =
-      localStorage.getItem("search-engine") ||
-      "https://search.brave.com/search?q=%s"
-
-
-    setProxy(localStorage.getItem("pr0xy") || "scram")
-
-
-    setWisp((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/");
-
-    setTransport(localStorage.getItem("transportz") || "epoxy");
-    async function autofill(url) {
-      const urlToLoad = makeURL(url, search)
-      const proxiedUrl = await getProxied(urlToLoad)
-      setTimeout(() => {
-
-        document.getElementById(`frame-${currentTab}`).src = proxiedUrl;
-      }, 200);
-    }
-
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const url = params.get('autofill');
-      if (url) autofill(url);
-
-    } catch { }
-
-    // --- EVENTS ---
-    form?.addEventListener("submit", async (event) => {
-      event.preventDefault()
-
-      const urlToLoad = makeURL(addressInput.value, search)
-      const proxiedUrl = await getProxied(urlToLoad)
-
-      let currentFrame = document.getElementById(`frame-${currentTab}`);
-
-      currentFrame.src = proxiedUrl
-
-      if (currentFrame === document.getElementById(`frame-${currentTab}`)) {
-        addressInput.value = urlToLoad
-
-        if (urlToLoad == "newtab.html") {
-          addressInput.value = "celestial://newtab"
-        }
-
+      setTransport(localStorage.getItem("transportz") || "libcurl");
+      async function autofill(url) {
+        const urlToLoad = makeURL(url, search);
+        const proxiedUrl = await getProxied(urlToLoad);
+        setTimeout(() => {
+          document.getElementById(`frame-${currentTab}`).src = proxiedUrl;
+        }, 200);
       }
-    })
 
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const url = params.get("autofill");
+        if (url) autofill(url);
+      } catch {}
 
+      // --- EVENTS ---
+      form?.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-    setFrames(document.getElementById("frames"));
-    new Tab();
-  </script>
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-</head>
+        const urlToLoad = makeURL(addressInput.value, search);
+        const proxiedUrl = await getProxied(urlToLoad);
 
-<body theme="default">
-  <div style="display:none;">
-    <h1>What is Drew's Learning Academy?</h1>
-    <p>Drew’s Learning Academy is a modern educational center focused on helping students build strong academic
-      foundations. It offers a structured environment where learners can develop skills in reading, writing, math,
-      and critical thinking.</p>
+        let currentFrame = document.getElementById(`frame-${currentTab}`);
 
-    <h1>How does Drew's Learning Academy teach students?</h1>
-    <p>The academy uses small group sessions and personalized instruction to make sure every student gets the
-      attention they need. Teachers adjust lessons based on each student’s pace, making the experience more
-      effective and enjoyable.</p>
+        currentFrame.src = proxiedUrl;
 
-    <h1>Why is Drew's Learning Academy beneficial?</h1>
-    <p>Beyond academics, Drew’s Learning Academy encourages good study habits and long-term growth. Students learn
-      how to stay organized, manage time, and approach challenges with a positive mindset.</p>
-  </div>
-  <div class="settings-bg"></div>
-  <div id="settings" style="display:none;">
-    <div class="settings">
-      <p id="close" onclick="close();"
-        style="font-size:40px;top:0;right:0;position:absolute;margin:15px;cursor:pointer;"><i class="bx bx-x"></i></p>
-      <div id="sidenav">
-        <a href="#cloak" onclick="show('cloak'); return false;"><i class='bx bxs-ghost'></i> Cl<span>oak</span>ing</a>
-        <a href="#browsing" onclick="show('browsing'); return false;"><i class='bx bx-globe'></i> Pr<span>o</span>xy</a>
-        <a href="#appear" onclick="show('appear'); return false;"><i class='bx bxs-palette'></i> Appearance</a>
-        <a href="#ext" onclick="show('ext'); return false;"><i class='bx bx-plug'></i> Extensions</a>
-        <a href="#misc" onclick="show('misc'); return false;"><i class='bx bxs-help-circle'></i> Miscancellous</a>
-      </div>
-      <div class="stuff">
-        <!--
+        if (currentFrame === document.getElementById(`frame-${currentTab}`)) {
+          addressInput.value = urlToLoad;
+
+          if (urlToLoad == "newtab.html") {
+            addressInput.value = "celestial://newtab";
+          }
+        }
+      });
+
+      setFrames(document.getElementById("frames"));
+      new Tab();
+    </script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body theme="default">
+    <div style="display: none">
+      <h1>What is Drew's Learning Academy?</h1>
+      <p>
+        Drew’s Learning Academy is a modern educational center focused on
+        helping students build strong academic foundations. It offers a
+        structured environment where learners can develop skills in reading,
+        writing, math, and critical thinking.
+      </p>
+
+      <h1>How does Drew's Learning Academy teach students?</h1>
+      <p>
+        The academy uses small group sessions and personalized instruction to
+        make sure every student gets the attention they need. Teachers adjust
+        lessons based on each student’s pace, making the experience more
+        effective and enjoyable.
+      </p>
+
+      <h1>Why is Drew's Learning Academy beneficial?</h1>
+      <p>
+        Beyond academics, Drew’s Learning Academy encourages good study habits
+        and long-term growth. Students learn how to stay organized, manage time,
+        and approach challenges with a positive mindset.
+      </p>
+    </div>
+    <div class="settings-bg"></div>
+    <div id="settings" style="display: none">
+      <div class="settings">
+        <p
+          id="close"
+          onclick="close();"
+          style="
+            font-size: 40px;
+            top: 0;
+            right: 0;
+            position: absolute;
+            margin: 15px;
+            cursor: pointer;
+          "
+        >
+          <i class="bx bx-x"></i>
+        </p>
+        <div id="sidenav">
+          <a href="#cloak" onclick="show('cloak'); return false;"
+            ><i class="bx bxs-ghost"></i> Cl<span>oak</span>ing</a
+          >
+          <a href="#browsing" onclick="show('browsing'); return false;"
+            ><i class="bx bx-globe"></i> Pr<span>o</span>xy</a
+          >
+          <a href="#appear" onclick="show('appear'); return false;"
+            ><i class="bx bxs-palette"></i> Appearance</a
+          >
+          <a href="#ext" onclick="show('ext'); return false;"
+            ><i class="bx bx-plug"></i> Extensions</a
+          >
+          <a href="#misc" onclick="show('misc'); return false;"
+            ><i class="bx bxs-help-circle"></i> Miscancellous</a
+          >
+        </div>
+        <div class="stuff">
+          <!--
         <div class="box">
             <h3>Example</h3>
             <p class="desc">soon!</p>
         </div>
         -->
-        <div id="cloak">
-          <div class="box">
-            <h3>Cl<span>oa</span>king Options</h3>
-            <p class="desc">choose between about:blank, about:blank buffed (recommended), and blob strings to stop
-              teachers from seeing your screen & hiding your history.</p>
-            <select class="select" id="cloakSelect">
-              <option value="ab">about:blank</option>
-              <option value="abbuff">about:blank [buffed]</option>
-              <option value="blob">blob: string</option>
-            </select>
-            <button onclick="launchCloak();">open</button>
-          </div>
-          <div class="box">
-            <h3>Auto Cloak</h3>
-            <p class="desc">opens the cloak selected (at "cloaking options") selected automatically</p>
-            <label class="switch">
-              <input type="checkbox" id="cloakTog" />
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="box">
-            <h3>Tab Cloaking</h3>
-            <p class="desc">masks the tab as another tab to fool teachers</p>
-            <select class="select" id="tabCloak" onchange="applyPreset()">
-              <option value="" selected>none</option>
-              <option value="google">google</option>
-              <option value="schoology">schoology</option>
-              <option value="khan">khan academy</option>
-              <option value="clever">clever</option>
-              <option value="gc">google classroom</option>
-              <option value="nt">new tab</option>
-            </select>
-            <input type="text" id="titleInput" placeholder="title">
-            <input type="url" id="faviconInput" placeholder="favicon">
-            <div class="wrap">
-              <button onclick="applyCloak()">apply</button>
-              <button onclick="resetCloak()">reset</button>
+          <div id="cloak">
+            <div class="box">
+              <h3>Cl<span>oa</span>king Options</h3>
+              <p class="desc">
+                choose between about:blank, about:blank buffed (recommended),
+                and blob strings to stop teachers from seeing your screen &
+                hiding your history.
+              </p>
+              <select class="select" id="cloakSelect">
+                <option value="ab">about:blank</option>
+                <option value="abbuff">about:blank [buffed]</option>
+                <option value="blob">blob: string</option>
+              </select>
+              <button onclick="launchCloak();">open</button>
+            </div>
+            <div class="box">
+              <h3>Auto Cloak</h3>
+              <p class="desc">
+                opens the cloak selected (at "cloaking options") selected
+                automatically
+              </p>
+              <label class="switch">
+                <input type="checkbox" id="cloakTog" />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="box">
+              <h3>Tab Cloaking</h3>
+              <p class="desc">masks the tab as another tab to fool teachers</p>
+              <select class="select" id="tabCloak" onchange="applyPreset()">
+                <option value="" selected>none</option>
+                <option value="google">google</option>
+                <option value="schoology">schoology</option>
+                <option value="khan">khan academy</option>
+                <option value="clever">clever</option>
+                <option value="gc">google classroom</option>
+                <option value="nt">new tab</option>
+              </select>
+              <input type="text" id="titleInput" placeholder="title" />
+              <input type="url" id="faviconInput" placeholder="favicon" />
+              <div class="wrap">
+                <button onclick="applyCloak()">apply</button>
+                <button onclick="resetCloak()">reset</button>
+              </div>
+            </div>
+            <div class="box">
+              <h3>Switch Cloak</h3>
+              <p class="desc">
+                when you switch tabs, the cloak will turn on, but if you switch
+                back, it will turn off, will be whatever you picked for "tab
+                cloaking" but default it will be google slides :p
+              </p>
+              <label class="switch">
+                <input type="checkbox" id="switchTog" />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="box">
+              <h3>Anti-Tab Close</h3>
+              <p class="desc">
+                if your teacher tries to close the tab, it will be prevented by
+                an alert, and by pressing cancel, you cancel the operation.
+              </p>
+              <label class="switch">
+                <input type="checkbox" id="antiTog" />
+                <span class="slider"></span>
+              </label>
             </div>
           </div>
-          <div class="box">
-            <h3>Switch Cloak</h3>
-            <p class="desc">when you switch tabs, the cloak will turn on, but if you switch back, it will turn off, will
-              be whatever you picked for "tab cloaking" but default it will be google slides :p</p>
-            <label class="switch">
-              <input type="checkbox" id="switchTog" />
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="box">
-            <h3>Anti-Tab Close</h3>
-            <p class="desc">if your teacher tries to close the tab, it will be prevented by an alert, and by pressing cancel, you cancel the operation.</p>
-            <label class="switch">
-              <input type="checkbox" id="antiTog" />
-              <span class="slider"></span>
-            </label>
-          </div>
-        </div>
-        <div id="browsing">
-          <div class="box">
-            <h3>Transport</h3>
-            <p class="desc">change how the pr<span>o</span>xy is handled, can lead to sites that were broken to work or
-              lead to sites that were working to break</p>
-            <label></label><select class="select" id="tselect">
-              <option value="epoxy" selected>epoxy</option>
-              <option value="libcurl">libcurl</option>
-            </select>
-          </div>
-          <div class="box">
-            <h3>Pr<span>o</span>xy</h3>
-            <p class="desc">same as the transport, can make pr<span>o</span>xy more stable</p>
-            <select class="select" id="pr0xySelect">
-              <option value="violet">ul<span>tr</span>av<span>io</span>l<span>e</span>t</option>
-              <option value="scram" selected>sc<span>ramj</span>et</option>
-            </select>
-          </div>
-          <div class="fakebox">
-            <h3> </h3>
-            <p class="desc"> </p>
-          </div>
-        </div>
-        <div id="appear">
-          <div class="box">
-            <h3>Themes</h3>
-            <p class="desc">customize the color scheme of celestial</p>
-            <select id="themepicker">
-              <option value="default" style="color:white;background:black;" selected>default</option>
-              <option value="light" style="color:black;background:#f5f5f5;">light</option>
-              <option value="midnight" style="color:white;background:darkblue;">midnight blue</option>
-              <option value="mocha" style="color:white;background:rgb(24, 18, 14);">mocha</option>
-              <option value="pisscolorlmao" style="color:#adad43;background:#222222;">jmw v6</option>
-              <option value="quasar" style="color:white;background:rgb(73, 153, 219);">quasar</option>
-              <option value="ccm" style="color:white;background:#1A1B26;">catppuccin mocha</option>
-              <option value="frappe" style="color:#D9E0EE;background:#0D0D1F;">catppuccin frappe</option>
-              <option value="eww" style="color:white;background:pink;" disabled>secret theme...</option>
-              <option value="chad" style="color:white;background:red;" disabled>secret theme 2...</option>
-            </select>
-          </div>
-          <div class="fakebox">
-            <h3> </h3>
-            <p class="desc"> </p>
-          </div>
-          <div class="fakebox">
-            <h3> </h3>
-            <p class="desc"> </p>
-          </div>
-        </div>
-        <div id="ext">
-          <div class="box">
-            <h3>Extensions</h3>
-            <p class="desc">insert custom scripts into sites you visit. kinda like bookmarklets. current extensions are
-              kahoax and autolingo.</p>
-          </div>
-          <div class="fakebox">
-            <h3>Userscripts</h3>
-            <p class="desc">add custom javascript/bookmarklets to sites you visit. [do not put script while being on the
-              website, otherwise it will break!]</p>
-            <textarea id="extCode" placeholder="javascript code here"></textarea>
-            <div class="wrap">
-              <input type="text" id="siteInject" placeholder="site that's affected (e.g. 'google.com')">
-              <button id="addExtBtn">add</button>
+          <div id="browsing">
+            <div class="box">
+              <h3>Transport</h3>
+              <p class="desc">
+                change how the pr<span>o</span>xy is handled, can lead to sites
+                that were broken to work or lead to sites that were working to
+                break
+              </p>
+              <label></label
+              ><select class="select" id="tselect">
+                <option value="epoxy" selected>epoxy</option>
+                <option value="libcurl">libcurl</option>
+              </select>
             </div>
-            <label>
-              <input type="checkbox" id="includeEverywhere"> include everywhere
-            </label>
-            <label>
-              <input checked type="checkbox" id="includesCheckbox"> includes url (recommended)
-            </label>
-            <div id="extList"></div>
+            <div class="box">
+              <h3>Pr<span>o</span>xy</h3>
+              <p class="desc">
+                same as the transport, can make pr<span>o</span>xy more stable
+              </p>
+              <select class="select" id="pr0xySelect">
+                <option value="violet">
+                  ul<span>tr</span>av<span>io</span>l<span>e</span>t
+                </option>
+                <option value="scram" selected>sc<span>ramj</span>et</option>
+              </select>
+            </div>
+            <div class="fakebox">
+              <h3></h3>
+              <p class="desc"></p>
+            </div>
           </div>
-        </div>
-        <div id="misc">
-          <div class="fakebox oops">
-            <h3>Credits</h3>
-            <p><a href="https://github.com/justjxrdanwasdefinetlytaken" target="_blank">justjxrdanwasdefinetlytaken -
-                the rest of the site</a></p>
-            <p><a href="https://github.com/slqntdevss" target="_blank">slqnt - extensions function + more</a></p>
-            <p><a href="https://github.com/kindkid27" target="_blank">kindkid - game favoriting function + more</a></p>
-            <p><a href="https://github.com/coding4hours" target="_blank">coding4hours - tab functions</a></p>
-            <p><a>gnmath/bread, bog/truffled/aukak, burnedpopcorn, 98006, UGS + more - web ports + games used by us (big
-                kiss)</a></p>
-            <p><a target="_blank">mer<span>cury</span> work<span>sh</span>op and titan<span>iu</span>m
-                net<span>wo</span>rk - sc<span>ram</span>jet and ul<span>tra</span>vi<span>ol</span>et</a></p>
-            <p><a href="https://shorturl.at/ONQOh" target="_blank">pyrus - extensions function</a></p>
+          <div id="appear">
+            <div class="box">
+              <h3>Themes</h3>
+              <p class="desc">customize the color scheme of celestial</p>
+              <select id="themepicker">
+                <option
+                  value="default"
+                  style="color: white; background: black"
+                  selected
+                >
+                  default
+                </option>
+                <option value="light" style="color: black; background: #f5f5f5">
+                  light
+                </option>
+                <option
+                  value="midnight"
+                  style="color: white; background: darkblue"
+                >
+                  midnight blue
+                </option>
+                <option
+                  value="mocha"
+                  style="color: white; background: rgb(24, 18, 14)"
+                >
+                  mocha
+                </option>
+                <option
+                  value="pisscolorlmao"
+                  style="color: #adad43; background: #222222"
+                >
+                  jmw v6
+                </option>
+                <option
+                  value="quasar"
+                  style="color: white; background: rgb(73, 153, 219)"
+                >
+                  quasar
+                </option>
+                <option value="ccm" style="color: white; background: #1a1b26">
+                  catppuccin mocha
+                </option>
+                <option
+                  value="frappe"
+                  style="color: #d9e0ee; background: #0d0d1f"
+                >
+                  catppuccin frappe
+                </option>
+                <option
+                  value="eww"
+                  style="color: white; background: pink"
+                  disabled
+                >
+                  secret theme...
+                </option>
+                <option
+                  value="chad"
+                  style="color: white; background: red"
+                  disabled
+                >
+                  secret theme 2...
+                </option>
+              </select>
+            </div>
+            <div class="fakebox">
+              <h3></h3>
+              <p class="desc"></p>
+            </div>
+            <div class="fakebox">
+              <h3></h3>
+              <p class="desc"></p>
+            </div>
           </div>
-          <div class="box line">
-            <h3>Support Us</h3>
-            <p class="desc">if you want to support the project, consider donating!</p>
-            <a href="https://cash.app/$jrdndevs" target="_blank">donate to the main cashapp & link your
-              d<span>is</span>cord</a>
+          <div id="ext">
+            <div class="box">
+              <h3>Extensions</h3>
+              <p class="desc">
+                insert custom scripts into sites you visit. kinda like
+                bookmarklets. current extensions are kahoax and autolingo.
+              </p>
+            </div>
+            <div class="fakebox">
+              <h3>Userscripts</h3>
+              <p class="desc">
+                add custom javascript/bookmarklets to sites you visit. [do not
+                put script while being on the website, otherwise it will break!]
+              </p>
+              <textarea
+                id="extCode"
+                placeholder="javascript code here"
+              ></textarea>
+              <div class="wrap">
+                <input
+                  type="text"
+                  id="siteInject"
+                  placeholder="site that's affected (e.g. 'google.com')"
+                />
+                <button id="addExtBtn">add</button>
+              </div>
+              <label>
+                <input type="checkbox" id="includeEverywhere" /> include
+                everywhere
+              </label>
+              <label>
+                <input checked type="checkbox" id="includesCheckbox" /> includes
+                url (recommended)
+              </label>
+              <div id="extList"></div>
+            </div>
           </div>
-          <div class="box">
-            <h3>Contact Us</h3>
-            <p class="desc">to contact us, you can send an email or send a message on d<span>isc</span>ord!</p>
-            <p>email: celestialmaininq@gmail.com</p>
-            <p>d<span>isc</span>ord: <a href="https://dsc.gg/gnetwork" target="_blank">here</a></p>
-          </div>
-          <div class="box">
-            <h3>Wiki</h3>
-            <p class="desc">check out our wiki for guides on using userscripts!</p>
-            <a href="https://github.com/justjxrdanwasdefinetlytaken/celestial/blob/main/wiki.md"
-              target="_blank">celestial wiki</a>
-          </div>
-          <div class="box">
-            <h3>Export Data</h3>
-            <p class="desc">transfer your data to another celestial instance.</p>
-            <div class="wrap">
-            <button onclick="exportData()">export</button>
-            <button onclick="importData()">import</button>
+          <div id="misc">
+            <div class="fakebox oops">
+              <h3>Credits</h3>
+              <p>
+                <a
+                  href="https://github.com/justjxrdanwasdefinetlytaken"
+                  target="_blank"
+                  >justjxrdanwasdefinetlytaken - the rest of the site</a
+                >
+              </p>
+              <p>
+                <a href="https://github.com/slqntdevss" target="_blank"
+                  >slqnt - extensions function + more</a
+                >
+              </p>
+              <p>
+                <a href="https://github.com/kindkid27" target="_blank"
+                  >kindkid - game favoriting function + more</a
+                >
+              </p>
+              <p>
+                <a href="https://github.com/coding4hours" target="_blank"
+                  >coding4hours - tab functions</a
+                >
+              </p>
+              <p>
+                <a
+                  >gnmath/bread, bog/truffled/aukak, burnedpopcorn, 98006, UGS +
+                  more - web ports + games used by us (big kiss)</a
+                >
+              </p>
+              <p>
+                <a target="_blank"
+                  >mer<span>cury</span> work<span>sh</span>op and
+                  titan<span>iu</span>m net<span>wo</span>rk -
+                  sc<span>ram</span>jet and
+                  ul<span>tra</span>vi<span>ol</span>et</a
+                >
+              </p>
+              <p>
+                <a href="https://shorturl.at/ONQOh" target="_blank"
+                  >pyrus - extensions function</a
+                >
+              </p>
+            </div>
+            <div class="box line">
+              <h3>Support Us</h3>
+              <p class="desc">
+                if you want to support the project, consider donating!
+              </p>
+              <a href="https://cash.app/$jrdndevs" target="_blank"
+                >donate to the main cashapp & link your d<span>is</span>cord</a
+              >
+            </div>
+            <div class="box">
+              <h3>Contact Us</h3>
+              <p class="desc">
+                to contact us, you can send an email or send a message on
+                d<span>isc</span>ord!
+              </p>
+              <p>email: celestialmaininq@gmail.com</p>
+              <p>
+                d<span>isc</span>ord:
+                <a href="https://dsc.gg/gnetwork" target="_blank">here</a>
+              </p>
+            </div>
+            <div class="box">
+              <h3>Wiki</h3>
+              <p class="desc">
+                check out our wiki for guides on using userscripts!
+              </p>
+              <a
+                href="https://github.com/justjxrdanwasdefinetlytaken/celestial/blob/main/wiki.md"
+                target="_blank"
+                >celestial wiki</a
+              >
+            </div>
+            <div class="box">
+              <h3>Export Data</h3>
+              <p class="desc">
+                transfer your data to another celestial instance.
+              </p>
+              <div class="wrap">
+                <button onclick="exportData()">export</button>
+                <button onclick="importData()">import</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <nav>
-    <div id="tabs">
-      <button id="new-tab-btn" aria-label="new tab" title="new tab">
-
-        <i class='bx bx-plus'></i>
-      </button>
+    <nav>
+      <div id="tabs">
+        <button id="new-tab-btn" aria-label="new tab" title="new tab">
+          <i class="bx bx-plus"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="tabthing">
+      <form id="form">
+        <a id="back" class="fc" onclick="back();"
+          ><i class="bx bx-caret-left"></i
+        ></a>
+        <a id="reload" class="fc" onclick="reload();"
+          ><i class="bx bx-revision"></i
+        ></a>
+        <a id="forward" class="fc" onclick="forward();"
+          ><i class="bx bx-caret-right"></i
+        ></a>
+        <input
+          id="address"
+          type="text"
+          placeholder="Search privately.."
+          onfocus="this.select()"
+          class="search"
+          autocomplete="off"
+        />
+        <a id="inspect" class="fc" onclick="inspect();"
+          ><i class="bx bx-code-alt"></i
+        ></a>
+        <a id="fullscreen" class="fc" onclick="full();"
+          ><i class="bx bx-fullscreen"></i
+        ></a>
+        <a id="custom" class="fc" onclick="setting();"
+          ><i class="bx bx-dots-vertical"></i
+        ></a>
+      </form>
+      <section id="frames"></section>
     </div>
-  </nav>
-  <div class="tabthing">
-    <form id="form">
-      <a id="back" class="fc" onclick="back();"><i class="bx bx-caret-left"></i></a>
-      <a id="reload" class="fc" onclick="reload();"><i class="bx bx-revision"></i></a>
-      <a id="forward" class="fc" onclick="forward();"><i class="bx bx-caret-right"></i></a>
-      <input id="address" type="text" placeholder="Search privately.." onfocus="this.select()" class="search"
-        autocomplete="off" />
-      <a id="inspect" class="fc" onclick="inspect();"><i class="bx bx-code-alt"></i></a>
-      <a id="fullscreen" class="fc" onclick="full();"><i class="bx bx-fullscreen"></i></a>
-      <a id="custom" class="fc" onclick="setting();"><i class="bx bx-dots-vertical"></i></a>
-    </form>
-    <section id="frames"></section>
-  </div>
-  <script type="module">
-    import { currentFrame } from './lithium.mjs';
+    <script type="module">
+      import { currentFrame } from "./lithium.mjs";
 
-    window.full = () => {
-      const e = currentFrame;
-      if (!e) return;
-      document.fullscreenElement ? document.exitFullscreen() : e.requestFullscreen().catch(() => { });
+      window.full = () => {
+        const e = currentFrame;
+        if (!e) return;
+        document.fullscreenElement
+          ? document.exitFullscreen()
+          : e.requestFullscreen().catch(() => {});
+      };
+    </script>
+  </body>
+  <script src="/assets/js/theme.js"></script>
+  <script src="/assets/js/s.js"></script>
+  <script src="/assets/js/picker.js"></script>
+  <script src="/assets/js/func.js"></script>
+  <script src="/assets/js/tabsmain.mjs" type="module"></script>
+  <script src="/assets/js/userscript.mjs" type="module"></script>
+  <script type="module" src="/assets/js/ext.mjs"></script>
+  <script>
+    function setting() {
+      document.getElementById("settings").style.display = "block";
+      document.querySelector(".settings-bg").style.display = "block";
     }
+
+    function exitSetting() {
+      document.getElementById("settings").style.display = "none";
+      document.querySelector(".settings-bg").style.display = "none";
+    }
+
+    document.getElementById("close").addEventListener("click", exitSetting);
   </script>
-</body>
-<script src="/assets/js/theme.js"></script>
-<script src="/assets/js/s.js"></script>
-<script src="/assets/js/picker.js"></script>
-<script src="/assets/js/func.js"></script>
-<script src="/assets/js/tabsmain.mjs" type="module"></script>
-<script src="/assets/js/userscript.mjs" type="module"></script>
-<script type="module" src="/assets/js/ext.mjs"></script>
-<script>
-  function setting() {
-    document.getElementById('settings').style.display = 'block';
-    document.querySelector('.settings-bg').style.display = 'block';
-  }
+  <script>
+    addEventListener("keydown", (e) => {
+      if (e.altKey && e.key === "s") {
+        const f = document.querySelector("iframe.searchframe:not(.hidden)");
+        if (!f) return;
 
-  function exitSetting() {
-    document.getElementById('settings').style.display = 'none';
-    document.querySelector('.settings-bg').style.display = 'none';
-  }
+        const w = 650,
+          h = 450;
+        const l = (screen.availWidth - w) / 2;
+        const t = (screen.availHeight - h) / 2;
 
-  document.getElementById('close').addEventListener('click', exitSetting);
-</script>
-<script>
-  addEventListener("keydown", e => {
-  if (e.altKey && e.key === "s") {
-    const f = document.querySelector("iframe.searchframe:not(.hidden)");
-    if (!f) return;
+        const win = open(
+          "about:blank",
+          "_blank",
+          `width=${w},height=${h},left=${l},top=${t}`
+        );
+        if (!win) return;
 
-    const w = 650, h = 450;
-    const l = (screen.availWidth - w) / 2;
-    const t = (screen.availHeight - h) / 2;
-
-    const win = open("about:blank", "_blank", `width=${w},height=${h},left=${l},top=${t}`);
-    if (!win) return;
-
-    win.document.write(`<style>html,body{margin:0;height:100%}</style>
+        win.document.write(`<style>html,body{margin:0;height:100%}</style>
 <iframe src="${f.src}" style="position:fixed;inset:0;width:100%;height:100%;border:0"></iframe>`);
-  }
-});
-</script>
+      }
+    });
+  </script>
 </html>

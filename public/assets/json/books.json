@@ -5,13 +5,13 @@
         "type": "exclusive",
 		"url": "/assets/src/deltarune/index.html#deltarune",
         "categories": ["indie", "rpg", "port"],
-        "source": "local"
+        "source": "local" 
 	},
     {
 		"name": "Roblox",
         "img": "/assets/img/gms/boringasslogo.png",
         "type": "exclusive",
-		"url": "/assets/src/ngg/rblx/index.html#r",
+		"url": "/assets/src/rblx-menu/index.html#roblox",
         "categories": ["mmo", "sandbox"],
         "source": "local"
 	},
@@ -267,7 +267,7 @@
         "name": "Slender; The Eight Pages",
         "img": "/assets/img/gms/slender.png",
         "type": "exclusive",
-        "url": "/assets/src/slenderman/index.html#slenderman",
+        "url": "/assets/src/slender/index.html#slenderman",
         "categories": ["horror", "port"],
         "source": "local"
     },
@@ -523,9 +523,9 @@
 		"name": "Bouncemasters",
         "img": "/assets/img/gms/bouncemasters.png",
         "type": "regular",
-		"url": "https://edu.aptutorfinder.com/assets/storage/html/bouncemasters",
+		"url": "/assets/src/bouncemasters/index.html#bouncemasters",
         "categories": ["other", "port", "platformer"],
-        "source": "proxied"
+        "source": "local"
 	},
     {
 		"name": "Bloodmoney",
@@ -1084,7 +1084,7 @@
         "img": "/assets/img/gms/bfdia.png",
         "type": "exclusive",
 		"url": "/assets/src/bdfia-fb/index.html#BFDIA-5b",
-        "categories": ["rpg", "indie", "port"],
+        "categories": ["rpg", "indie", "port", "platformer"],
         "source": "local"
 	},
     {
@@ -1269,6 +1269,102 @@
         "type": "exclusive",
 		"url": "/assets/src/nzp/index.html#nazi-zombies-portable",
         "categories": ["rpg", "horror", "port", "shooter"],
+        "source": "local"
+	},
+    {
+		"name": "Oneshot [LEGACY]",
+        "img": "/assets/img/gms/oneshot.png",
+        "type": "regular",
+		"url": "/assets/src/oneshot/index.html#oneshot",
+        "categories": ["rpg", "port", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Retro Bowl",
+        "img": "/assets/img/gms/rb.png",
+        "type": "regular",
+		"url": "/assets/src/retro-bowl/index.html#retro-bowl",
+        "categories": ["indie", "sports"],
+        "source": "local"
+	},
+    {
+		"name": "Retro Bowl College",
+        "img": "/assets/img/gms/rbc.png",
+        "type": "regular",
+		"url": "/assets/src/retro-bowl/college/index.html#retro-bowl-college",
+        "categories": ["sports", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Jojo's Bizzare Adventure",
+        "img": "/assets/img/gms/jjba.png",
+        "type": "exclusive",
+		"url": "/assets/src/jojoba/index.html#jjba",
+        "categories": ["other"],
+        "source": "local"
+	},
+    {
+		"name": "OvO",
+        "img": "/assets/img/gms/ovo.png",
+        "type": "regular",
+		"url": "/assets/src/ovo/index.html#ovo",
+        "categories": ["platformer"],
+        "source": "local"
+	},
+    {
+		"name": "Funny Shooter",
+        "img": "/assets/img/gms/funny-shooter.png",
+        "type": "regular",
+		"url": "/assets/src/funny/index.html#funny-shooter",
+        "categories": ["shooter"],
+        "source": "local"
+	},
+    {
+		"name": "Grand Theft Auto (GTA)",
+        "img": "/assets/img/gms/gta.png",
+        "type": "regular",
+		"url": "/assets/src/gta/index.html#grand-theft-auto",
+        "categories": ["shooter", "rpg", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Grand Theft Auto 2 (GTA 2)",
+        "img": "/assets/img/gms/gta2.png",
+        "type": "regular",
+		"url": "/assets/src/gta/2/index.html#grand-theft-auto",
+        "categories": ["shooter", "rpg", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Core Ball",
+        "img": "/assets/img/gms/coreball.png",
+        "type": "regular",
+		"url": "/assets/src/core-ball/index.html#core-ball",
+        "categories": ["other"],
+        "source": "local"
+	},
+    {
+		"name": "Melon Massacre",
+        "img": "/assets/img/gms/melon.png",
+        "type": "exclusive",
+		"url": "/assets/src/melon-massacre/index.html#",
+        "categories": ["shooter", "indie", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Crazy Cattle 3D",
+        "img": "/assets/img/gms/cc3d.png",
+        "type": "regular",
+		"url": "/assets/src/cc3d/index.html#crazy-cattle-3d",
+        "categories": ["other"],
+        "source": "local"
+	},
+    {
+		"name": "Happy Wheels",
+        "img": "/assets/img/gms/hw.png",
+        "type": "regular",
+		"url": "/assets/src/hw/index.html#happy-wheels",
+        "categories": ["platformer", "rhythm"],
         "source": "local"
 	},
     {
