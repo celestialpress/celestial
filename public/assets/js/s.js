@@ -314,6 +314,13 @@ function applySettings() {
   const theme = localStorage.getItem("theme") || "default";
   document.documentElement.setAttribute("data-theme", theme);
 
+  if (typeof setTransport === "function") {
+    setTransport(localStorage.getItem("transportz") || "libcurl");
+  }
+  if (typeof setProxy === "function") {
+    setProxy(localStorage.getItem("pr0xy") || "scram");
+  }
+
   const savedTitle = localStorage.getItem("savedTitle");
   const name = localStorage.getItem("name");
   if (name || savedTitle) document.title = name || savedTitle;
@@ -369,6 +376,8 @@ function exportData() {
     switchCloakOn: localStorage.getItem("switchCloakOn") || "false",
     antiTog: localStorage.getItem("antiTog") || "false",
     theme: localStorage.getItem("theme") || "default",
+    transportz: localStorage.getItem("transportz") || "libcurl",
+    pr0xy: localStorage.getItem("pr0xy") || "scram",
     cookies: cookieStorage(),
   };
 
