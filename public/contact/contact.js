@@ -113,7 +113,7 @@ body[theme="eww"] .gridthing {
           padding:15px;
           width:300px;
           height:250px;
-          background:var(--pallet);
+          background:var(--pallet2);
           border-radius:10px;
           cursor:pointer;
           transition:0.4s;
@@ -131,7 +131,7 @@ body[theme="eww"] .gridthing {
 
         .unavailable {
           cursor:not-allowed;
-          background:var(--pallet2);
+          background:var(--pallet);
         }
 
         body[theme="light"] .menu-box img {
