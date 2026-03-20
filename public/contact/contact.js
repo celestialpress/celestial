@@ -94,26 +94,81 @@ body[theme="eww"] .gridthing {
       rgba(255, 255, 255, 0.385) 0 1px,
       transparent 1px 40px);
 }
-      .pluh {
-        margin:0;
-        height:100vh;
-        width:100vw;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        overflow:hidden;
+
+        p {
+          font-size:15px;
+          color:gray;
+        }
+
+        .row {
+          display:flex;
+          gap:25px;
+          flex-wrap:wrap;
+          align-items:center;
+          justify-content:center;
+        }
+
+        .menu-box {
+          border:1px solid var(--border);
+          padding:15px;
+          width:300px;
+          height:250px;
+          background:var(--pallet);
+          border-radius:10px;
+          cursor:pointer;
+          transition:0.4s;
+        }
+
+        .menu-box:hover {
+          transform:scale(1.03);
+        }
+
+        .menu-box img {
+          width:120px;
+          padding:10px;
+          border:1px solid var(--border);
+        }
+
+        .unavailable {
+          cursor:not-allowed;
+          background:var(--pallet2);
+        }
+
+        body[theme="light"] .menu-box img {
+          filter: invert(1);
+        }
+
+        .gradientthing {
+          overflow-y:auto;
+          overflow-x:hidden;
         }
   </style>
 </head>
 
 <body theme="default">
-<div align="center">
-<div class="pluh">
-<div class="gradientthing">
+<div class="gradientthing" align="center">
 <h1>media menu</h1>
-<button onclick="window.location.href='/tab.html?autofill=https://soundcloud.com'">access music</button>
-<button onclick="window.location.href='/tab.html?autofill=https://cineby.gd'">access movies</button>
-<button style="cursor:not-allowed;background:var(--pallet2);" onclick="console.log('soon');">access chat (soon)</button>
+<div class="row">
+<div class="menu-box" onclick="/tab.html?autofill=https://app.apponfly.com/trial">
+<img src="/assets/img/icns/comp.png" />
+<h2>access virtual machine</h2>
+<p>access our free virtual machine.</p>
+</div>
+<div class="menu-box" onclick="/tab.html?autofill=https://music.youtube.com">
+<img src="/assets/img/icns/music.png" />
+<h2>listen to music</h2>
+<p>access our free virtual machine.</p>
+</div>
+<div class="menu-box" onclick="/tab.html?autofill=https://cineby.gd">
+<img src="/assets/img/icns/pop.png" />
+<h2>watch movies</h2>
+<p>access movies, for free, no charge.</p>
+</div>
+<div class="menu-box unavailable">
+<img src="/assets/img/icns/chat.png" />
+<h2>access chat</h2>
+<p>coming soon!</p>
+</div>
 </div>
 </div>
 </div>

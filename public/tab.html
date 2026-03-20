@@ -81,7 +81,11 @@
       <div align="center">
         <h2>update log 03/09</h2>
       </div>
-      <p>- added 12 new games</p>
+      <p>- added 11 new games</p>
+      <p>- revamped the media page</p>
+      <p>
+        - made the export/import setting appear at the top of Miscancellous.
+      </p>
       <p>
         - join the d<span>isc</span>ord for more links!
         <a
@@ -265,10 +269,10 @@
     document.getElementById("close").addEventListener("click", exitUpdLog);
 
     window.addEventListener("load", function () {
-      if (!localStorage.getItem("updlogview3")) {
+      if (!localStorage.getItem("updlogview4")) {
         document.getElementById("update-log").style.display = "block";
         document.querySelector(".upd-bg").style.display = "block";
-        localStorage.setItem("updlogview3", "1");
+        localStorage.setItem("updlogview4", "1");
       }
     });
   </script>
