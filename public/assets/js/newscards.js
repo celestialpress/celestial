@@ -9,19 +9,22 @@ var order = document.querySelectorAll("select")[1];
 const FAVORITES_KEY = "favoriteGames";
 
 /** SVG paths for the heart icons for favorited games */
-const HEART_OUTLINE = "m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z";
-const HEART_FILLED = "m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z";
+const HEART_OUTLINE =
+  "m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z";
+const HEART_FILLED =
+  "m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z";
 
 function showGames(list) {
   grid.innerHTML = "";
   const favorites = storage.get(FAVORITES_KEY, []);
-  list.forEach(g => { // loop through all the games in /assets/json/books.json
+  list.forEach((g) => {
+    // loop through all the games in /assets/json/books.json
     const isFavorited = favorites.includes(g.name);
     const heartPath = isFavorited ? HEART_FILLED : HEART_OUTLINE;
 
     /**
      * Separate the card HTML so it's visually easier to understand & modify
-     * 
+     *
      * also the SVG has to be in-line so CSS can touch it's colors 🥲
      * I know it seems a bit unoptimized, having a new SVG for every card, but since it's
      * just math and the size of it is pretty small, it shouldn't really matter much
@@ -33,10 +36,14 @@ function showGames(list) {
 
     `;
 
-
     var card = document.createElement("div"); // create a new game card
     card.className = "card";
-    card.onclick = () => location.href = g.source === "local" ? g.url : `/tab.html?autofill=${encodeURIComponent(g.url)}`;
+    card.onclick = () =>
+      g.source === "dice"
+        ? rngGame()
+        : g.source === "local"
+        ? g.url
+        : `/tab.html?autofill=${encodeURIComponent(g.url)}`;
     card.innerHTML = cardHTML;
     grid.appendChild(card);
 
@@ -55,7 +62,10 @@ function showGames(list) {
       // swap the heart icon between filled and outline
       const heartPathElement = heart.querySelector("path");
       const currentPath = heartPathElement.getAttribute("d");
-      heartPathElement.setAttribute("d", currentPath === HEART_FILLED ? HEART_OUTLINE : HEART_FILLED);
+      heartPathElement.setAttribute(
+        "d",
+        currentPath === HEART_FILLED ? HEART_OUTLINE : HEART_FILLED
+      );
     });
   });
 }
@@ -65,14 +75,15 @@ function showGames(list) {
  * @param {string} gameName - The name of the game to toggle
  */
 function toggleFavorite(gameName) {
-  const favorites = storage.get(FAVORITES_KEY, []); // the [] (an empty list) is the default item if the key returns nothing 
+  const favorites = storage.get(FAVORITES_KEY, []); // the [] (an empty list) is the default item if the key returns nothing
   const index = favorites.indexOf(gameName);
-  if (index > -1) { // check if the game's already in there already
+  if (index > -1) {
+    // check if the game's already in there already
     // game is in there
     favorites.splice(index, 1);
   } else {
     // game's not in there
-    favorites.push(gameName)
+    favorites.push(gameName);
   }
 
   // update localstorage
@@ -81,18 +92,23 @@ function toggleFavorite(gameName) {
 
 // main game func
 fetch("/assets/json/books.json")
-  .then(res => res.json())
-  .then(games => {
+  .then((res) => res.json())
+  .then((games) => {
     const originalGames = [...games];
 
     // update games based on cat
     function update() {
-      let filtered = originalGames.filter(g => g.name.toLowerCase().includes(search.value.toLowerCase()));
-      if (cat.value === "exclusive") filtered = filtered.filter(g => g.type === "exclusive");
-      else if (cat.value !== "all") filtered = filtered.filter(g => g.categories?.includes(cat.value));
+      let filtered = originalGames.filter((g) =>
+        g.name.toLowerCase().includes(search.value.toLowerCase())
+      );
+      if (cat.value === "exclusive")
+        filtered = filtered.filter((g) => g.type === "exclusive");
+      else if (cat.value !== "all")
+        filtered = filtered.filter((g) => g.categories?.includes(cat.value));
 
       // Apply alphabetical or new sorting first
-      if (order.value === "abc") filtered.sort((a, b) => a.name.localeCompare(b.name));
+      if (order.value === "abc")
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
       else if (order.value === "new") filtered = [...filtered].reverse();
 
       // Sort favorites to the front (stable sort maintains existing order)
@@ -101,7 +117,7 @@ fetch("/assets/json/books.json")
         const aFav = favorites.includes(a.name);
         const bFav = favorites.includes(b.name);
         if (aFav && !bFav) return -1; // a is favorited, b is not -> a comes first
-        if (!aFav && bFav) return 1;  // b is favorited, a is not -> b comes first
+        if (!aFav && bFav) return 1; // b is favorited, a is not -> b comes first
         return 0; // both favorited or both not -> maintain existing order
       });
 
@@ -117,11 +133,24 @@ fetch("/assets/json/books.json")
     update();
   });
 
+function rngGame() {
+  fetch("/assets/json/books.json")
+    .then((res) => res.json())
+    .then((games) => {
+      const available = games.filter((g) => g.url);
+      const rand = available[Math.floor(Math.random() * available.length)];
+      location.href =
+        rand.source === "local"
+          ? rand.url
+          : `/tab.html?autofill=${encodeURIComponent(rand.url)}`;
+    });
+}
+
 function gameCount() {
-  fetch('/assets/json/books.json')
-    .then(r => r.json())
-    .then(d => {
-      const input = document.querySelector('.textbook');
+  fetch("/assets/json/books.json")
+    .then((r) => r.json())
+    .then((d) => {
+      const input = document.querySelector(".textbook");
       input.placeholder = `search through ${(d.modules || d).length} games..`;
     });
 }

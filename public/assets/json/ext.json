@@ -34,5 +34,10 @@
         "website": ["https://youtube.com", "https://music.youtube.com", "youtube.com", "music.youtube.com"],
         "includes": "yes",
         "src": "fetch('https://raw.githubusercontent.com/JustJxrdanWasDefinetlyTaken/celestial-ext/refs/heads/main/ext/yt-adblocker.js') .then(r => r.text()) .then(t => new Function(t)());"
+    },
+    {
+        "name": "Global Adblocker",
+        "everywhere": "yes",
+        "src": "fetch('https://raw.githubusercontent.com/MarcellPerger1/adblock-bookmarklet/refs/heads/main/dist/release/adblocker.min.js') .then(r => r.text()) .then(t => new Function(t)());"
     }
 ]

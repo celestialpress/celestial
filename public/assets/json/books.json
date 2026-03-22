@@ -136,7 +136,7 @@
         "source": "local"
     },
     {
-        "name": "Five Nights At Ep-stein's",
+        "name": "Five Nights At Epstein's",
         "img": "/assets/img/gms/fnae.png",
         "type": "exclusive",
         "url": "/assets/src/fnae/index.html#fnae",
@@ -1368,7 +1368,14 @@
         "source": "local"
 	},
     {
-		"name": "!! SUGGEST A GAME",
+		"name": "!! RANDOM GAME",
+        "img": "/assets/img/gms/dice.gif",
+        "type": "regular",
+        "categories": ["other"],
+        "source": "dice"
+	},
+    {
+		"name": "! SUGGEST A GAME",
         "img": "/assets/img/gms/!!suggest.png",
         "type": "exclusive",
 		"url": "https://forms.gle/ELsciiPdpuofGk4v8",
