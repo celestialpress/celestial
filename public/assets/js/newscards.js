@@ -41,9 +41,10 @@ function showGames(list) {
     card.onclick = () =>
       g.source === "dice"
         ? rngGame()
-        : g.source === "local"
-        ? g.url
-        : `/tab.html?autofill=${encodeURIComponent(g.url)}`;
+        : (location.href =
+            g.source === "local"
+              ? g.url
+              : `/tab.html?autofill=${encodeURIComponent(g.url)}`);
     card.innerHTML = cardHTML;
     grid.appendChild(card);
 
