@@ -384,7 +384,7 @@ function exportData() {
   const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
-  const time = currentDate.toISOString().replace(/:/g, "-").split(".")[0];
+  const time = new Date().toISOString().replace(/:/g, "-").split(".")[0];
   a.href = url;
   a.download = `celestial_data_timestamp_${time}.json`;
   document.body.appendChild(a);
