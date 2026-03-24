@@ -118,3 +118,14 @@ body[theme="chad"] {
   --input: rgba(252, 38, 81, 0.1);
   --pallet2: #1a0b12;
 }
+
+body[theme="saywallahibro"] {
+  --background: #f7e400;
+  --color: #111111;
+  --pallet: #f2dc00;
+  --pallet-hover: #e8d200;
+  --button: #f6ff00;
+  --border: #c8b400;
+  --input: rgba(17, 17, 17, 0.06);
+  --pallet2: #fff066;
+}

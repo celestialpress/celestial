@@ -164,6 +164,11 @@ body[theme="eww"] .gridthing {
 <h2>watch movies</h2>
 <p>access movies, for free, no charge.</p>
 </div>
+<div class="menu-box" data-url="/tab.html?autofill=https://duck.ai">
+<img src="/assets/img/icns/ai.png" />
+<h2>access AI</h2>
+<p>access AI with multiple models, no charge.</p>
+</div>
 <div class="menu-box unavailable">
 <img src="/assets/img/icns/chat.png" />
 <h2>access chat</h2>

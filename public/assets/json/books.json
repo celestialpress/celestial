@@ -1147,9 +1147,9 @@
 		"name": "Plants Vs Zombies 2",
         "img": "/assets/img/gms/pvz2.png",
         "type": "exclusive",
-		"url": "/assets/src/pvz/2/index.html#plants-vs-zombies-2",
+		"url": "https://html-classic.itch.zone/html/12196143/index.html",
         "categories": ["rpg", "indie", "port"],
-        "source": "local"
+        "source": "proxied"
 	},
     {
 		"name": "Drive Mad",
@@ -1366,6 +1366,14 @@
 		"url": "/assets/src/hw/index.html#happy-wheels",
         "categories": ["platformer", "rhythm"],
         "source": "local"
+	},
+    {
+		"name": "Rain World",
+        "img": "/assets/img/gms/rw.png",
+        "type": "regular",
+		"url": "https://shorturl.at/dfyGy",
+        "categories": ["adventure", "platformer"],
+        "source": "proxied"
 	},
     {
 		"name": "!! RANDOM GAME",

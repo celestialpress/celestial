@@ -84,3 +84,15 @@ body[theme="chad"] .gradientthing {
             rgb(78, 17, 36) 75%,
             rgb(111, 19, 37) 100%);
 }
+
+body[theme="saywallahibro"] .gradientthing {
+    background: linear-gradient(
+      360deg,
+      rgb(247, 228, 0) 0%,
+      rgb(246, 225, 0) 18%,
+      rgb(244, 220, 0) 36%,
+      rgb(242, 215, 0) 54%,
+      rgb(239, 210, 0) 72%,
+      rgb(235, 204, 0) 100%
+    );
+  }

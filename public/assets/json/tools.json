@@ -237,6 +237,12 @@
 		"name": "ChatGPT",
         "img": "/assets/img/tls/chatgpt.png",
 		"url": "https://chatgpt.com",
+        "categories": ["ai", "other"]
+	},
+    {
+		"name": "Duck.ai",
+        "img": "/assets/img/tls/duck.png",
+		"url": "https://duck.ai",
         "categories": ["ai", "other", "popular"]
 	},
     {

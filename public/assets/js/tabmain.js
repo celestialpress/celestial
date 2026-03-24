@@ -20,6 +20,7 @@ const card3 = document.querySelector('#card3');
 const foot = document.querySelector('.footer .a2');
 const foot2 = document.querySelector('.footer .a3');
 const foot3 = document.querySelector('.footer .ap');
+// const text = document.querySelector('.wallahi');
 
  h1.textContent = "celestial.";
  url.placeholder = "search with ease";
@@ -32,3 +33,8 @@ const foot3 = document.querySelector('.footer .ap');
  foot.target = "_blank"
  foot2.textContent = "legal";
  foot3.textContent = "partners";
+
+ if (document.body.getAttribute("theme") === "saywallahibro") {
+  h1.innerHTML = "pro<span>x</span>y.";
+  // text.style.display = "block";
+}
