@@ -1347,7 +1347,7 @@
 		"name": "Melon Massacre",
         "img": "/assets/img/gms/melon.png",
         "type": "exclusive",
-		"url": "/assets/src/melon-massacre/index.html#",
+		"url": "/assets/src/melon-massacre/index.html#melon-massacre",
         "categories": ["shooter", "indie", "port"],
         "source": "local"
 	},
@@ -1507,7 +1507,7 @@
 		"name": "Bad Monday Simulator",
         "img": "/assets/img/gms/bms.png",
         "type": "regular",
-		"url": "/assets/src/bad-monday-sim/index.html#",
+		"url": "/assets/src/bad-monday-sim/index.html#bad-monday-simulator",
         "categories": ["platformer", "indie"],
         "source": "local"
 	},
