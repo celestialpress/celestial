@@ -159,7 +159,7 @@ body[theme="eww"] .gridthing {
 <h2>listen to music</h2>
 <p>access our free virtual machine.</p>
 </div>
-<div class="menu-box" data-url="/tab.html?autofill=https://cineby.gd">
+<div class="menu-box" data-url="/tab.html?autofill=http://www.cineby.sc/">
 <img src="/assets/img/icns/pop.png" />
 <h2>watch movies</h2>
 <p>access movies, for free, no charge.</p>

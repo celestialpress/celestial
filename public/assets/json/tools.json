@@ -26,7 +26,7 @@
     {
 		"name": "Cineby",
         "img": "/assets/img/tls/cineby.png",
-		"url": "https://cineby.gd",
+		"url": "https://www.cineby.sc/",
         "categories": ["popular", "movies"]
 	},
     {
@@ -247,7 +247,7 @@
 	},
     {
 		"name": "MyInstants [soundboard]",
-        "img": "/assets/img/tls/duck.png",
+        "img": "/assets/img/tls/myinstants.png",
 		"url": "https://myinstants.com",
         "categories": ["other", "popular"]
 	},

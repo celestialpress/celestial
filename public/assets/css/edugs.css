@@ -103,8 +103,8 @@ select::-ms-expand {
 
 .card {
     width: 200px;
-    background: var(--pallet2);
-    border-radius: 6px;
+    background: var(--pallet);
+    border-radius: 5.5px;
     overflow: hidden;
     cursor: pointer;
     display: flex;
@@ -129,8 +129,9 @@ select::-ms-expand {
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-color: var(--pallet2);
+    background-color: var(--pallet);
     z-index: 1;
+    border-radius:6px;
 }
 
 .card p {
