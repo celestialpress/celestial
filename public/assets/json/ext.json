@@ -33,7 +33,7 @@
         "name": "Youtube Redriecct",
         "website": ["https://youtube.com", "https://music.youtube.com", "youtube.com", "music.youtube.com"],
         "includes": "yes",
-        "src": "alert('seems like you want to go on now.gg! redirecting..'); location.replace('https://yt.ghst.best');"
+        "src": "alert('seems like you want to go on youtube! redirecting..'); location.replace('https://yt.ghst.best');"
     },
     {
         "name": "Taming.io Banner Removal",
