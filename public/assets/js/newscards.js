@@ -38,13 +38,15 @@ function showGames(list) {
 
     var card = document.createElement("div"); // create a new game card
     card.className = "card";
-    card.onclick = () =>
-      g.source === "dice"
-        ? rngGame()
-        : (location.href =
-            "/news/frame.html?mbed=" + (g.source === "local"
-              ? g.url
-              : `/tab.html?autofill=${encodeURIComponent(g.url)}`));
+    card.onclick = () => {
+      if (g.source === "dice") {
+        rngGame();
+      } else if (g.source === "local") {
+        location.href = "/news/frame.html?mbed=" + g.url;
+      } else {
+        location.href = `/tab.html?autofill=${encodeURIComponent(g.url)}`;
+      }
+    };
     card.innerHTML = cardHTML;
     grid.appendChild(card);
 
@@ -148,7 +150,7 @@ function rngGame() {
       const rand = available[Math.floor(Math.random() * available.length)];
       location.href =
         rand.source === "local"
-          ? rand.url
+          ? "/news/frame.html?mbed=" + encodeURIComponent(rand.url)
           : `/tab.html?autofill=${encodeURIComponent(rand.url)}`;
     });
 }
