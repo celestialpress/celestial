@@ -161,7 +161,7 @@ const presets = {
     title: "Clever | Portal",
     favicon: "https://clever.com/favicon.ico",
   },
-  nt: { title: "New Tab", favicon: "/assets/img/logo.png" },
+  nt: { title: "New Tab", favicon: "/assets/img/newtab.png" },
 };
 
 function applyCloak() {
@@ -305,6 +305,50 @@ document.getElementById("antiTog").onchange = function () {
 document.getElementById("antiTog").checked =
   localStorage.getItem("antiTog") === "true";
 
+// anti-deledao
+document.getElementById("deleTog").onchange = function () {
+  localStorage.setItem("deleTog", this.checked);
+  location.reload();
+};
+
+document.getElementById("deleTog").checked =
+  localStorage.getItem("deleTog") === "true";
+
+// panic cloaking
+let panicKey = null;
+let panicUrl = null;
+
+function ripmygranny() {
+  const url = document.getElementById('panicUrl').value.trim();
+  const key = document.getElementById('panicKey').value.trim();
+  if (!url || !key) return;
+  localStorage.setItem('panicUrl', url);
+  localStorage.setItem('panicKey', key);
+  panicUrl = url;
+  panicKey = key.toLowerCase();
+  if (!window.panicListener) {
+    window.panicListener = (e) => {
+      if (e.key.toLowerCase() === panicKey) {
+        location.replace(panicUrl);
+      }
+    };
+    document.addEventListener('keydown', window.panicListener);
+  }
+}
+
+function revivegranny() {
+  localStorage.removeItem('panicUrl');
+  localStorage.removeItem('panicKey');
+  panicUrl = null;
+  panicKey = null;
+  if (window.panicListener) {
+    document.removeEventListener('keydown', window.panicListener);
+    window.panicListener = null;
+  }
+  document.getElementById('panicUrl').value = '';
+  document.getElementById('panicKey').value = '';
+}
+
 // extensions
 // userscript.mjs
 
@@ -349,6 +393,36 @@ function applySettings() {
   if (switchCloakOn && typeof enableSwitchCloak === "function")
     enableSwitchCloak();
   if (antiTog && typeof enableAnti === "function") enableAnti();
+
+  if (localStorage.getItem("deleTog") === "true") {
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/gh/DosX-dev/HTML-Guard@main/html-guard.min.js";
+    script.type = "module";
+    document.head.appendChild(script);
+  }
+
+  if (theme === "custom") {
+    const bg = localStorage.getItem("customBg");
+    if (bg) {
+      document.documentElement.style.setProperty("--background", bg);
+    }
+  }
+
+  // panic cloaking
+  const savedPanicUrl = localStorage.getItem("panicUrl");
+  const savedPanicKey = localStorage.getItem("panicKey");
+  if (savedPanicUrl && savedPanicKey) {
+    panicUrl = savedPanicUrl;
+    panicKey = savedPanicKey.toLowerCase();
+    if (!window.panicListener) {
+      window.panicListener = (e) => {
+        if (e.key.toLowerCase() === panicKey) {
+          location.replace(panicUrl);
+        }
+      };
+      document.addEventListener('keydown', window.panicListener);
+    }
+  }
 }
 
 function cookieStorage() {
@@ -375,9 +449,13 @@ function exportData() {
     savedFavicon: localStorage.getItem("savedFavicon") || "",
     switchCloakOn: localStorage.getItem("switchCloakOn") || "false",
     antiTog: localStorage.getItem("antiTog") || "false",
+    deleTog: localStorage.getItem("deleTog") || "false",
     theme: localStorage.getItem("theme") || "default",
     transportz: localStorage.getItem("transportz") || "libcurl",
     pr0xy: localStorage.getItem("pr0xy") || "scram",
+    customBg: localStorage.getItem("customBg") || "",
+    panicUrl: localStorage.getItem("panicUrl") || "",
+    panicKey: localStorage.getItem("panicKey") || "",
     cookies: cookieStorage(),
   };
 
@@ -429,3 +507,6 @@ function importData() {
 }
 
 window.addEventListener("DOMContentLoaded", applySettings);
+
+
+// other stuff

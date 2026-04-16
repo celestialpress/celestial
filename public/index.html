@@ -31,6 +31,7 @@
     />
     <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
     <script src="/assets/js/prox.js" type="module"></script>
+    <script src="/assets/js/seperate.mjs" type="module"></script>
     <script async defer type="module">
       import { newTab, switchTab, closeTab } from "/lithium.mjs";
 
@@ -149,14 +150,14 @@
       const form = document.getElementById("form");
       let search =
         localStorage.getItem("search-engine") ||
-        "https://search.brave.com/search?q=%s";
+        "http://duckduckgo.com/?q=%s";
 
       setProxy(localStorage.getItem("pr0xy") || "scram");
 
       setWisp(
         (location.protocol === "https:" ? "wss://" : "ws://") +
           location.host +
-          "/wisp/"
+          (localStorage.getItem('location') || '/wisp/')
       );
 
       setTransport(localStorage.getItem("transportz") || "libcurl");
@@ -204,6 +205,7 @@
   </head>
 
   <body theme="default">
+    <div class="load">
     <div style="display: none">
       <h1>What is Drew's Learning Academy?</h1>
       <p>
@@ -337,6 +339,24 @@
                 <span class="slider"></span>
               </label>
             </div>
+            <div class="box">
+              <h3>Anti-Deledao</h3>
+              <p class="desc">prevent deledao from reading html content and create an <br> overlay for games</p>
+              <label class="switch">
+                <input type="checkbox" id="deleTog" />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="box">
+              <h3>Panic Cloaking</h3>
+              <p class="desc">when you press a button, it goes to a certain site.</p>
+              <input type="text" id="panicUrl" placeholder="url to go to" />
+              <input type="text" id="panicKey" placeholder="key to press (e.x. - )" maxlength="1" />
+              <div class="wrap">
+                <button onclick="ripmygranny()">apply</button>
+                <button onclick="revivegranny()">reset</button>
+              </div>
+            </div>
           </div>
           <div id="browsing">
             <div class="box">
@@ -364,9 +384,17 @@
                 <option value="scram" selected>sc<span>ramj</span>et</option>
               </select>
             </div>
-            <div class="fakebox">
-              <h3></h3>
-              <p class="desc"></p>
+            <div class="box">
+              <h3>VPN</h3>
+              <p class="desc">change the location of where you're searching</p>
+              <select class="select" id="location">
+                <option value="/wisp/">🇺🇸 default</option>
+                <option value="/tkjp/">🇯🇵 tokyo, japan</option>
+                <option value="/spbz/">🇧🇷 sao paulo, brazil</option>
+                <option value="/laca/">🇺🇸 los angeles, california</option>
+                <option value="/syau/">🇦🇺 sydney, australia</option>
+                <option value="/prfe/">🇫🇷 paris, france</option>
+              </select>
             </div>
           </div>
           <div id="appear">
@@ -443,17 +471,13 @@
               <h3></h3>
               <p class="desc"></p>
             </div>
-            <div class="fakebox">
-              <h3></h3>
-              <p class="desc"></p>
-            </div>
           </div>
           <div id="ext">
             <div class="box">
               <h3>Extensions</h3>
               <p class="desc">
-                insert custom scripts into sites you visit. kinda like
-                bookmarklets. current extensions are kahoax and autolingo.
+                insert custom scripts into sites you visit. kinda <br>
+                like bookmarklets. current extensions are kahoax and autolingo.
               </p>
             </div>
             <div class="fakebox">
@@ -536,7 +560,7 @@
               </p>
               <p>
                 <a href="https://shorturl.at/ONQOh" target="_blank"
-                  >pyrus - extensions function</a
+                  >pyrus - adblocker function</a
                 >
               </p>
             </div>
@@ -613,6 +637,7 @@
         ></a>
       </form>
       <section id="frames"></section>
+    </div>
     </div>
     <script type="module">
       import { currentFrame } from "./lithium.mjs";

@@ -6,3 +6,5 @@ movie: https://player.vidify.top/embed/movie/{id}?autoplay=false&poster=true&chr
         "everywhere": "yes",
         "src": "fetch('https://raw.githubusercontent.com/MarcellPerger1/adblock-bookmarklet/refs/heads/main/dist/release/adblocker.min.js') .then(r => r.text()) .then(t => new Function(t)());"
     }
+
+    https://kbhgames.com/wp-content/themes/v1/embed.php?url=https://yandex.com/games/app/385957?utm_source=distrib&is-united-page=1&skip-guard=1&header=no&utm_medium=kbhgames.com&clid=2818308&flags={%22adv_sticky_banner_disabled%22:true}&canonical=https://kbhgames.com/game/they-are-coming&w=960&h=600

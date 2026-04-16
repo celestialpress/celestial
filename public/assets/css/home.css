@@ -235,6 +235,13 @@ body[theme="saywallahibro"] .gradientthing {
       rgb(235, 204, 0) 100%);
 }
 
+body[theme="custom"] .gradientthing {
+  background-image: var(--background);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .updlog {
   position: absolute;
   top: 10px;

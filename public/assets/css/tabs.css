@@ -23,6 +23,15 @@ body {
   overflow-y:hidden;
 }
 
+.load > *:not(.settings-bg) {
+    animation: loader 0.69s ease-in-out forwards;
+}
+
+@keyframes loader {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 .hidden {
   display: none;
 }
@@ -341,7 +350,7 @@ section {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   background: rgba(0, 0, 0, 0.2);
-  z-index: 999;
+  z-index: 999999;
   display: none;
 }
 
@@ -416,11 +425,11 @@ select {
   justify-content: center;
 }
 
-#appear, #browsing {
+#appear {
   overflow:hidden;
 }
 
-#ext, #misc {
+#ext, #misc, #browsing {
   overflow-y: auto;
   overflow-x: hidden;
   flex:1;
@@ -555,7 +564,7 @@ button {
     cursor:pointer;
 }
 
-#titleInput, #faviconInput{
+#titleInput, #faviconInput, #panicUrl, #panicKey {
     width: 150px;
     padding: 5px 5px;
     border-radius: 8px;
@@ -610,3 +619,4 @@ button {
 .wrap {
     flex-direction: row;
 }
+

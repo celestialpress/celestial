@@ -154,10 +154,10 @@ body[theme="eww"] .gridthing {
 <h2>access virtual machine</h2>
 <p>access our free virtual machine.</p>
 </div>
-<div class="menu-box" data-url="/tab.html?autofill=https://music.youtube.com">
+<div class="menu-box" data-url="/tab.html?autofill=https://musicthing.space/music/">
 <img src="/assets/img/icns/music.png" />
 <h2>listen to music</h2>
-<p>access our free virtual machine.</p>
+<p>listen to your favorite songs.</p>
 </div>
 <div class="menu-box" data-url="/tab.html?autofill=https://www.cineby.sc/">
 <img src="/assets/img/icns/pop.png" />

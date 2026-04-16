@@ -12,7 +12,7 @@
         "img": "/assets/img/gms/boringasslogo.png",
         "type": "exclusive",
 		"url": "/assets/src/rblx-menu/index.html#roblox",
-        "categories": ["mmo", "sandbox"],
+        "categories": ["2player", "sandbox"],
         "source": "local"
 	},
     {
@@ -192,7 +192,7 @@
         "source": "proxied"
     },
     {
-        "name": "Geometry Dash Lite",
+        "name": "Geometry-Dash Lite [OLD, BUGGY]",
         "img": "/assets/img/gms/gd-lite.png",
         "type": "exclusive",
         "url": "/assets/src/gd-lite/index.html#geometrydash",
@@ -452,7 +452,7 @@
         "img": "/assets/img/gms/danganronpa.png",
         "type": "exclusive",
 		"url": "https://howtotech.infotechnology.com/games/danganronpa/",
-        "categories": ["horror", "mystery"],
+        "categories": ["horror", "adventure"],
         "source": "proxied"
 	},
     {
@@ -1394,7 +1394,7 @@
     {
 		"name": "Your Only Move Is HUSTLE (yomi hustle)",
         "img": "/assets/img/gms/yomi.png",
-        "type": "exclsuive",
+        "type": "exclusive",
 		"url": "/assets/src/yomihustle/index.html#yomi-hustle",
         "categories": ["indie", "adventure", "port"],
         "source": "local"
@@ -1554,7 +1554,7 @@
     {
 		"name": "Worst Time Simulator",
         "img": "/assets/img/gms/wts.png",
-        "type": "exclsuive",
+        "type": "exclusive",
 		"url": "https://omegafredo.github.io/worst-time-simulator/",
         "categories": ["port", "other"],
         "source": "proxied"
@@ -1584,9 +1584,409 @@
         "source": "local"
 	},
     {
+		"name": "Roblox 2016 [WEBBLOX]",
+        "img": "/assets/img/gms/webblox.png",
+        "type": "exclusive",
+		"url": "/assets/src/rblx2016/index.html#roblox-port",
+        "categories": ["sandbox", "port"],
+        "source": "local"
+	},
+    {
+		"name": "They Are Coming",
+        "img": "/assets/img/gms/they-are-coming.png",
+        "type": "regular",
+		"url": "https://kbhgames.com/wp-content/themes/v1/embed.php?url=https://yandex.com/games/app/385957?utm_source=distrib&is-united-page=1&skip-guard=1&header=no&utm_medium=kbhgames.com&clid=2818308&flags={%22adv_sticky_banner_disabled%22:true}&canonical=https://kbhgames.com/game/they-are-coming&w=960&h=600",
+        "categories": ["horror", "indie"],
+        "source": "proxied"
+	},
+    {
+		"name": "Grow Your Guarden",
+        "img": "/assets/img/gms/gyg.png",
+        "type": "exclusive",
+		"url": "https://html-classic.itch.zone/html/8590579/index.html?v=1732313627",
+        "categories": ["adventure", "indie", "port"],
+        "source": "proxied"
+	},
+    {
+		"name": "SWOOOP",
+        "img": "/assets/img/gms/swooop.png",
+        "type": "regular",
+		"url": "https://playcanv.as/p/JtL2iqIH/",
+        "categories": ["other", "indie"],
+        "source": "proxied"
+	},
+    {
+		"name": "Helltaker",
+        "img": "/assets/img/gms/helltaker.png",
+        "type": "exclusive",
+		"url": "/assets/src/helltaker/index.html#helltaker",
+        "categories": ["indie", "other", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Super Mario Bros",
+        "img": "/assets/img/gms/super.png",
+        "type": "regular",
+		"url": "/assets/src/super-mario-bros/index.html#super-mario-bros",
+        "categories": ["platformer"],
+        "source": "local"
+	},
+    {
+		"name": "Pokemon Emerald",
+        "img": "/assets/img/gms/pokemon-emerald.png",
+        "type": "regular",
+		"url": "https://raw.githack.com/MkGamesdev/MKGBA2.0/master/launcher.html#pokemonemerald",
+        "categories": ["rpg"],
+        "source": "proxied"
+	},
+    {
+		"name": "Pokemon LeafGreen",
+        "img": "/assets/img/gms/pokemon-leafgreen.png",
+        "type": "regular",
+		"url": "https://cooleoooo662.github.io/GBA-Emulator-Unblocked/launcher.html#pokemongreen",
+        "categories": ["rpg"],
+        "source": "proxied"
+	},
+    {
+		"name": "Pokemon Red",
+        "img": "/assets/img/gms/pokemon-red.png",
+        "type": "regular",
+		"url": "https://cooleoooo662.github.io/GBA-Emulator-Unblocked/launcher.html#pokemonred",
+        "categories": ["rpg"],
+        "source": "proxied"
+	},
+    {
+		"name": "Pokemon Ruby",
+        "img": "/assets/img/gms/pokemon-ruby.png",
+        "type": "regular",
+		"url": "https://cooleoooo662.github.io/GBA-Emulator-Unblocked/launcher.html#pokemonruby",
+        "categories": ["rpg"],
+        "source": "proxied"
+	},
+    {
+		"name": "Pokemon Sapphire",
+        "img": "/assets/img/gms/pokemon-sapphire.png",
+        "type": "regular",
+		"url": "https://cooleoooo662.github.io/GBA-Emulator-Unblocked/launcher.html#pokemonsapphire",
+        "categories": ["rpg"],
+        "source": "proxied"
+	},
+    {
+		"name": "Pokemon Showdown",
+        "img": "/assets/img/gms/pokemonshowdown.png",
+        "type": "regular",
+		"url": "https://play.pokemonshowdown.com/",
+        "categories": ["rpg"],
+        "source": "proxied"
+	},
+    {
+		"name": "Team Fortress 2",
+        "img": "/assets/img/gms/tf2.png",
+        "type": "regular",
+		"url": "https://shorturl.at/GxfXz",
+        "categories": ["shooter"],
+        "source": "proxied"
+	},
+    {
+		"name": "Paper Mario",
+        "img": "/assets/img/gms/paper-mario.png",
+        "type": "regular",
+		"url": "/assets/src/paper-mario/index.html#paper-mario",
+        "categories": ["rpg"],
+        "source": "local"
+	},
+    {
+		"name": "Ragdoll Archers",
+        "img": "/assets/img/gms/ragdoll-archers.png",
+        "type": "regular",
+		"url": "/assets/src/ragdoll-archers/index.html#ragdoll-archers",
+        "categories": ["adventure", "indie", "2player"],
+        "source": "local"
+	},
+    {
+		"name": "Zombs Royale",
+        "img": "/assets/img/gms/zombsroyale.png",
+        "type": "regular",
+		"url": "https://zombsroyale.io",
+        "categories": ["shooter", "2player"],
+        "source": "proxied"
+	},
+    {
+		"name": "Rooftop Run",
+        "img": "/assets/img/gms/rooftop-run.png",
+        "type": "regular",
+		"url": "/assets/src/rooftop-run/index.html#rooftop-run",
+        "categories": ["platformer"],
+        "source": "local"
+	},
+    {
+		"name": "People Playground",
+        "img": "/assets/img/gms/people-playground.png",
+        "type": "regular",
+		"url": "/assets/src/people-playground/index.html#people-playground",
+        "categories": ["platformer"],
+        "source": "local"
+	},
+    {
+		"name": "Cat Mario",
+        "img": "/assets/img/gms/cat-mario.png",
+        "type": "regular",
+		"url": "https://tiwb.github.io/catmario/",
+        "categories": ["platformer"],
+        "source": "proxied"
+	},
+    {
+		"name": "Bitlife",
+        "img": "/assets/img/gms/bitlife.png",
+        "type": "regular",
+		"url": "/assets/src/bitlife/index.html#bitlife",
+        "categories": ["other", "rpg"],
+        "source": "local"
+	},
+    {
+		"name": "Xevious",
+        "img": "/assets/img/gms/xevious.png",
+        "type": "regular",
+		"url": "/assets/src/xevious/index.html#xevious",
+        "categories": ["shooter"],
+        "source": "local"
+	},
+    {
+		"name": "Super Smash Flash",
+        "img": "/assets/img/gms/ssf.png",
+        "type": "regular",
+		"url": "/assets/src/ssf/index.html#super-smash-flash",
+        "categories": ["2player"],
+        "source": "local"
+	},
+    {
+		"name": "Super Smash Flash 2",
+        "img": "/assets/img/gms/ssf2.png",
+        "type": "regular",
+		"url": "/assets/src/ssf/2/index.html#super-smash-flash-2",
+        "categories": ["2player"],
+        "source": "local"
+	},
+    {
+		"name": "Smash Remix",
+        "img": "/assets/img/gms/smashremix.png",
+        "type": "regular",
+		"url": "/assets/src/smash-remix/index.html#smash-remix",
+        "categories": ["2player"],
+        "source": "local"
+	},
+    {
+		"name": "Smash Remix 2.0.1x",
+        "img": "/assets/img/gms/smashremix2.png",
+        "type": "regular",
+		"url": "/assets/src/smash-remix/2/index.html#smash-remix-2.0.1x",
+        "categories": ["2player"],
+        "source": "local"
+	},
+    {
+		"name": "Street Fighter",
+        "img": "/assets/img/gms/street-fighter.png",
+        "type": "regular",
+		"url": "/assets/src/street-fighter/index.html#street-fighter",
+        "categories": ["rpg", "2player"],
+        "source": "local"
+	},
+    {
+		"name": "Fallout",
+        "img": "/assets/img/gms/fallout.png",
+        "type": "exclusive",
+		"url": "/assets/src/fallout/index.html#fallout",
+        "categories": ["rpg", "horror"],
+        "source": "local"
+	},
+    {
+		"name": "Baby Sniper Vietnam",
+        "img": "/assets/img/gms/bsv.png",
+        "type": "exclusive",
+		"url": "/assets/src/babysnipervietnam/index.html#baby-sniper-vietnam",
+        "categories": ["shooter"],
+        "source": "local"
+	},
+    {
+		"name": "Speed Stars",
+        "img": "/assets/img/gms/speed-stars.png",
+        "type": "exclusive",
+		"url": "https://speedstars2.io/speed-stars.embed",
+        "categories": ["other"],
+        "source": "local"
+	},
+    {
+		"name": "Solar Smash",
+        "img": "/assets/img/gms/solar-smash.png",
+        "type": "exclusive",
+		"url": "/assets/src/solar-smash/index.html#solar-smash",
+        "categories": ["other"],
+        "source": "local"
+	},
+    {
+		"name": "Ironsnout",
+        "img": "/assets/img/gms/ironsnout.png",
+        "type": "exclusive",
+		"url": "/assets/src/ironsnout/index.html#ironsnout",
+        "categories": ["other"],
+        "source": "local"
+	},
+    {
+		"name": "Bacon May Die",
+        "img": "/assets/img/gms/bacon-may-die.png",
+        "type": "regular",
+		"url": "/assets/src/bacon-may-die/index.html#bacon-may-die",
+        "categories": ["other"],
+        "source": "local"
+	},
+    {
+		"name": "Bank Robbery",
+        "img": "/assets/img/gms/bank-robbery.png",
+        "type": "regular",
+		"url": "/assets/src/bank-robbery/index.html#bank-robbery",
+        "categories": ["other"],
+        "source": "local"
+	},
+    {
+		"name": "Bank Robbery 2",
+        "img": "/assets/img/gms/bank-robbery2.png",
+        "type": "regular",
+		"url": "/assets/src/bank-robbery/2/index.html#bank-robbery-2",
+        "categories": ["other"],
+        "source": "local"
+	},
+    {
+		"name": "Bank Robbery 3",
+        "img": "/assets/img/gms/bank-robbery3.png",
+        "type": "regular",
+		"url": "/assets/src/bank-robbery/3/index.html#bank-robbery-3",
+        "categories": ["other"],
+        "source": "local"
+	},
+    {
+		"name": "Ultrapool",
+        "img": "/assets/img/gms/ultrapool.png",
+        "type": "exclusive",
+		"url": "/assets/src/ultrapool/index.html#ultrapool",
+        "categories": ["puzzle", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Escape Road 3",
+        "img": "/assets/img/gms/escape-road-3.png",
+        "type": "regular",
+		"url": "/assets/src/escape-road/3/index.html#escape-road-3",
+        "categories": ["other"],
+        "source": "local"
+	},
+    {
+		"name": "Stardew Valley",
+        "img": "/assets/img/gms/stardew-valley.png",
+        "type": "exclusive",
+		"url": "/assets/src/stardew-valley/index.html#stardew-valley",
+        "categories": ["rpg"],
+        "source": "local"
+	},
+    {
+		"name": "Dumb Ways to Die",
+        "img": "/assets/img/gms/dwtd.png",
+        "type": "exclusive",
+		"url": "/assets/src/dwtd/index.html#dumb-ways-to-die",
+        "categories": ["puzzle"],
+        "source": "local"
+	},
+    {
+		"name": "Geometry Dash [FULL]",
+        "img": "/assets/img/gms/geometry-dash.png",
+        "type": "exclusive",
+		"url": "https://web-dashers.github.io",
+        "categories": ["rhythm", "port"],
+        "source": "proxied"
+	},
+    {
+		"name": "Inscryption",
+        "img": "/assets/img/gms/inscryption.png",
+        "type": "exclusive",
+		"url": "https://reeyuki-inscryption.netlify.app/",
+        "categories": ["puzzle", "horror"],
+        "source": "proxied"
+	},
+    {
+		"name": "Night In The Woods",
+        "img": "/assets/img/gms/night-in-the-woods.png",
+        "type": "exclusive",
+		"url": "https://reeyuki-nightinthewoods.netlify.app/",
+        "categories": ["adventure", "port", "horror"],
+        "source": "proxied"
+	},
+    {
+		"name": "Youtubers Life OMG",
+        "img": "/assets/img/gms/yt-life.png",
+        "type": "exclusive",
+		"url": "https://reeyuki-ytlife.netlify.app/",
+        "categories": ["adventure", "port", "indie"],
+        "source": "proxied"
+	},
+    {
+		"name": "Plague Inc: Evolved",
+        "img": "/assets/img/gms/plague-inc.png",
+        "type": "exclusive",
+		"url": "https://reeyuki.github.io/PlagueIncEvolved/",
+        "categories": ["puzzle"],
+        "source": "local"
+	},
+    {
+		"name": "Who's Your Daddy?",
+        "img": "/assets/img/gms/whos-your-daddy.png",
+        "type": "exclusive",
+		"url": "/assets/src/whos-your-daddy/index.html#whos-your-daddy",
+        "categories": ["adventure", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "I Have No Mouth and I Must Scream",
+        "img": "/assets/img/gms/larplarplarp.png",
+        "type": "exclusive",
+		"url": "/assets/src/larp/index.html#i-have-no-mouth-and-i-must-scream",
+        "categories": ["horror"],
+        "source": "local"
+	},
+    {
+		"name": "Plonky",
+        "img": "/assets/img/gms/plonky.png",
+        "type": "regular",
+		"url": "https://arcadrome.com/embed/plonky",
+        "categories": ["platformer"],
+        "source": "proxied"
+	},
+    {
+		"name": "Dreadhead Parkour",
+        "img": "/assets/img/gms/dreadhead-parkour.png",
+        "type": "regular",
+		"url": "/assets/src/dreadhead-parkour/index.html#dreadhead-parkour",
+        "categories": ["platformer"],
+        "source": "local"
+	},
+    {
+		"name": "Portal",
+        "img": "/assets/img/gms/portal2.png",
+        "type": "exclusive",
+		"url": "https://yikes.pw/portal/",
+        "categories": ["puzzle"],
+        "source": "proxied"
+	},
+    {
+		"name": "Half-Life 2",
+        "img": "/assets/img/gms/hl2.png",
+        "type": "exclusive",
+		"url": "/assets/src/hl2/index.html#half-life-2",
+        "categories": ["shooter", "adventure", "port"],
+        "source": "local"
+	},
+    {
 		"name": "!! RANDOM GAME",
         "img": "/assets/img/gms/dice.gif",
-        "type": "regular",
+        "type": "exclusive",
         "categories": ["other"],
         "source": "dice"
 	},

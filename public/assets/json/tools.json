@@ -1,8 +1,8 @@
 [
     {
-		"name": "AniWatch",
-        "img": "/assets/img/tls/aniwatch.png",
-		"url": "https://aniwatchtv.to/",
+		"name": "Animetsu",
+        "img": "/assets/img/tls/animetsu.png",
+		"url": "https://animetsu.net",
         "categories": ["popular", "movies"]
 	},
     {
@@ -117,13 +117,13 @@
 		"name": "ESPN",
         "img": "/assets/img/tls/espn.png",
 		"url": "https://espn.com",
-        "categories": ["other", "sm"]
+        "categories": ["misc", "sm"]
 	},
     {
 		"name": "MaxPreps",
         "img": "/assets/img/tls/maxpreps.png",
 		"url": "https://maxpreps.com",
-        "categories": ["other"]
+        "categories": ["misc"]
 	},
     {
 		"name": "Snapchat",
@@ -141,7 +141,7 @@
 		"name": "Galaxy.click",
         "img": "/assets/img/tls/gc.png",
 		"url": "https://galaxy.click",
-        "categories": ["gamesites", "other"]
+        "categories": ["gamesites", "misc"]
 	},
     {
 		"name": "Sandboxels",
@@ -159,43 +159,43 @@
 		"name": "Pixlr",
         "img": "/assets/img/tls/pixlr.png",
 		"url": "https://pixlr.com",
-        "categories": ["other"]
+        "categories": ["misc"]
 	},
     {
 		"name": "ZeroGPT",
         "img": "/assets/img/tls/zgpt.png",
 		"url": "https://zerogpt.com",
-        "categories": ["ai", "other", "popular"]
+        "categories": ["ai", "misc", "popular"]
 	},
     {
 		"name": "AI Humanizer",
         "img": "/assets/img/tls/grammarly.png",
 		"url": "https://www.grammarly.com/ai-humanizer",
-        "categories": ["ai", "other", "popular"]
+        "categories": ["ai", "misc", "popular"]
 	},
     {
 		"name": "Newgrounds",
         "img": "/assets/img/tls/newgrounds.png",
 		"url": "https://newgrounds.com",
-        "categories": ["sm", "other"]
+        "categories": ["sm", "misc"]
 	},
     {
 		"name": "Invidious",
         "img": "/assets/img/tls/invidious.png",
-		"url": "https://inv.perditum.com/feed/popular",
+		"url": "https://inv.thepixora.com/feed/popular",
         "categories": ["sm", "popular"]
 	},
     {
 		"name": "Vercel",
         "img": "/assets/img/tls/vercel.png",
 		"url": "https://vercel.com",
-        "categories": ["other"]
+        "categories": ["misc"]
 	},
     {
 		"name": "DuckDuckGo",
         "img": "/assets/img/tls/duckduckgo.png",
 		"url": "https://duckduckgo.com",
-        "categories": ["other", "popular"]
+        "categories": ["misc", "popular"]
 	},
     {
 		"name": "Crunchyroll",
@@ -231,30 +231,108 @@
 		"name": "Prescripts",
         "img": "/assets/img/tls/prescript.png",
 		"url": "https://prescript.neocities.org",
-        "categories": ["other"]
+        "categories": ["misc"]
 	},
     {
 		"name": "ChatGPT",
         "img": "/assets/img/tls/chatgpt.png",
 		"url": "https://chatgpt.com",
-        "categories": ["ai", "other"]
+        "categories": ["ai", "misc"]
 	},
     {
 		"name": "Duck.ai",
         "img": "/assets/img/tls/duck.png",
 		"url": "https://duck.ai",
-        "categories": ["ai", "other", "popular"]
+        "categories": ["ai", "misc", "popular"]
 	},
     {
 		"name": "MyInstants [soundboard]",
         "img": "/assets/img/tls/myinstants.png",
 		"url": "https://myinstants.com",
-        "categories": ["other", "popular"]
+        "categories": ["misc", "popular"]
+	},
+    {
+		"name": "Fawa Sports Streaming",
+        "img": "/assets/img/tls/fawa.png",
+		"url": "https://fawanews.sc",
+        "categories": ["movies", "popular"]
+	},
+    {
+		"name": "Atsumaru",
+        "img": "/assets/img/tls/atsu.png",
+		"url": "https://atsu.moe",
+        "categories": ["misc", "popular"]
+	},
+    {
+		"name": "CrystalTube",
+        "img": "/assets/img/tls/crystaltube.png",
+		"url": "https://yt.ghst.best",
+        "categories": ["movies", "sm", "popular"]
+	},
+    {
+		"name": "Musicthing.space",
+        "img": "/assets/img/tls/musicthing.png",
+		"url": "https://musicthing.space/music/",
+        "categories": ["music", "popular"]
+	},
+    {
+		"name": "Microsoft Teams",
+        "img": "/assets/img/tls/teams.png",
+		"url": "https://teams.microsoft.com/free",
+        "categories": ["misc", "popular"]
+	},
+    {
+		"name": "Facebook",
+        "img": "/assets/img/tls/facebook.png",
+		"url": "https://facebook.com",
+        "categories": ["sm", "popular"]
+	},
+    {
+		"name": "Tubi",
+        "img": "/assets/img/tls/tubi.png",
+		"url": "https://tubi.tv",
+        "categories": ["movies", "popular"]
+	},
+    {
+		"name": "Paramount+",
+        "img": "/assets/img/tls/paramount.png",
+		"url": "https://paramountplus.com",
+        "categories": ["movies", "popular"]
+	},
+    {
+		"name": "Hulu",
+        "img": "/assets/img/tls/hulu.png",
+		"url": "https://hulu.com",
+        "categories": ["movies", "popular"]
+	},
+    {
+		"name": "The Roku Channel",
+        "img": "/assets/img/tls/roku.png",
+		"url": "https://therokuchannel.roku.com",
+        "categories": ["movies", "popular"]
+	},
+    {
+		"name": "Blooket Hacks",
+        "img": "/assets/img/tls/blooket.png",
+		"url": "https://blooketbot.schoolcheeats.net/",
+        "categories": ["misc", "popular"]
+	},
+    {
+		"name": "Gimkit Hacks",
+        "img": "/assets/img/tls/gimkit.png",
+		"url": "https://gim.villainsrule.xyz/join",
+        "categories": ["misc", "popular"]
+	},
+    {
+		"name": "Lovable",
+        "img": "/assets/img/tls/lovable.png",
+		"url": "https://lovable.dev",
+        "categories": ["ai", "popular"]
 	},
     {
 		"name": "!! SUGGEST AN APP",
         "img": "/assets/img/gms/!!suggest.png",
 		"url": "https://forms.gle/ELsciiPdpuofGk4v8",
-        "categories": ["other"]
+        "categories": ["misc"]
 	}
 ]

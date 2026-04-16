@@ -42,9 +42,9 @@ function showGames(list) {
       g.source === "dice"
         ? rngGame()
         : (location.href =
-            g.source === "local"
+            "/news/frame.html?mbed=" + (g.source === "local"
               ? g.url
-              : `/tab.html?autofill=${encodeURIComponent(g.url)}`);
+              : `/tab.html?autofill=${encodeURIComponent(g.url)}`));
     card.innerHTML = cardHTML;
     grid.appendChild(card);
 
