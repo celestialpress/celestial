@@ -235,7 +235,7 @@ function switchCloak() {
     savedTitle = document.title;
     savedFavicon = document.getElementById("favicon")
       ? document.getElementById("favicon").href
-      : "/assets/img/logo.png";
+      : "/assets/img/logo-blackbg.png";
 
     var currentTitle = localStorage.getItem("savedTitle");
     var currentFavicon = localStorage.getItem("savedFavicon");
@@ -257,7 +257,7 @@ function switchCloak() {
     );
   } else {
     document.title = "celestial.";
-    updateFavicon("/assets/img/logo.png");
+    updateFavicon("/assets/img/logo-blackbg.png");
   }
 }
 
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (stored === "true") {
     toggle.checked = true;
     document.title = "celestial.";
-    updateFavicon("/assets/img/logo.png");
+    updateFavicon("/assets/img/logo-blackbg.png");
     document.addEventListener("visibilitychange", switchCloak);
   }
 
@@ -277,14 +277,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (toggle.checked) {
       localStorage.setItem("switchCloakOn", "true");
       document.title = "celestial.";
-      updateFavicon("/assets/img/logo.png");
+      updateFavicon("/assets/img/logo-blackbg.png");
       document.addEventListener("visibilitychange", switchCloak);
     } else {
       localStorage.setItem("switchCloakOn", "false");
       document.removeEventListener("visibilitychange", switchCloak);
       document.title = localStorage.getItem("savedTitle") || "celestial.";
       updateFavicon(
-        localStorage.getItem("savedFavicon") || "/assets/img/logo.png"
+        localStorage.getItem("savedFavicon") || "/assets/img/logo-blackbg.png"
       );
     }
   };

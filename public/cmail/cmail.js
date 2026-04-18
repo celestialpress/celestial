@@ -7,7 +7,7 @@ document.write(`
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
+    <link rel="shortcut icon" type="image/png" href="/assets/img/logo-blackbg.png" />
     <link rel="stylesheet" href="/assets/css/home.css" />
     <meta name="Drew's Learning Academy">
     <meta content="Drew's Learning Academy | Edison, NJ" property="og:title">
