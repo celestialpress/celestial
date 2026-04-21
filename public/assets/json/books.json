@@ -171,9 +171,9 @@
 		"name": "Football Bros",
         "img": "/assets/img/gms/football-bros.png",
         "type": "exclusive",
-		"url": "/assets/src/football-bros/index.html#football-bros",
+		"url": "https://fb.avatarbasketball.com/",
         "categories": ["sports"],
-        "source": "local"
+        "source": "proxied"
 	},
     {
 		"name": "Fortnite",
@@ -283,17 +283,17 @@
 		"name": "Basket Bros",
         "img": "/assets/img/gms/basketbros.png",
         "type": "regular",
-		"url": "/assets/src/basket-bros/index.html#basket-bros",
+		"url": "https://avatarbasketball.com/index.php?game=bbros",
         "categories": ["sports", "2player"],
-        "source": "local"
+        "source": "proxied"
 	},
     {
 		"name": "Kart Bros",
         "img": "/assets/img/gms/kart-bros.png",
         "type": "regular",
-		"url": "/assets/src/kart-bros/index.html#kart-bros",
+		"url": "https://kart.avatarbasketball.com",
         "categories": ["sports"],
-        "source": "local"
+        "source": "proxied"
 	},
     {
 		"name": "Basket Random",
@@ -763,9 +763,9 @@
 		"name": "Wrestle Bros",
         "img": "/assets/img/gms/wrestlebros.png",
         "type": "regular",
-		"url": "/assets/src/wrestlebros/index.html#wrestle-bros",
+		"url": "https://wb.avatarbasketball.com/",
         "categories": ["2player", "sports"],
-        "source": "local"
+        "source": "proxied"
 	},
     {
 		"name": "Web Fishing",
