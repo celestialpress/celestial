@@ -8,7 +8,7 @@
     {
 		"name": "Youtube",
         "img": "/assets/img/tls/yt.png",
-		"url": "https://www.youtube.com/?themerefresh=1",
+		"url": "https://www.youtube.com",
         "categories": ["sm", "popular"]
 	},
     {
@@ -314,7 +314,7 @@
     {
 		"name": "Blooket Hacks",
         "img": "/assets/img/tls/blooket.png",
-		"url": "https://blooketbot.schoolcheeats.net/",
+		"url": "https://blooketbot.schoolcheats.net/",
         "categories": ["misc", "popular"]
 	},
     {
