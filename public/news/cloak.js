@@ -40,20 +40,7 @@ document.write(`
 <div id="idk"></div> <!--pinned-->
 
 <div class="gs"></div> <!--game list-->
-        <center>
-          <script>
-(function(mititf){
-var d = document,
-    s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
-s.settings = mititf || {};
-s.src = "\/\/untimely-hello.com\/b.X\/VTsHdVGhlB0MYyWicf\/LeFmE9fu\/ZLU\/lBklPET\/Ye5nOkTGU\/4-MIDPUKtONij\/kC5\/NMT\/g\/wwOoQI";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
-</script>
-        </center>
+
 <script type="module" src="/assets/js/newscards.js"></script>
 </body>
 <script type="module" src="/assets/js/theme.js"></script>
