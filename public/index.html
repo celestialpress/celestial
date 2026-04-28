@@ -1,210 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-1Y12SRXG3F"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Y12SRXG3F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-1Y12SRXG3F");
+  </script>
+  <title>Drew's Learning Academy | Edison, NJ</title>
+  <link id="favicon" rel="shortcut icon" type="image/png" href="/assets/img/logo-blackbg.png" />
+  <meta name="Drew's Learning Academy" />
+  <meta content="Drew's Learning Academy | Edison, NJ" property="og:title" />
+  <meta
+    content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success." />
+  <link rel="shortcut icon" type="image/png" href="/assets/img/logo-blackbg.png" />
+  <script src="/assets/js/prox.js" type="module"></script>
+  <script async defer type="module">
+    import { newTab, switchTab, closeTab } from "/lithium.mjs";
+
+    window.newTab = newTab;
+    let tabs = [];
+    const tabsDiv = document.getElementById("tabs");
+    const newTabBtn = document.getElementById("new-tab-btn");
+    const MAX_INLINE_TABS = 8;
+
+    const getIcon = (url) =>
+      /^https?:\/\/[\w.-]+\.[a-z]{2,}/i.test(url)
+        ? `https://s2.googleusercontent.com/s2/favicons?sz=64&domain_url=${url}`
+        : "/assets/img/logo-blackbg.png";
+
+    function updateNewTabBtn() {
+      if (tabs.length >= MAX_INLINE_TABS) {
+        if (newTabBtn.parentElement !== document.body) {
+          document.body.appendChild(newTabBtn);
+        }
+        newTabBtn.classList.add("floating");
+      } else {
+        newTabBtn.classList.remove("floating");
+        if (newTabBtn.parentElement !== tabsDiv) {
+          tabsDiv.appendChild(newTabBtn);
+        } else {
+          tabsDiv.appendChild(newTabBtn);
+        }
       }
-      gtag("js", new Date());
+    }
 
-      gtag("config", "G-1Y12SRXG3F");
-    </script>
-    <title>Drew's Learning Academy | Edison, NJ</title>
-    <link
-      id="favicon"
-      rel="shortcut icon"
-      type="image/png"
-      href="/assets/img/logo-blackbg.png"
-    />
-    <meta name="Drew's Learning Academy" />
-    <meta content="Drew's Learning Academy | Edison, NJ" property="og:title" />
-    <meta
-      content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success."
-    />
-    <link rel="shortcut icon" type="image/png" href="/assets/img/logo-blackbg.png" />
-    <script src="/assets/js/prox.js" type="module"></script>
-    <script async defer type="module">
-      import { newTab, switchTab, closeTab } from "/lithium.mjs";
+    function createTab(id, title = "new tab", url = "") {
+      const tab = document.createElement("div");
+      tab.dataset.tabId = id;
+      tab.draggable = true;
 
-      window.newTab = newTab;
-      let tabs = [];
-      const tabsDiv = document.getElementById("tabs");
-
-      const getIcon = (url) =>
-        /^https?:\/\/[\w.-]+\.[a-z]{2,}/i.test(url)
-          ? `https://s2.googleusercontent.com/s2/favicons?sz=64&domain_url=${url}`
-          : "/assets/img/logo-blackbg.png";
-
-      function createTab(id, title = "new tab", url = "") {
-        const tab = document.createElement("div");
-        tab.dataset.tabId = id;
-        tab.draggable = true;
-
-        tab.innerHTML = `
+      tab.innerHTML = `
     <img alt="Favicon" src="${getIcon(url)}" />
     <span class="tab">${title}</span>
     <button>&times;</button>
   `;
 
-        tab.querySelector("button").onclick = (e) => {
-          e.stopPropagation();
-          closeTab?.(id);
-        };
-        tab.onclick = () => switchTab?.(id);
+      tab.querySelector("button").onclick = (e) => {
+        e.stopPropagation();
+        closeTab?.(id);
+      };
+      tab.onclick = () => switchTab?.(id);
 
-        tabsDiv?.appendChild(tab);
-        tabs.push({ id, element: tab, title, url });
-
-        return tab;
+      if (newTabBtn.parentElement === tabsDiv) {
+        tabsDiv.insertBefore(tab, newTabBtn);
+      } else {
+        tabsDiv.appendChild(tab);
       }
 
-      function checkState() {
-        const frames = [...document.querySelectorAll('iframe[id^="frame-"]')];
-        const frameIds = frames.map((f) =>
-          parseInt(f.id.replace("frame-", ""), 10)
-        );
+      tabs.push({ id, element: tab, title, url });
+      updateNewTabBtn();
+      return tab;
+    }
 
-        tabs = tabs.filter(({ id, element }) => {
-          if (!frameIds.includes(id)) {
-            element.remove();
-            return false;
-          }
-          return true;
-        });
-
-        frameIds.forEach((id) => {
-          if (!tabs.some((t) => t.id === id)) createTab(id);
-        });
-
-        const visible = frames.find((f) => !f.classList.contains("hidden"));
-        if (visible) {
-          const activeId = parseInt(visible.id.replace("frame-", ""), 10);
-          tabs.forEach(({ id, element }) => {
-            const isActive = id === activeId;
-            element.classList.toggle("active", isActive);
-          });
-        }
-      }
-
-      document
-        .getElementById("new-tab-btn")
-        ?.addEventListener("click", () => newTab?.());
-
-      document.addEventListener("new-tab", (e) => {
-        if (!tabs.some((t) => t.id === e.detail.tabNumber))
-          createTab(e.detail.tabNumber);
-        checkState();
-      });
-
-      document.addEventListener("switch-tab", (e) => {
-        const activeId = e.detail.tabNumber;
-        tabs.forEach(({ id, element }) => {
-          const isActive = id === activeId;
-          element.classList.toggle("active", isActive);
-        });
-      });
-
-      document.addEventListener("url-changed", (e) => {
-        const tab = tabs.find((t) => t.id === e.detail.tabId);
-        if (!tab) return;
-        tab.title = e.detail.title || "new tab";
-        tab.url = e.detail.url || "";
-        tab.element.querySelector(".tab").textContent = tab.title;
-        tab.element.querySelector("img").src = getIcon(tab.url);
-      });
-
-      document.addEventListener("close-tab", (e) => {
-        const idx = tabs.findIndex((t) => t.id === e.detail.tabNumber);
-        if (idx === -1) return;
-        tabs[idx].element.remove();
-        tabs.splice(idx, 1);
-        checkState();
-      });
-
-      checkState();
-    </script>
-    <link href="/assets/css/tabs.css" rel="stylesheet" />
-    <script type="module" async defer>
-      import {
-        setWisp,
-        makeURL,
-        getProxied,
-        setFrames,
-        addressInput,
-        setTransport,
-        setProxy,
-        currentTab,
-        Tab,
-      } from "/lithium.mjs";
-
-      // --- INIT ---
-      const form = document.getElementById("form");
-      let search =
-        localStorage.getItem("search-engine") ||
-        "http://duckduckgo.com/?q=%s";
-
-      setProxy(localStorage.getItem("pr0xy") || "scram");
-
-      setWisp(
-        (location.protocol === "https:" ? "wss://" : "ws://") +
-          location.host +
-          (localStorage.getItem('location') || '/wisp/')
+    function checkState() {
+      const frames = [...document.querySelectorAll('iframe[id^="frame-"]')];
+      const frameIds = frames.map((f) =>
+        parseInt(f.id.replace("frame-", ""), 10)
       );
 
-      setTransport(localStorage.getItem("transportz") || "libcurl");
-      async function autofill(url) {
-        const urlToLoad = makeURL(url, search);
-        const proxiedUrl = await getProxied(urlToLoad);
-        setTimeout(() => {
-          document.getElementById(`frame-${currentTab}`).src = proxiedUrl;
-        }, 200);
-      }
-
-      try {
-        const params = new URLSearchParams(window.location.search);
-        const url = params.get("autofill");
-        if (url) autofill(url);
-      } catch {}
-
-      // --- EVENTS ---
-      form?.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        const urlToLoad = makeURL(addressInput.value, search);
-        const proxiedUrl = await getProxied(urlToLoad);
-
-        let currentFrame = document.getElementById(`frame-${currentTab}`);
-
-        currentFrame.src = proxiedUrl;
-
-        if (currentFrame === document.getElementById(`frame-${currentTab}`)) {
-          addressInput.value = urlToLoad;
-
-          if (urlToLoad == "newtab.html") {
-            addressInput.value = "celestial://newtab";
-          }
+      tabs = tabs.filter(({ id, element }) => {
+        if (!frameIds.includes(id)) {
+          element.remove();
+          return false;
         }
+        return true;
       });
 
-      setFrames(document.getElementById("frames"));
-      new Tab();
-    </script>
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-  </head>
+      frameIds.forEach((id) => {
+        if (!tabs.some((t) => t.id === id)) createTab(id);
+      });
 
-  <body theme="default">
-    <div class="load">
+      const visible = frames.find((f) => !f.classList.contains("hidden"));
+      if (visible) {
+        const activeId = parseInt(visible.id.replace("frame-", ""), 10);
+        tabs.forEach(({ id, element }) => {
+          element.classList.toggle("active", id === activeId);
+        });
+      }
+
+      updateNewTabBtn();
+    }
+
+    newTabBtn?.addEventListener("click", () => newTab?.());
+
+    document.addEventListener("new-tab", (e) => {
+      if (!tabs.some((t) => t.id === e.detail.tabNumber))
+        createTab(e.detail.tabNumber);
+      checkState();
+    });
+
+    document.addEventListener("switch-tab", (e) => {
+      const activeId = e.detail.tabNumber;
+      tabs.forEach(({ id, element }) => {
+        element.classList.toggle("active", id === activeId);
+      });
+    });
+
+    document.addEventListener("url-changed", (e) => {
+      const tab = tabs.find((t) => t.id === e.detail.tabId);
+      if (!tab) return;
+      tab.title = e.detail.title || "new tab";
+      tab.url = e.detail.url || "";
+      tab.element.querySelector(".tab").textContent = tab.title;
+      tab.element.querySelector("img").src = getIcon(tab.url);
+    });
+
+    document.addEventListener("close-tab", (e) => {
+      const idx = tabs.findIndex((t) => t.id === e.detail.tabNumber);
+      if (idx === -1) return;
+      tabs[idx].element.remove();
+      tabs.splice(idx, 1);
+      checkState();
+    });
+
+    checkState();
+  </script>
+  <link href="/assets/css/tabs.css" rel="stylesheet" />
+  <script type="module" async defer>
+    import {
+      setWisp,
+      makeURL,
+      getProxied,
+      setFrames,
+      addressInput,
+      setTransport,
+      setProxy,
+      currentTab,
+      Tab,
+    } from "/lithium.mjs";
+
+    // --- INIT ---
+    const form = document.getElementById("form");
+    let search =
+      localStorage.getItem("search-engine") ||
+      "http://duckduckgo.com/?q=%s";
+
+    setProxy(localStorage.getItem("pr0xy") || "scram");
+
+    setWisp(
+      (location.protocol === "https:" ? "wss://" : "ws://") +
+      location.host +
+      (localStorage.getItem('location') || '/wisp/')
+    );
+
+    setTransport(localStorage.getItem("transportz") || "libcurl");
+    async function autofill(url) {
+      const urlToLoad = makeURL(url, search);
+      const proxiedUrl = await getProxied(urlToLoad);
+      setTimeout(() => {
+        document.getElementById(`frame-${currentTab}`).src = proxiedUrl;
+      }, 200);
+    }
+
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const url = params.get("autofill");
+      if (url) autofill(url);
+    } catch { }
+
+    // --- EVENTS ---
+    form?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const urlToLoad = makeURL(addressInput.value, search);
+      const proxiedUrl = await getProxied(urlToLoad);
+
+      let currentFrame = document.getElementById(`frame-${currentTab}`);
+
+      currentFrame.src = proxiedUrl;
+
+      if (currentFrame === document.getElementById(`frame-${currentTab}`)) {
+        addressInput.value = urlToLoad;
+
+        if (urlToLoad == "newtab.html") {
+          addressInput.value = "celestial://newtab";
+        }
+      }
+    });
+
+    setFrames(document.getElementById("frames"));
+    new Tab();
+  </script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body theme="default">
+  <div class="load">
     <div style="display: none">
       <h1>What is Drew's Learning Academy?</h1>
       <p>
@@ -232,36 +242,22 @@
     <div class="settings-bg"></div>
     <div id="settings" style="display: none">
       <div class="settings">
-        <p
-          id="close"
-          onclick="close();"
-          style="
+        <p id="close" onclick="close();" style="
             font-size: 40px;
             top: 0;
             right: 0;
             position: absolute;
             margin: 15px;
             cursor: pointer;
-          "
-        >
-          <i class="bx bx-x"></i>
+          ">
+          <img src="/assets/img/close.png" alt="close" style="width: 35px;margin-right:5px;" />
         </p>
         <div id="sidenav">
-          <a href="#cloak" onclick="show('cloak'); return false;"
-            ><i class="bx bxs-ghost"></i> Cl<span>oak</span>ing</a
-          >
-          <a href="#browsing" onclick="show('browsing'); return false;"
-            ><i class="bx bx-globe"></i> Pr<span>o</span>xy</a
-          >
-          <a href="#appear" onclick="show('appear'); return false;"
-            ><i class="bx bxs-palette"></i> Appearance</a
-          >
-          <a href="#ext" onclick="show('ext'); return false;"
-            ><i class="bx bx-plug"></i> Extensions</a
-          >
-          <a href="#misc" onclick="show('misc'); return false;"
-            ><i class="bx bxs-help-circle"></i> Miscancellous</a
-          >
+          <a class="cloak" href="#cloak" onclick="show('cloak'); return false;"><img src="/assets/img/icns/cloak.svg"> <span class="nav-label">Cl<span>oak</span>ing</span></a>
+          <a class="browsing" href="#browsing" onclick="show('browsing'); return false;"><img src="/assets/img/icns/globe.svg"> <span class="nav-label">Pr<span>o</span>xy</span></a>
+          <a class="appear" href="#appear" onclick="show('appear'); return false;"><img src="/assets/img/icns/palette.svg"> <span class="nav-label">Appearance</span></a>
+          <a class="ext" href="#ext" onclick="show('ext'); return false;"><img src="/assets/img/icns/puzzle.svg"> <span class="nav-label">Extensions</span></a>
+          <a class="misc" href="#misc" onclick="show('misc'); return false;"><img src="/assets/img/icns/info.svg"> <span class="nav-label">Misc</span></a>
         </div>
         <div class="stuff">
           <!--
@@ -365,8 +361,7 @@
                 that were broken to work or lead to sites that were working to
                 break
               </p>
-              <label></label
-              ><select class="select" id="tselect">
+              <label></label><select class="select" id="tselect">
                 <option value="epoxy">epoxy</option>
                 <option value="libcurl" selected>libcurl</option>
               </select>
@@ -386,8 +381,11 @@
             <div class="box">
               <h3>VPN</h3>
               <p class="desc">change the location of where you're searching</p>
-              <select class="select" id="location">
-                <option value="/wisp/">🇺🇸 default</option>
+
+              <p class="desc">this has now been scrapped due to server migrating</p>
+
+              <select class="select" id="location" disabled>
+                <option value="/wisp/">disabled</option>
                 <option value="/tkjp/">🇯🇵 tokyo, japan</option>
                 <option value="/spbz/">🇧🇷 sao paulo, brazil</option>
                 <option value="/laca/">🇺🇸 los angeles, california</option>
@@ -401,67 +399,37 @@
               <h3>Themes</h3>
               <p class="desc">customize the color scheme of celestial</p>
               <select id="themepicker">
-                <option
-                  value="default"
-                  style="color: white; background: black"
-                  selected
-                >
+                <option value="default" style="color: white; background: black" selected>
                   default
                 </option>
                 <option value="light" style="color: black; background: #f5f5f5">
                   light
                 </option>
-                <option
-                  value="midnight"
-                  style="color: white; background: darkblue"
-                >
+                <option value="midnight" style="color: white; background: darkblue">
                   midnight blue
                 </option>
-                <option
-                  value="mocha"
-                  style="color: white; background: rgb(24, 18, 14)"
-                >
+                <option value="mocha" style="color: white; background: rgb(24, 18, 14)">
                   mocha
                 </option>
-                <option
-                  value="pisscolorlmao"
-                  style="color: #adad43; background: #222222"
-                >
+                <option value="pisscolorlmao" style="color: #adad43; background: #222222">
                   jmw v6
                 </option>
-                <option
-                  value="quasar"
-                  style="color: white; background: rgb(73, 153, 219)"
-                >
+                <option value="quasar" style="color: white; background: rgb(73, 153, 219)">
                   quasar
                 </option>
                 <option value="ccm" style="color: white; background: #1a1b26">
                   catppuccin mocha
                 </option>
-                <option
-                  value="frappe"
-                  style="color: #d9e0ee; background: #0d0d1f"
-                >
+                <option value="frappe" style="color: #d9e0ee; background: #0d0d1f">
                   catppuccin frappe
                 </option>
-                <option
-                  value="saywallahibro"
-                  style="color: black; background: yellow"
-                >
+                <option value="saywallahibro" style="color: black; background: yellow">
                   no name brand
                 </option>
-                <option
-                  value="eww"
-                  style="color: white; background: pink"
-                  disabled
-                >
+                <option value="eww" style="color: white; background: pink" disabled>
                   secret theme...
                 </option>
-                <option
-                  value="chad"
-                  style="color: white; background: red"
-                  disabled
-                >
+                <option value="chad" style="color: white; background: red" disabled>
                   secret theme 2...
                 </option>
               </select>
@@ -472,29 +440,15 @@
             </div>
           </div>
           <div id="ext">
-            <div class="box">
-              <h3>Extensions</h3>
-              <p class="desc">
-                insert custom scripts into sites you visit. kinda <br>
-                like bookmarklets. current extensions are kahoax and autolingo.
-              </p>
-            </div>
             <div class="fakebox">
               <h3>Userscripts</h3>
               <p class="desc">
                 add custom javascript/bookmarklets to sites you visit. [do not
                 put script while being on the website, otherwise it will break!]
               </p>
-              <textarea
-                id="extCode"
-                placeholder="javascript code here"
-              ></textarea>
+              <textarea id="extCode" placeholder="javascript code here"></textarea>
               <div class="wrap">
-                <input
-                  type="text"
-                  id="siteInject"
-                  placeholder="site that's affected (e.g. 'google.com')"
-                />
+                <input type="text" id="siteInject" placeholder="site that's affected (e.g. 'google.com')" />
                 <button id="addExtBtn">add</button>
               </div>
               <label>
@@ -522,45 +476,30 @@
             <div class="fakebox oops">
               <h3>Credits</h3>
               <p>
-                <a
-                  href="https://github.com/justjxrdanwasdefinetlytaken"
-                  target="_blank"
-                  >justjxrdanwasdefinetlytaken - the rest of the site</a
-                >
+                <a href="https://github.com/justjxrdanwasdefinetlytaken" target="_blank">justjxrdanwasdefinetlytaken -
+                  the rest of the site</a>
               </p>
               <p>
-                <a href="https://github.com/slqntdevss" target="_blank"
-                  >slqnt - extensions function + more</a
-                >
+                <a href="https://github.com/slqntdevss" target="_blank">slqnt - extensions function + more</a>
               </p>
               <p>
-                <a href="https://github.com/kindkid27" target="_blank"
-                  >kindkid - game favoriting function + more</a
-                >
+                <a href="https://github.com/kindkid27" target="_blank">kindkid - game favoriting function + more</a>
               </p>
               <p>
-                <a href="https://github.com/coding4hours" target="_blank"
-                  >coding4hours - tab functions</a
-                >
+                <a href="https://github.com/coding4hours" target="_blank">coding4hours - tab functions</a>
               </p>
               <p>
-                <a
-                  >gnmath/bread, bog/truffled/aukak, burnedpopcorn, 98006, UGS +
-                  more - web ports + games used by us (big kiss)</a
-                >
+                <a>gnmath/bread, bog/truffled/aukak, burnedpopcorn, 98006, UGS +
+                  more - web ports + games used by us (big kiss)</a>
               </p>
               <p>
-                <a target="_blank"
-                  >mer<span>cury</span> work<span>sh</span>op and
+                <a target="_blank">mer<span>cury</span> work<span>sh</span>op and
                   titan<span>iu</span>m net<span>wo</span>rk -
                   sc<span>ram</span>jet and
-                  ul<span>tra</span>vi<span>ol</span>et</a
-                >
+                  ul<span>tra</span>vi<span>ol</span>et</a>
               </p>
               <p>
-                <a href="https://shorturl.at/ONQOh" target="_blank"
-                  >pyrus - adblocker function</a
-                >
+                <a href="https://shorturl.at/ONQOh" target="_blank">pyrus - adblocker function</a>
               </p>
             </div>
             <div class="box line">
@@ -568,9 +507,8 @@
               <p class="desc">
                 if you want to support the project, consider donating!
               </p>
-              <a href="https://cash.app/$jrdndevs" target="_blank"
-                >donate to the main cashapp & link your d<span>is</span>cord</a
-              >
+              <a href="https://cash.app/$jrdndevs" target="_blank">donate to the main cashapp & link your
+                d<span>is</span>cord</a>
             </div>
             <div class="box">
               <h3>Contact Us</h3>
@@ -589,11 +527,8 @@
               <p class="desc">
                 check out our wiki for guides on using userscripts!
               </p>
-              <a
-                href="https://github.com/justjxrdanwasdefinetlytaken/celestial/blob/main/wiki.md"
-                target="_blank"
-                >celestial wiki</a
-              >
+              <a href="https://github.com/justjxrdanwasdefinetlytaken/celestial/blob/main/wiki.md"
+                target="_blank">celestial wiki</a>
             </div>
           </div>
         </div>
@@ -602,95 +537,90 @@
     <nav>
       <div id="tabs">
         <button id="new-tab-btn" aria-label="new tab" title="new tab">
-          <i class="bx bx-plus"></i>
+          <img src="/assets/img/icns/plus.svg" alt="new tab" style="width: 19px" />
         </button>
       </div>
     </nav>
     <div class="tabthing">
       <form id="form">
-        <a id="back" class="fc" onclick="back();"
-          ><i class="bx bx-caret-left"></i
-        ></a>
-        <a id="reload" class="fc" onclick="reload();"
-          ><i class="bx bx-revision"></i
-        ></a>
-        <a id="forward" class="fc" onclick="forward();"
-          ><i class="bx bx-caret-right"></i
-        ></a>
-        <input
-          id="address"
-          type="text"
-          placeholder="Search privately.."
-          onfocus="this.select()"
-          class="search"
-          autocomplete="off"
-        />
-        <a id="inspect" class="fc" onclick="inspect();"
-          ><i class="bx bx-code-alt"></i
-        ></a>
-        <a id="fullscreen" class="fc" onclick="full();"
-          ><i class="bx bx-fullscreen"></i
-        ></a>
-        <a id="custom" class="fc" onclick="setting();"
-          ><i class="bx bx-dots-vertical"></i
-        ></a>
+        <a id="back" class="fc" onclick="back();">
+          <img src="/assets/img/icns/chevron-left.svg" alt="back" style="width: 17px" />
+        </a>
+        <a id="reload" class="fc" onclick="reload();">
+          <img src="/assets/img/icns/rotate.svg" alt="reload" style="width: 17px" />
+        </a>
+        <a id="forward" class="fc" onclick="forward();">
+          <img src="/assets/img/icns/chevron-right.svg" alt="forward" style="width: 17px" />
+        </a>
+        <input id="address" type="text" placeholder="Search privately.." onfocus="this.select()" class="search"
+          autocomplete="off" />
+        <a id="inspect" class="fc" onclick="inspect();">
+          <img src="/assets/img/icns/code.svg" alt="inspect" style="width: 17px" />
+        </a>
+        <a id="fullscreen" class="fc" onclick="full();">
+          <img src="/assets/img/icns/expand.svg" alt="fullscreen" style="width: 17px" />
+        </a>
+        <a id="custom" class="fc" onclick="setting();">
+          <img src="/assets/img/icns/dots.svg" alt="settings" style="width: 17px" />
+        </a>
       </form>
       <section id="frames"></section>
     </div>
-    </div>
-    <script type="module">
-      import { currentFrame } from "./lithium.mjs";
+  </div>
+  <script type="module">
+    import { currentFrame } from "./lithium.mjs";
 
-      window.full = () => {
-        const e = currentFrame;
-        if (!e) return;
-        document.fullscreenElement
-          ? document.exitFullscreen()
-          : e.requestFullscreen().catch(() => {});
-      };
-    </script>
-  </body>
-  <script src="/assets/js/theme.js"></script>
-  <script src="/assets/js/s.js"></script>
-  <script src="/assets/js/picker.js"></script>
-  <script src="/assets/js/func.js"></script>
-  <script src="/assets/js/tabsmain.mjs" type="module"></script>
-  <script src="/assets/js/userscript.mjs" type="module"></script>
-  <script type="module" src="/assets/js/ext.mjs"></script>
-  <script>
-    function setting() {
-      document.getElementById("settings").style.display = "block";
-      document.querySelector(".settings-bg").style.display = "block";
-    }
-
-    function exitSetting() {
-      document.getElementById("settings").style.display = "none";
-      document.querySelector(".settings-bg").style.display = "none";
-    }
-
-    document.getElementById("close").addEventListener("click", exitSetting);
+    window.full = () => {
+      const e = currentFrame;
+      if (!e) return;
+      document.fullscreenElement
+        ? document.exitFullscreen()
+        : e.requestFullscreen().catch(() => { });
+    };
   </script>
-  <script>
-    addEventListener("keydown", (e) => {
-      if (e.altKey && e.key === "s") {
-        const f = document.querySelector("iframe.searchframe:not(.hidden)");
-        if (!f) return;
+</body>
+<script src="/assets/js/theme.js"></script>
+<script src="/assets/js/s.js"></script>
+<script src="/assets/js/picker.js"></script>
+<script src="/assets/js/func.js"></script>
+<script src="/assets/js/tabsmain.mjs" type="module"></script>
+<script src="/assets/js/userscript.mjs" type="module"></script>
+<script type="module" src="/assets/js/ext.mjs"></script>
+<script>
+  function setting() {
+    document.getElementById("settings").style.display = "block";
+    document.querySelector(".settings-bg").style.display = "block";
+  }
 
-        const w = 650,
-          h = 450;
-        const l = (screen.availWidth - w) / 2;
-        const t = (screen.availHeight - h) / 2;
+  function exitSetting() {
+    document.getElementById("settings").style.display = "none";
+    document.querySelector(".settings-bg").style.display = "none";
+  }
 
-        const win = open(
-          "about:blank",
-          "_blank",
-          `width=${w},height=${h},left=${l},top=${t}`
-        );
-        if (!win) return;
+  document.getElementById("close").addEventListener("click", exitSetting);
+</script>
+<script>
+  addEventListener("keydown", (e) => {
+    if (e.altKey && e.key === "s") {
+      const f = document.querySelector("iframe.searchframe:not(.hidden)");
+      if (!f) return;
 
-        win.document.write(`<style>html,body{margin:0;height:100%}</style>
+      const w = 650,
+        h = 450;
+      const l = (screen.availWidth - w) / 2;
+      const t = (screen.availHeight - h) / 2;
+
+      const win = open(
+        "about:blank",
+        "_blank",
+        `width=${w},height=${h},left=${l},top=${t}`
+      );
+      if (!win) return;
+
+      win.document.write(`<style>html,body{margin:0;height:100%}</style>
 <iframe src="${f.src}" style="position:fixed;inset:0;width:100%;height:100%;border:0"></iframe>`);
-      }
-    });
-  </script>
+    }
+  });
+</script>
+<script src="/assets/js/icons.js"></script>
 </html>

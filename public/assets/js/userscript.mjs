@@ -40,10 +40,8 @@ function extList() {
       const ext = cursor.value;
       const item = document.createElement('div');
       item.className = 'extItem';
-      const includesText = ext.includes === 'yes' ? 'yes' : 'no';
-      const everywhereText = ext.allsites === 'yes' ? 'yes' : 'no';
       const siteText = ext.website?.join(', ') || 'all sites';
-      item.innerHTML = `<span>${siteText} (includes: ${includesText}, everywhere: ${everywhereText})</span>
+      item.innerHTML = `<span>${siteText} (includes: ${ext.includes === 'yes' ? 'yes' : 'no'}, everywhere: ${ext.allsites === 'yes' ? 'yes' : 'no'})</span>
                         <button onclick="removeExt(${ext.id})">remove</button>`;
       list.appendChild(item);
       cursor.continue();
@@ -64,8 +62,7 @@ function addExt() {
   };
 
   const tx = db.transaction("extensions", "readwrite");
-  const store = tx.objectStore("extensions");
-  store.add(ext).onsuccess = () => {
+  tx.objectStore("extensions").add(ext).onsuccess = () => {
     document.getElementById('extCode').value = '';
     siteInput.value = '';
     document.getElementById('includesCheckbox').checked = false;
@@ -103,39 +100,41 @@ function getAllExts(callback) {
 function injectExtensions(frame) {
   if (!frame) return;
 
-  const tryInject = () => {
-    if (!frame.contentDocument?.body) {
-      requestAnimationFrame(tryInject);
+  const waitAndInject = () => {
+    const doc = frame.contentDocument;
+    if (!doc || !doc.body || doc.readyState === 'uninitialized') {
+      setTimeout(waitAndInject, 50);
       return;
     }
 
     const url = frame.dataset.displayUrl || '';
-    const hostname = new URL(url, location.origin).hostname;
+    const hostname = (() => {
+      try { return new URL(url, location.origin).hostname; } catch { return ''; }
+    })();
 
     getAllExts(exts => {
       exts.forEach(ext => {
         const sites = Array.isArray(ext.website) ? ext.website : [];
         let inject = false;
 
-        // Inject only if this frame matches the rule
         if (ext.allsites === 'yes') inject = true;
         else if (ext.includes === 'yes') inject = sites.some(s => url.includes(s));
         else inject = sites.includes(hostname);
 
         if (inject) {
-          const alreadyInjected = Array.from(frame.contentDocument.scripts)
-            .some(s => s.textContent === ext.src);
-          if (!alreadyInjected) {
-            const s = frame.contentDocument.createElement('script');
+          const marker = `ext-injected-${ext.id}`;
+          if (!doc.querySelector(`script[data-ext-id="${ext.id}"]`)) {
+            const s = doc.createElement('script');
+            s.setAttribute('data-ext-id', ext.id);
             s.textContent = ext.src;
-            frame.contentDocument.body.prepend(s);
+            doc.body.prepend(s);
           }
         }
       });
     });
   };
 
-  tryInject();
+  waitAndInject();
 }
 
 function watchFrameURL(frame) {
@@ -143,25 +142,27 @@ function watchFrameURL(frame) {
 
   let lastURL = frame.dataset.displayUrl || '';
 
-  const checkURL = () => {
+  const attachLoadListener = () => {
+    frame.addEventListener('load', () => {
+      injectExtensions(frame);
+      attachLoadListener();
+    }, { once: true });
+  };
+  attachLoadListener();
+
+  setInterval(() => {
     const url = frame.dataset.displayUrl || '';
     if (url !== lastURL) {
       lastURL = url;
       injectExtensions(frame);
     }
-    requestAnimationFrame(checkURL);
-  };
-
-  checkURL();
+  }, 300);
 }
 
-// call this once on page load
 if (currentFrame) watchFrameURL(currentFrame);
-
 if (addBtn) addBtn.addEventListener('click', addExt);
 
 window.addEventListener('DOMContentLoaded', () => {
   if (!currentFrame) return;
-  currentFrame.addEventListener('load', () => injectExtensions(currentFrame));
   injectExtensions(currentFrame);
 });

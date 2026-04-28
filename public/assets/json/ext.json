@@ -30,12 +30,6 @@
         "src": "fetch('https://raw.githubusercontent.com/tranphuquy19/DuolingoBotExtension/refs/heads/tampermonkey-script/index.js') .then(r => r.text()) .then(t => new Function(t)());"
     },
     {
-        "name": "Youtube Redriecct",
-        "website": ["https://youtube.com", "https://music.youtube.com", "youtube.com", "music.youtube.com"],
-        "includes": "yes",
-        "src": "alert('seems like you want to go on youtube! redirecting..'); location.replace('https://yt.ghst.best');"
-    },
-    {
         "name": "Taming.io Banner Removal",
         "website": ["https://taming.io/", "http://taming.io", "https://taming.io", "http://taming.io/", "taming.io"],
         "includes": "yes",

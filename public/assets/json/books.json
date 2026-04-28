@@ -547,7 +547,7 @@
 		"name": "Class of '09",
         "img": "/assets/img/gms/class-of-09.png",
         "type": "regular",
-		"url": "https://mathteachersforhire.shop/games/C09/index.html",
+		"url": "https://justjxrdanwasdefinetlytaken.github.io/ClassOf09Games/C09/index.html",
         "categories": ["other", "indie", "port"],
         "source": "proxied"
 	},
@@ -555,7 +555,7 @@
 		"name": "Class of '09; The Re-up",
         "img": "/assets/img/gms/class-of-09-re-up.png",
         "type": "regular",
-		"url": "https://mathteachersforhire.shop/games/C09RU/index.html",
+		"url": "https://justjxrdanwasdefinetlytaken.github.io/ClassOf09Games/C09RU/index.html",
         "categories": ["other", "indie", "port"],
         "source": "proxied"
 	},
@@ -563,7 +563,7 @@
 		"name": "Class of '09; The Flipside",
         "img": "/assets/img/gms/class-of-09-flipside.png",
         "type": "regular",
-		"url": "https://mathteachersforhire.shop/games/C09FS/index.html",
+		"url": "https://justjxrdanwasdefinetlytaken.github.io/ClassOf09Games/C09FS/index.html",
         "categories": ["other", "indie", "port"],
         "source": "proxied"
 	},
@@ -1981,6 +1981,30 @@
         "type": "exclusive",
 		"url": "/assets/src/hl2/index.html#half-life-2",
         "categories": ["shooter", "adventure", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Trees Hate You",
+        "img": "/assets/img/gms/trees-hate-you.png",
+        "type": "exclusive",
+		"url": "/assets/src/trees-hate-you/index.html#trees-hate-you",
+        "categories": ["platformer", "adventure", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Tung Sahur Horror",
+        "img": "/assets/img/gms/tsh.png",
+        "type": "exclusive",
+		"url": "/assets/src/tung-sahur-horror/index.html#tung-sahur-horror",
+        "categories": ["horror", "adventure", "port"],
+        "source": "local"
+	},
+    {
+		"name": "Tung Tung Tung Sahur Obby",
+        "img": "/assets/img/gms/tto.png",
+        "type": "exclusive",
+		"url": "/assets/src/triplet-obby/index.html#tung-tung-tung-sahur-obby",
+        "categories": ["platformer", "port"],
         "source": "local"
 	},
     {

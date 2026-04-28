@@ -37,6 +37,10 @@
         filter: invert(1);
       }
 
+      body[theme="saywallahibro"] .card img {
+        filter: invert(1);
+      }
+
       .upd-bg {
         position: fixed;
         inset: 0;
@@ -86,87 +90,21 @@
           cursor: pointer;
         "
       >
-        <i class="bx bx-x"></i>
+        <img src="/assets/img/close.png" alt="close" style="width: 35px" />
       </p>
       <div align="center">
-        <h1>update log 04/15</h1>
+        <h1>update log 04/26</h1>
         <hr>
       </div>
       <hr>
-      <h2>new features:</h2>
-      <p>- added vpns (you can choose up to 6 regions, located in the pr<span>ox</span>y tab in settings)</p>
-      <p>- added panic cloaking in settings</p>
-      <p>- added a fade-in screen to give time for the website to load</p>
-      <p>- added anti-deledao cloaking in settings, obfuscates the html and ads an overlay for ga<span>m</span>es</p>
-      <p>- made the g<span>ame</span>s go in a game frame instead of giving the raw output</p>
-      <hr>
-      <h2>ga<span>me</span>s [50 added]:</h2>
-      <p>- added Plague Inc: Evolved</p>
-      <p>- added Ironsnout</p>
-      <p>- added Half-Life 2</p>
-      <p>- added I Have No Mouth and I Must Scream</p>
-      <p>- added Portal</p>
-      <p>- added Dreadhead Parkour</p>
-      <p>- added Plonky</p>
-      <p>- added Ultrapool</p>
-      <p>- added Geometry Dash [FULL]</p>
-      <p>- added Who's Your Daddy?</p>
-      <p>- added Escape Road 3</p>
-      <p>- added Stardew Valley</p>
-      <p>- added Youtubers Life OMG</p>
-      <p>- added Dumb Ways to Die</p>
-      <p>- added Inscryption</p>
-      <p>- added Night In The Woods</p>
-      <p>- added Bank Robbery 1, 2 and 3</p>
-      <p>- added Bacon May Die</p>
-      <p>- added Speed Stars</p>
-      <p>- added Baby Sniper Vietnam</p>
-      <p>- added Fallout</p>
-      <p>- added Solar Smash</p>
-      <p>- added Street Fighter</p>
-      <p>- added Smash Remix and Smash Remix 2.0.1x</p>
-      <p>- added Super Smash Flash and Super Smash Flash 2</p>
-      <p>- added Xevious</p>
-      <p>- added Bitlife</p>
-      <p>- added Cat Mario</p>
-      <p>- added People Playground</p>
-      <p>- added Rooftop Run</p>
-      <p>- added Ragdoll Archers</p>
-      <p>- added Zombs Royale</p>
-      <p>- added Paper Mario</p>
-      <p>- added Team Fortress 2</p>
-      <p>- added Pokemon Showdown, Pokemon Leafgreen, Ruby, FireRed, Sapphire and Emerald version</p>
-      <p>- added Super Mario Bros</p>
-      <p>- added Helltaker</p>
-      <p>- added Swooop</p>
-      <p>- added Grow Your Guarden</p>
-      <p>- added They Are Coming</p>
-      <p>- added Webblox (roblox 2016)</p>
-      <hr>
-      <h2>Apps</h2>
-      <p>- added Blooket Hacks</p>
-      <p>- added Gimkit Hacks</p>
-      <p>- added Facebook</p>
-      <p>- added Fawa Sports Streaming</p>
-      <p>- added Crunchyroll</p>
-      <p>- added CrystalTube</p>
-      <p>- added Hulu</p>
-      <p>- added Netflix</p>
-      <p>- added Musicthing.space</p>
-      <p>- added Pixlr</p>
-      <p>- added The Roku Channel</p>
-      <p>- added Tubi</p>
-      <p>- added Paramount+</p>
-      <p>- added Lovable</p>
-      <p>- added Microsoft Teams</p>
-      <p>- added Atsumaru</p>
-      <p>- replaced AniWatch with Animetsu</p>
-      <hr>
-      <h2>Bug Fixes</h2>
-      <p>- Fixed Invidious</p>
-      <p>- Fixed Youtube, now redirects to a youtube clone</p>
-      <p>- Replaced Brave with Duckduckgo</p>
-      <hr>
+<h2>content:</h2>
+<p>- added 'Trees Hate You' game</p>
+<p>- UI gets a new makeover</p>
+<p>- New Icons</p>
+<p>- Fixed new tab icon</p>
+<p>- Added the new version of the 'supreme duelist' game</p>
+<p>- added 'Tung Sahur Horror' game</p>
+<p>- added 'Tung Tung Tung Sahur Obby' game</p>
       <p>
         - join the d<span>isc</span>ord for more links!
         <a
@@ -218,7 +156,7 @@
               id="card"
               onclick="window.location.href='/news/index.html?type=g'"
             >
-              <img src="/assets/img/gms/gms.png" />
+              <img src="/assets/img/gms.png" />
               <p>Contact</p>
             </div>
             <div
@@ -350,10 +288,10 @@
     document.getElementById("close").addEventListener("click", exitUpdLog);
 
     window.addEventListener("load", function () {
-      if (!localStorage.getItem("updlogview9")) {
+      if (!localStorage.getItem("updlogview10")) {
         document.getElementById("update-log").style.display = "block";
         document.querySelector(".upd-bg").style.display = "block";
-        localStorage.setItem("updlogview9", "1");
+        localStorage.setItem("updlogview10", "1");
       }
     });
   </script>
