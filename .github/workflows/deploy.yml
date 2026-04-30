@@ -14,5 +14,6 @@ jobs:
           script: |
             export PATH=$PATH:/usr/local/bin:/usr/bin:$HOME/.nvm/versions/node/$(ls $HOME/.nvm/versions/node | tail -1)/bin
             cd ~/celestial
+            git pull
             npm i
             pm2 restart 0
