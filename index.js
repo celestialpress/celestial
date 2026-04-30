@@ -8,6 +8,7 @@ import express from "express";
 import { createServer } from "node:http";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { readFile, stat } from "node:fs/promises";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 import sanitizeHtml from "sanitize-html";
@@ -39,7 +40,60 @@ app.use((req, res, next) => {
 });
 
 
-app.use(express.static(join(fileURLToPath(import.meta.url), "../public/")));
+const publicDir = join(fileURLToPath(import.meta.url), "../public/");
+
+const adScript = `<script src="https://woofbeginner.com/c6/d1/7e/c6d17e8237bffc729af5c20373a19fb5.js"></script>`;
+
+const popunderScript = `<script>(function(){if(window.top!==window)return;if(window.__cstPopAd)return;window.__cstPopAd=true;var URL_="https://woofbeginner.com/x8r9vb1u7?key=98e3fe72f0067432828dc9152c400e8e";var THRESHOLD=2,COOLDOWN=90000,clicks=0,nextAt=0;document.addEventListener("click",function(e){if(!e.isTrusted||e.defaultPrevented||e.button!==0)return;var t=e.target;if(t&&t.closest&&t.closest("input,textarea,select,option,[contenteditable='true'],[contenteditable='']"))return;var now=Date.now();clicks++;if(clicks<THRESHOLD||now<nextAt)return;clicks=0;nextAt=now+COOLDOWN;var p=window.open(URL_,"_blank","noopener");if(!p)return;try{p.blur();window.focus();}catch(_){}},true);})();</script>`;
+
+const adInjection = `${adScript}\n${popunderScript}`;
+
+function injectAds(html) {
+  if (/<\/body>/i.test(html)) {
+    return html.replace(/<\/body>/i, `${adInjection}\n</body>`);
+  }
+  return `${html}\n${adInjection}`;
+}
+
+async function resolveHtmlFile(urlPath) {
+  const decoded = decodeURIComponent(urlPath.split("?")[0]);
+  if (decoded.includes("..")) return null;
+  const candidates = [];
+  if (decoded.endsWith("/")) {
+    candidates.push(join(publicDir, decoded, "index.html"));
+  } else if (decoded.endsWith(".html")) {
+    candidates.push(join(publicDir, decoded));
+  } else {
+    candidates.push(join(publicDir, decoded, "index.html"));
+    candidates.push(join(publicDir, `${decoded}.html`));
+  }
+  for (const file of candidates) {
+    try {
+      const s = await stat(file);
+      if (s.isFile()) return file;
+    } catch {}
+  }
+  return null;
+}
+
+app.use(async (req, res, next) => {
+  if (req.method !== "GET" && req.method !== "HEAD") return next();
+  const accept = req.headers.accept || "";
+  if (!accept.includes("text/html") && req.path !== "/" && !req.path.endsWith(".html") && !req.path.endsWith("/")) {
+    return next();
+  }
+  const file = await resolveHtmlFile(req.path);
+  if (!file) return next();
+  try {
+    const html = await readFile(file, "utf8");
+    res.set("Content-Type", "text/html; charset=utf-8");
+    res.send(injectAds(html));
+  } catch {
+    next();
+  }
+});
+
+app.use(express.static(publicDir));
 app.use("/mux/", express.static(baremuxPath));
 app.use("/epoxy/", express.static(epoxyPath));
 app.use("/curl/", express.static(libcurlPath));
@@ -83,10 +137,13 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-app.use((req, res, next) => {
-  res
-    .status(404)
-    .sendFile(join(fileURLToPath(import.meta.url), "../public/", "404.html"));
+app.use(async (req, res, next) => {
+  try {
+    const html = await readFile(join(publicDir, "404.html"), "utf8");
+    res.status(404).set("Content-Type", "text/html; charset=utf-8").send(injectAds(html));
+  } catch {
+    res.status(404).send("Not found");
+  }
 });
 
 const server = createServer();
