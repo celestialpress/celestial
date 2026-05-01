@@ -396,8 +396,7 @@ function applySettings() {
 
   if (localStorage.getItem("deleTog") === "true") {
     const script = document.createElement("script");
-    script.src = "https://cdn.jsdelivr.net/gh/DosX-dev/HTML-Guard@main/html-guard.min.js";
-    script.type = "module";
+    script.src = "/clst.deledao.js";
     document.head.appendChild(script);
   }
 
