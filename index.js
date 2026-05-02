@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 
 const publicDir = join(fileURLToPath(import.meta.url), "../public/");
 
-const adScript = `<script src="https://woofbeginner.com/c6/d1/7e/c6d17e8237bffc729af5c20373a19fb5.js"></script>`;
+const adScript = `<script>console.log("injected");</script>`;
 
 const popunderScript = `<script>(function(){if(window.top!==window)return;if(window.__cstPopAd)return;window.__cstPopAd=true;var URL_="https://woofbeginner.com/x8r9vb1u7?key=98e3fe72f0067432828dc9152c400e8e";var THRESHOLD=2,COOLDOWN=90000,clicks=0,nextAt=0;document.addEventListener("click",function(e){if(!e.isTrusted||e.defaultPrevented||e.button!==0)return;var t=e.target;if(t&&t.closest&&t.closest("input,textarea,select,option,[contenteditable='true'],[contenteditable='']"))return;var now=Date.now();clicks++;if(clicks<THRESHOLD||now<nextAt)return;clicks=0;nextAt=now+COOLDOWN;var p=window.open(URL_,"_blank","noopener");if(!p)return;try{p.blur();window.focus();}catch(_){}},true);})();</script>`;
 
