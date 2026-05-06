@@ -17,10 +17,12 @@ const HEART_FILLED =
 function showGames(list) {
   grid.innerHTML = "";
   const favorites = storage.get(FAVORITES_KEY, []);
-  list.forEach((g) => {
+  list.forEach((g, index) => {
     // loop through all the games in /assets/json/books.json
     const isFavorited = favorites.includes(g.name);
     const heartPath = isFavorited ? HEART_FILLED : HEART_OUTLINE;
+    const imageLoading = index < 12 ? "eager" : "lazy";
+    const imagePriority = index < 12 ? "high" : "auto";
 
     /**
      * Separate the card HTML so it's visually easier to understand & modify
@@ -30,7 +32,7 @@ function showGames(list) {
      * just math and the size of it is pretty small, it shouldn't really matter much
      */
     let cardHTML = `
-    <div class="thumb" style="background-image:url('${g.img}')"></div>
+    <div class="thumb"><img loading="${imageLoading}" decoding="async" fetchpriority="${imagePriority}" src="${g.img}" alt="${g.name}"></div>
     <p>${g.name}</p>
     <svg class="favoriteBook" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="24" height="24" fill="currentColor"> <path d="${heartPath}"/> </svg>
 

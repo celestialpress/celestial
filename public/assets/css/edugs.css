@@ -127,11 +127,17 @@ select::-ms-expand {
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
     background-color: var(--pallet);
     z-index: 1;
     border-radius:6px;
+    overflow: hidden;
+}
+
+.card .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .card p {
