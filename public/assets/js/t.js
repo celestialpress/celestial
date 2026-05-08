@@ -14,7 +14,7 @@ fetch("/assets/json/tools.json")
         card.className = "card";
         card.onclick = () =>
             location.href = `/tab.html?autofill=${encodeURIComponent(g.url)}`;
-        card.innerHTML = `<div class="thumb" style="background-image:url('${g.img || "/assets/img/placeholder.png"}')"></div><p>${g.name}</p>`;
+        card.innerHTML = `<div class="thumb"><img src="${g.img}" alt="${g.name}"></div><p>${g.name}</p>`;
         grid.appendChild(card);
       });
     }
