@@ -2040,7 +2040,7 @@
         "source": "proxied"
     },
     {
-		"name": "T³ (T3, Triple T's Basics)",
+		"name": "T³ (T3, Triple T's Basics, T Cubed)",
         "img": "/assets/img/gms/t3.png",
         "type": "exclusive",
 		"url": "/assets/src/t3/index.html#t3",
@@ -2379,7 +2379,7 @@
 		"name": "-3 (Minus Three)",
         "img": "/assets/img/gms/-3.png",
         "type": "exclusive",
-		"url": "/assets/src/-3/index.html#minus-three",
+		"url": "/assets/src/-3/index.html#-3-minus-three",
         "categories": ["adventure", "port", "indie"],
         "source": "local"
 	},
@@ -2388,6 +2388,14 @@
         "img": "/assets/img/gms/sbra.png",
         "type": "exclusive",
 		"url": "/assets/src/schoolboy-runaway/index.html#schoolboy-runaway",
+        "categories": ["adventure", "port", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "-b (Minus B)",
+        "img": "/assets/img/gms/-b.png",
+        "type": "exclusive",
+		"url": "/assets/src/-b/index.html#-b-minus-b",
         "categories": ["adventure", "port", "indie"],
         "source": "local"
 	},
