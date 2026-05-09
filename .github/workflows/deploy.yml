@@ -12,8 +12,9 @@ jobs:
           username: jrdn
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            export PATH=$PATH:/usr/local/bin:/usr/bin:$HOME/.nvm/versions/node/$(ls $HOME/.nvm/versions/node | tail -1)/bin
+            export PATH="$HOME/.bun/bin:$PATH:$HOME/.nvm/versions/node/$(ls $HOME/.nvm/versions/node 2>/dev/null | tail -1)/bin"
             cd ~/celestial
             git pull
-            npm i
-            pm2 restart 0
+            bun install
+            pm2 restart celestial --update-env
+            pm2 save

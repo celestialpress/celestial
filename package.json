@@ -2,10 +2,12 @@
   "name": "celestial",
   "version": "1.0.0",
   "description": "Celestial is an multi-tooled website, successor to jordan's math work.",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
+    "start": "bun index.ts",
+    "dev": "bun --watch dev.ts",
+    "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,12 +17,13 @@
     "@mercuryworkshop/bare-mux": "^2.1.8",
     "@mercuryworkshop/epoxy-transport": "^2.1.28",
     "@mercuryworkshop/libcurl-transport": "^1.5.2",
-    "@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-2.0.0-alpha.tgz",
+    "@mercuryworkshop/scramjet": "^1.1.0",
     "@mercuryworkshop/wisp-js": "^0.4.0",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "node-fetch": "^3.3.2",
     "sanitize-html": "^2.17.0"
+  },
+  "devDependencies": {
+    "@types/sanitize-html": "^2.13.0",
+    "bun-types": "^1.1.0",
+    "typescript": "^5.6.0"
   }
 }
