@@ -44,6 +44,6 @@
     {
         "name": "Global Adblocker",
         "everywhere": "yes",
-        "src": "fetch('https://raw.githubusercontent.com/MarcellPerger1/adblock-bookmarklet/refs/heads/main/dist/release/adblocker.min.js') .then(r => r.text()) .then(t => new Function(t)());"
+        "src": "setInterval(function(){var s=document.createElement('script');s.src='https://raw.githubusercontent.com/MarcellPerger1/adblock-bookmarklet/refs/heads/main/dist/release/adblocker.min.js';document.head.appendChild(s);s.onload=function(){s.remove();};},5000);"
     }
 ]

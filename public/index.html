@@ -381,7 +381,12 @@
                 <option value="scram" selected>sc<span>ramj</span>et</option>
               </select>
             </div>
-            <div class="box">
+            <div class="box" style="display:none;">
+              <h3>Service Worker Management</h3>
+              <p class="desc">service workers are one of the main components of this site that makes other sites work, if you have problems with the pr<span style="display:none;">fff</span>oxy you can legit just press one button</p>
+              <button onclick="fixData()">unregister sw</button>
+            </div>
+            <div class="box" style="display:none;">
               <h3>VPN</h3>
               <p class="desc">change the location of where you're searching</p>
 
@@ -438,9 +443,7 @@
               </select>
             </div>
             <div class="fakebox">
-              <h3></h3>
-              <p class="desc"></p>
-            </div>
+              </div>
           </div>
           <div id="ext">
             <div class="fakebox">
@@ -472,9 +475,10 @@
                 transfer your data to another celestial instance.
               </p>
               <div class="wrap">
-                <button onclick="exportData()">export</button>
-                <button onclick="importData()">import</button>
-              </div>
+                <button onclick="exportData()">export data</button>
+                <button onclick="importData()">import data</button>
+                <button onclick="wipeData()">wipe all data</button>
+                </div>
             </div>
             <div class="fakebox oops">
               <h3>Credits</h3>
@@ -625,6 +629,16 @@
 <iframe src="${f.src}" style="position:fixed;inset:0;width:100%;height:100%;border:0"></iframe>`);
     }
   });
+</script>
+<script>
+  async function fixData() {
+  const registrations = await navigator.serviceWorker.getRegistrations();
+  for (let registration of registrations) {
+    await registration.unregister();
+  }
+  await navigator.serviceWorker.register("/sw.js");
+  alert("re-registered!");
+}
 </script>
 <script src="/assets/js/icons.js"></script>
 </html>

@@ -505,6 +505,51 @@ function importData() {
   input.click();
 }
 
+async function wipeData() {
+  if (!confirm("are you sure? this will cook your data.")) {
+    return;
+  }
+  
+  try {
+    try {
+      localStorage.clear();
+    } catch (err) {
+      alert("Error clearing localStorage: " + err.message);
+    }
+    
+    try {
+      document.cookie.split(";").forEach((c) => {
+        const name = c.split("=")[0].trim();
+        if (name) {
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        }
+      });
+    } catch (err) {
+      alert("error: " + err.message);
+    }
+    
+    try {
+      if (navigator.serviceWorker) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        for (let registration of registrations) {
+          try {
+            await registration.unregister();
+          } catch (unregErr) {
+            alert("sw error: " + unregErr.message);
+          }
+        }
+      }
+    } catch (err) {
+      alert("sw error: " + err.message);
+    }
+    
+    alert("all data wiped. refreshing...");
+    location.reload();
+  } catch (err) {
+    alert("error: " + err.message);
+  }
+}
+
 window.addEventListener("DOMContentLoaded", applySettings);
 
 
