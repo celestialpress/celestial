@@ -2397,7 +2397,7 @@
         "type": "exclusive",
 		"url": "https://tutoring-services.org/games/minusbbog/index.html",
         "categories": ["adventure", "port", "indie"],
-        "source": "local"
+        "source": "proxied"
 	},
     {
 		"name": "s.p.l.i.t (SPLIT)",
