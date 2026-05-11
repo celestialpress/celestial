@@ -1,7 +1,6 @@
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
-import { scramjetPath } from "@mercuryworkshop/scramjet/path";
 import { stat } from "node:fs/promises";
 import { extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -220,8 +219,6 @@ const server = Bun.serve({
       if (epoxyR) return epoxyR;
       const curlR = await tryStaticPrefix(req, "/curl/", libcurlPath, path);
       if (curlR) return curlR;
-      const scramR = await tryStaticPrefix(req, "/scram/", scramjetPath, path);
-      if (scramR) return scramR;
 
       if (path === "/api/chat") return handleChat(req);
 
