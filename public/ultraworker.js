@@ -5,14 +5,6 @@ importScripts("/violet/violet.config.js")
 importScripts(__uv$config.sw)
 importScripts("/scram/scramjet.all.js");
 
-const ww = new WorkerWare();
-
-ww.use({
-  function: self.adblockExt.filterRequest,
-  events: ["fetch"],
-  name: "Adblock"
-});
-
 if (navigator.userAgent.includes("Firefox")) {
   Object.defineProperty(globalThis, "crossOriginIsolated", {
     value: true,
