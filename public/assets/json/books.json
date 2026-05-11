@@ -2424,6 +2424,14 @@
         "source": "local"
 	},
     {
+		"name": "Night of the Consumers",
+        "img": "/assets/img/gms/notc.png",
+        "type": "exclusive",
+		"url": "/assets/src/notc/index.html#night-of-the-consumers",
+        "categories": ["horror", "port", "indie"],
+        "source": "local"
+	},
+    {
 		"name": "-!! RANDOM GAME",
         "img": "/assets/img/gms/dice.gif",
         "type": "exclusive",
