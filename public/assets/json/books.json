@@ -2431,6 +2431,14 @@
         "categories": ["horror", "port", "indie"],
         "source": "local"
 	},
+	{
+		"name": "Krunker",
+        "img": "/assets/img/gms/krunker.jpg",
+        "type": "exclusive",
+		"url": "https://io.krunker.zip",
+        "categories": ["shooter", "2player", "indie"],
+        "source": "proxied"
+	},
     {
 		"name": "-!! RANDOM GAME",
         "img": "/assets/img/gms/dice.gif",
