@@ -1,5 +1,5 @@
 self.__uv$config = {
-  prefix: "/service/ultra/",
+  prefix: "/mode/math/",
   encodeUrl: (str) => {
     if (!str) return str;
     return encodeURIComponent(str);
