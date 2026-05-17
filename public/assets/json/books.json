@@ -2440,6 +2440,22 @@
         "source": "proxied"
 	},
     {
+		"name": "Moto X3M 4; Winter",
+        "img": "/assets/img/gms/motox3m-winter.png",
+        "type": "regular",
+		"url": "/assets/src/moto-x3m/winter/index.html#moto-x3m-winter",
+        "categories": ["adventure", "indie"],
+        "source": "local"
+	},
+    {
+		"name": "Basketball Stars 2026",
+        "img": "/assets/img/gms/bs2026.png",
+        "type": "exclusive",
+		"url": "https://html5.gamedistribution.com/516d6908fbc848bdb89e65a58a43a7dc/?gd_sdk_referrer_url=https://basketballstars2026.io/basketball-stars-2026",
+        "categories": ["sports", "2player"],
+        "source": "proxied"
+	},
+    {
 		"name": "-!! RANDOM GAME",
         "img": "/assets/img/gms/dice.gif",
         "type": "exclusive",
