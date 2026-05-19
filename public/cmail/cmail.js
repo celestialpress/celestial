@@ -9,10 +9,9 @@ document.write(`
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="/assets/img/logo-blackbg.png" />
     <link rel="stylesheet" href="/assets/css/home.css" />
-    <meta name="Drew's Learning Academy">
-    <meta content="Drew's Learning Academy | Edison, NJ" property="og:title">
-    <meta
-        content="DLA, short for Drew's Learning Academy, is a new upcoming academy in edison, new jersey. DLA focuses on student success for K-12. We believe that the best academic dicipline is learning. Join now to set your child up for success.">
+        <meta name="Home - Compton Early College High School" />
+    <meta content="Home - Compton Early College High School" property="og:title" />
+    <meta property="og:description" content="Home - Compton Early College High School">
         <style>
         html, body {
     margin: 0;
