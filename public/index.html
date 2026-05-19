@@ -641,12 +641,16 @@
   });
 </script>
 <script>
-      document.onkeydown = function (e) {
-    if (e.ctrlKey && (e.key === 'w' || e.key === 'W')) {
-        e.preventDefault();
-        console.log("we disabled this shortcut because it causes problems.");
+function protectionPopup(event) {
+    event.preventDefault();
+    event.returnValue = '';
+}
+window.addEventListener('beforeunload', protectionPopup);
+window.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && (event.key === 'w' || event.key === 'W')) {
+        window.removeEventListener('beforeunload', protectionPopup);
     }
-};
+});
 </script>
 <script src="/assets/js/icons.js"></script>
 
