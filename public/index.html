@@ -640,6 +640,14 @@
     }
   });
 </script>
+<script>
+      document.onkeydown = function (e) {
+    if (e.ctrlKey && (e.key === 'w' || e.key === 'W')) {
+        e.preventDefault();
+        console.log("we disabled this shortcut because it causes problems.");
+    }
+};
+</script>
 <script src="/assets/js/icons.js"></script>
 
 </html>
