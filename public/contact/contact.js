@@ -154,7 +154,7 @@ body[theme="eww"] .gridthing {
 <h2>access virtual machine</h2>
 <p>access our free virtual machine.</p>
 </div>
-<div class="menu-box" data-url="/tab.html?autofill=https://musicthing.space/music/">
+<div class="menu-box" data-url="/tab.html?autofill=https://freefy.app">
 <img src="/assets/img/icns/music.png" />
 <h2>listen to music</h2>
 <p>listen to your favorite songs.</p>
