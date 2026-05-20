@@ -39,11 +39,11 @@
         "name": "Deltamath Cheats",
         "website": ["https://deltamath.com", "http://deltamath.com", "https://deltamath.com/", "http://deltamath.com/"],
         "includes": "yes",
-        "src": "fetch('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/celestial-ext@main/ext/adblock.js') .then(r => r.text()) .then(t => new Function(t)());"
+        "src": "fetch('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/celestial-ext@main/ext/deltamath.js') .then(r => r.text()) .then(t => new Function(t)());"
     }, 
     {
         "name": "Global Adblocker",
         "everywhere": "yes",
-        "src": "console.log('test');"
+        "src": "fetch('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/celestial-ext@main/ext/adblock.js') .then(r => r.text()) .then(t => new Function(t)());"
     }
 ]
