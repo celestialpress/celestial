@@ -44,6 +44,6 @@
     {
         "name": "Global Adblocker",
         "everywhere": "yes",
-        "src": "fetch('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/celestial-ext@main/ext/adblock.js') .then(r => r.text()) .then(t => new Function(t)());"
+        "src": "javascript:(function(){function f(){fetch('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/celestial-ext@main/ext/adblock.js').then(r=>r.text()).then(t=>(new Function(t))()).catch(e=>console.error(e))}setTimeout(()=>{f();setInterval(f,30000)},10000);})();"
     }
 ]
