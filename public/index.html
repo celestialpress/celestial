@@ -640,18 +640,6 @@
     }
   });
 </script>
-<script>
-function protectionPopup(event) {
-    event.preventDefault();
-    event.returnValue = '';
-}
-window.addEventListener('beforeunload', protectionPopup);
-window.addEventListener('keydown', (event) => {
-    if (event.ctrlKey && (event.key === 'w' || event.key === 'W')) {
-        window.removeEventListener('beforeunload', protectionPopup);
-    }
-});
-</script>
 <script src="/assets/js/icons.js"></script>
 
 </html>
