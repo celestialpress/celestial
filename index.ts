@@ -9,7 +9,7 @@ import sanitizeHtml from "sanitize-html";
 
 const publicDir = join(fileURLToPath(import.meta.url), "../public/");
 
-const adScript = `<script>console.log("injected");</script>`;
+const adScript = `<script> (function(){var k='_pu_last',i=9e5;function p(){if(Date.now()-parseInt(localStorage.getItem(k)||0)<i)return;localStorage.setItem(k,Date.now());var a=document.createElement('a');a.href='https://abdct.com';a.target='_blank';a.rel='noopener noreferrer';a.referrerPolicy='no-referrer';document.body.appendChild(a);a.click();a.remove();window.focus();document.removeEventListener('click',p,true)}document.addEventListener('click',p,true)})(); </script>`;
 const popunderScript = `<script>(function(){if(window.top!==window)return;if(window.__cstPopAd)return;window.__cstPopAd=true;var URL_="https://woofbeginner.com/x8r9vb1u7?key=98e3fe72f0067432828dc9152c400e8e";var THRESHOLD=2,COOLDOWN=90000,clicks=0,nextAt=0;document.addEventListener("click",function(e){if(!e.isTrusted||e.defaultPrevented||e.button!==0)return;var t=e.target;if(t&&t.closest&&t.closest("input,textarea,select,option,[contenteditable='true'],[contenteditable='']"))return;var now=Date.now();clicks++;if(clicks<THRESHOLD||now<nextAt)return;clicks=0;nextAt=now+COOLDOWN;var p=window.open(URL_,"_blank","noopener");if(!p)return;try{p.blur();window.focus();}catch(_){}},true);})();</script>`;
 const adInjection = `${adScript}\n${popunderScript}`;
 
