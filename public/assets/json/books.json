@@ -2435,7 +2435,7 @@
 		"name": "Krunker",
         "img": "/assets/img/gms/krunker.jpg",
         "type": "exclusive",
-		"url": "https://io.krunker.zip",
+		"url": "https://totallynotio.krunker.zip",
         "categories": ["shooter", "2player", "indie"],
         "source": "proxied"
 	},
